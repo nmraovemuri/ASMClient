@@ -13,7 +13,7 @@
       </ul>
     </div>
   </nav> -->
-  <div class="modal fade login-modal-main" id="bd-example-modal">
+<div class="modal fade login-modal-main" id="bd-example-modal">
    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <div class="modal-content">
          <div class="modal-body">
@@ -25,68 +25,133 @@
                   </div>
                   <div class="col-lg-6 pad-left-0">
                      <button type="button" class="close close-top-right" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true"><i class="mdi mdi-close"></i></span>
-                     <span class="sr-only">Close</span>
+                        <span aria-hidden="true"><i class="mdi mdi-close"></i></span>
+                        <span class="sr-only">Close</span>
                      </button>
                      <form>
                         <div class="login-modal-right">
                            <!-- Tab panes -->
                            <div class="tab-content">
+
                               <div class="tab-pane active" id="login" role="tabpanel">
-                                 <h5 class="heading-design-h5">Login to your account</h5>
-                                 <fieldset class="form-group">
-                                    <label>Enter Email/Mobile number</label>
-                                    <input type="text" class="form-control" placeholder="+91 123 456 7890">
-                                 </fieldset>
-                                 <fieldset class="form-group">
-                                    <label>Enter Password</label>
-                                    <input type="password" class="form-control" placeholder="********">
-                                 </fieldset>
-                                 <fieldset class="form-group">
-                                    <button type="submit" class="btn btn-lg btn-secondary btn-block">Enter to your account</button>
-                                 </fieldset>
-                                 <div class="login-with-sites text-center">
-                                    <p>or Login with your social profile:</p>
-                                    <button class="btn-facebook login-icons btn-lg"><i class="mdi mdi-facebook"></i> Facebook</button>
-                                    <button class="btn-google login-icons btn-lg"><i class="mdi mdi-google"></i> Google</button>
-                                    <button class="btn-twitter login-icons btn-lg"><i class="mdi mdi-twitter"></i> Twitter</button>
-                                 </div>
-                                 <div class="custom-control custom-checkbox">
+                                 <form #loginForm="ngForm" (ngSubmit)=userlogin(loginForm) novalidate>
+                                    <h5 class="heading-design-h5">Login to your account</h5>
+                                    <fieldset class="form-group">
+                                       <label>Enter Email/Mobile number</label>
+                                       <input type="text" class="form-control" placeholder="+91 123 456 7890"
+                                          [(ngModel)]="loginData.emailphone" name="emailphone" #emailphone="ngModel"
+                                          [ngClass]="{'is-invalid':loginForm.submitted && emailphone.invalid}"
+                                          required />
+                                       <div *ngIf="emailphone.invalid && (emailphone.dirty || emailphone.touched)"
+                                          class="alert alert-danger">
+                                          <div *ngIf="emailphone.errors.required">Email is required. </div>
+                                       </div>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                       <label>Enter Password</label>
+                                       <input type="password" class="form-control" placeholder="********"
+                                          [(ngModel)]="loginData.password" name="password" #password="ngModel"
+                                          [ngClass]="{'is-invalid':loginForm.submitted && emailphone.invalid}"
+                                          required />
+                                       <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                                          class="alert alert-danger">
+                                          <div *ngIf="password.errors.required">password is required. </div>
+                                       </div>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                       <button type="submit" class="btn btn-lg btn-secondary btn-block"
+                                          [disabled]="!loginForm.valid">Enter to your account</button>
+                                    </fieldset>
+                                    <div class="login-with-sites text-center">
+                                       <p>or Login with your social profile:</p>
+                                       <button class="btn-facebook login-icons btn-lg"><i class="mdi mdi-facebook"></i>
+                                          Facebook</button>
+                                       <button class="btn-google login-icons btn-lg"><i class="mdi mdi-google"></i>
+                                          Google</button>
+                                       <button class="btn-twitter login-icons btn-lg"><i class="mdi mdi-twitter"></i>
+                                          Twitter</button>
+                                    </div>
+                                    <!-- <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
                                     <label class="custom-control-label" for="customCheck1">Remember me</label>
-                                 </div>
+                                 </div> -->
+                                 </form>
                               </div>
+
                               <div class="tab-pane" id="register" role="tabpanel">
-                                 <h5 class="heading-design-h5">Register Now!</h5>
-                                 <fieldset class="form-group">
-                                    <label>Enter Email/Mobile number</label>
-                                    <input type="text" class="form-control" placeholder="+91 123 456 7890">
-                                 </fieldset>
-                                 <fieldset class="form-group">
-                                    <label>Enter Password</label>
-                                    <input type="password" class="form-control" placeholder="********">
-                                 </fieldset>
-                                 <fieldset class="form-group">
-                                    <label>Enter Confirm Password </label>
-                                    <input type="password" class="form-control" placeholder="********">
-                                 </fieldset>
-                                 <fieldset class="form-group">
-                                    <button type="submit" class="btn btn-lg btn-secondary btn-block">Create Your Account</button>
-                                 </fieldset>
-                                 <div class="custom-control custom-checkbox">
+                                 <form #regForm="ngForm" (ngSubmit)="userRegister(regForm)" novalidate>
+                                    <h5 class="heading-design-h5">Register Now!</h5>
+                                    <fieldset class="form-group"
+                                       [ngClass]="{ 'has-error': regForm.submitted && !user_id.valid }">
+                                       <label>Enter username</label>
+                                       <input type="text" class="form-control" placeholder="+91 123 456 7890"
+                                          [(ngModel)]="user.user_id" name="user_id" #user_id="ngModel"
+                                          [ngClass]="{'is-invalid':regForm.submitted && user_id.invalid}" required />
+                                       <div *ngIf="user_id.invalid && (user_id.dirty || user_id.touched)"
+                                          class="alert alert-danger">
+                                          <div *ngIf="user_id.errors.required">user_id is required. </div>
+                                       </div>
+                                    </fieldset>
+                                    <fieldset class="form-group"
+                                       [ngClass]="{ 'has-error': regForm.submitted && !emailphone.valid }">
+                                       <label>Enter Email/Mobile number</label>
+                                       <input type="text" class="form-control" placeholder="+91 123 456 7890"
+                                          [(ngModel)]="user.emailphone" name="emailphone" #emailphone="ngModel"
+                                          required />
+                                       <div *ngIf="emailphone.invalid && (emailphone.dirty || emailphone.touched)"
+                                          class="alert alert-danger">
+                                          <div *ngIf="emailphone.errors.email">Email is required. </div>
+                                          <div *ngIf="emailphone.errors.required">This is not a valid Email. </div>
+                                       </div>
+
+                                    </fieldset>
+                                    <fieldset class="form-group"
+                                       [ngClass]="{ 'has-error': regForm.submitted && !password.valid }">
+                                       <label>Enter Password</label>
+                                       <input type="password" class="form-control" placeholder="********"
+                                          [(ngModel)]="user.password" name="password" #password="ngModel" required
+                                          minlength="6" />
+                                       <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                                          class="alert alert-danger">
+                                          <div *ngIf="password.errors.required">password is required. </div>
+                                          <div *ngIf="password.errors.minlength">Password must be at least 6 characters
+                                          </div>
+                                       </div>
+
+                                    </fieldset>
+                                    <fieldset class="form-group"
+                                       [ngClass]="{ 'has-error': regForm.submitted && !cnfmpwd.valid }">
+                                       <label>Enter Confirm Password </label>
+                                       <input type="password" class="form-control" placeholder="********"
+                                          [(ngModel)]="user.cnfmpwd" name="cnfmpwd" #cnfmpwd="ngModel" required />
+                                       <div *ngIf="cnfmpwd.invalid && (cnfmpwd.dirty || cnfmpwd.touched)"
+                                          class="alert alert-danger">
+                                          <div *ngIf="cnfmpwd.errors.required">cnfmpwd is required. </div>
+                                       </div>
+
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                       <button type="submit" class="btn btn-lg btn-secondary btn-block"
+                                          [disabled]="!regForm.valid"> Create Your Account</button>
+                                    </fieldset>
+                                    {{user|json}}
+                                    <!-- <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="customCheck2">
                                     <label class="custom-control-label" for="customCheck2">I Agree with <a href="#">Term and Conditions</a></label>
-                                 </div>
+                                 </div> -->
+                                 </form>
                               </div>
                            </div>
                            <div class="clearfix"></div>
                            <div class="text-center login-footer-tab">
                               <ul class="nav nav-tabs" role="tablist">
                                  <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#login" role="tab"><i class="mdi mdi-lock"></i> LOGIN</a>
+                                    <a class="nav-link active" data-toggle="tab" href="#login" role="tab"><i
+                                          class="mdi mdi-lock"></i> LOGIN</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#register" role="tab"><i class="mdi mdi-pencil"></i> REGISTER</a>
+                                    <a class="nav-link" data-toggle="tab" href="#register" role="tab"><i
+                                          class="mdi mdi-pencil"></i> REGISTER</a>
                                  </li>
                               </ul>
                            </div>
@@ -105,24 +170,26 @@
       <div class="row">
          <div class="col-lg-12 text-center">
             <a href="shop.html" class="mb-0 text-white">
-            20% cashback for new users | Code: <strong><span class="text-light">OGOFERS13 <span class="mdi mdi-tag-faces"></span></span> </strong>  
+               20% cashback for new users | Code: <strong><span class="text-light">OGOFERS13 <span
+                        class="mdi mdi-tag-faces"></span></span> </strong>
             </a>
          </div>
       </div>
    </div>
 </div>
-  <nav class="navbar navbar-light navbar-expand-lg bg-dark bg-faded osahan-menu">
+<nav class="navbar navbar-light navbar-expand-lg bg-dark bg-faded osahan-menu">
    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html"> <img src="assets/img/logo.png" alt="logo"> </a>
-      <a class="location-top" href="#"><i class="mdi mdi-map-marker-circle" aria-hidden="true"></i> New York</a>
-      <button class="navbar-toggler navbar-toggler-white" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <a class="navbar-brand" routerLink="home"> <img src="assets/img/logo.png" alt="logo"> </a>
+      <a class="location-top" href="#"><i class="mdi mdi-map-marker-circle" aria-hidden="true"></i> Hyderabad</a>
+      <button class="navbar-toggler navbar-toggler-white" type="button" data-toggle="collapse" data-target="#navbarText"
+         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse" id="navbarNavDropdown">
          <div class="navbar-nav mr-auto mt-2 mt-lg-0 margin-auto top-categories-search-main">
             <div class="top-categories-search">
                <div class="input-group">
-                  <span class="input-group-btn categories-dropdown">
+                  <!-- <span class="input-group-btn categories-dropdown">
                      <select class="form-control-select">
                         <option selected="selected">Your City</option>
                         <option value="0">New Delhi</option>
@@ -130,10 +197,11 @@
                         <option value="3">Hyderabad</option>
                         <option value="4">Kolkata</option>
                      </select>
-                  </span>
-                  <input class="form-control" placeholder="Search products in Your City" aria-label="Search products in Your City" type="text">
+                  </span> -->
+                  <input class="form-control" placeholder="Search products in Your City"
+                     aria-label="Search products in Your City" type="text">
                   <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button"><i class="mdi mdi-file-find"></i> Search</button>
+                     <button class="btn btn-secondary" type="button"><i class="mdi mdi-file-find"></i> Search</button>
                   </span>
                </div>
             </div>
@@ -141,10 +209,36 @@
          <div class="my-2 my-lg-0">
             <ul class="list-inline main-nav-right">
                <li class="list-inline-item">
-                  <a href="#" data-target="#bd-example-modal" data-toggle="modal" class="btn btn-link"><i class="mdi mdi-account-circle"></i> Login/Sign Up</a>
+                  <a routerLink="login" class="btn btn-link" *ngIf="!loggedIn()"><i class="mdi mdi-account-circle"></i>
+                     Login</a>
+                  <a routerLink="register" class="btn btn-link" *ngIf="!loggedIn()"><i
+                        class="mdi mdi-account-circle"></i> Register</a>
+                  <!-- <a routerLink="logout" class="btn btn-link" *ngIf="loggedIn()" (click)="onLogout()"><i class="mdi mdi-account-circle"></i> Logout</a> -->
+                  <div class="btn-group" dropdown *ngIf="loggedIn()">
+                     <button type="button" class="btn btn-danger">Welcome {{username}}</button>
+                     <button id="button-split" type="button" dropdownToggle
+                        class="btn btn-danger dropdown-toggle dropdown-toggle-split" aria-controls="dropdown-split"
+                        (click)="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Split button!</span>
+                     </button>
+                     <ul id="dropdown-split" *dropdownMenu class="dropdown-menu" role="menu"
+                        aria-labelledby="button-split">
+                        <li role="menuitem"><a class="dropdown-item" href="#">My Profile</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">My Address</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Wish List </a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Order List </a></li>
+                        <li class="divider dropdown-divider"></li>
+                        <li role="menuitem"><a class="dropdown-item" routerLink="logout" *ngIf="loggedIn()"
+                              (click)="onLogout()">Logout</a>
+                        </li>
+                     </ul>
+                  </div>
+
                </li>
                <li class="list-inline-item cart-btn">
-                  <a href="#" data-toggle="offcanvas" class="btn btn-link border-none"><i class="mdi mdi-cart"></i> My Cart <small class="cart-value">5</small></a>
+                  <a routerLink="/" data-toggle="offcanvas" class="btn btn-link border-none"><i class="mdi mdi-cart"></i> My
+                     Cart <small class="cart-value">5</small></a>
                </li>
             </ul>
          </div>
@@ -156,65 +250,21 @@
       <div class="collapse navbar-collapse" id="navbarText">
          <ul class="navbar-nav mr-auto mt-2 mt-lg-0 margin-auto">
             <li class="nav-item">
-               <a class="nav-link shop" href="index.html"><span class="mdi mdi-store"></span> Super Store</a>
+               <a routerLink="home" routerLinkActive="active" class="nav-link">HOME</a>
             </li>
-            <li class="nav-item">
-               <a routerLink="home" routerLinkActive="active" class="nav-link">Home</a>
+            <li class="nav-item dropdown upper" *ngFor ="let c of cat_subcat">
+               <a routerLink= "{{c.category_name}}" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false"  >{{c.category_name}}</a>
+               <ul class="dropdown-menu" >
+                   <li class="dropdown-item intro"  *ngFor = "let s of c.subCategories">
+                  <a routerLink ="shop/{{c.category_name}}/{{s.sub_category_name}}/{{s.id}}" routerLinkActive="active"
+                  ><i class="mdi mdi-chevron-right"
+                        aria-hidden="true"></i>
+                     {{s.sub_category_name}}</a>
+                   </li>
+                  </ul>
             </li>
-            <li class="nav-item">
-               <a  routerLink="about" class="nav-link">About Us</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link" routerLink="shop">Fruits & Vegetables</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link" routerLink="shop">Grocery & Staples</a>
-            </li>
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               Pages
-               </a>
-               <div class="dropdown-menu">
-                  <a class="dropdown-item" routerLink="shop"><i class="mdi mdi-chevron-right" aria-hidden="true"></i> Shop Grid</a>
-                  <a class="dropdown-item" routerLink="single"><i class="mdi mdi-chevron-right" aria-hidden="true"></i> Single Product</a>
-                  <a class="dropdown-item" routerLink="cart"><i class="mdi mdi-chevron-right" aria-hidden="true"></i> Shopping Cart</a>
-                  <a class="dropdown-item" routerLink="checkout"><i class="mdi mdi-chevron-right" aria-hidden="true"></i> Checkout</a> 
-               </div>
-            </li>
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               My Account
-               </a>
-               <div class="dropdown-menu">
-                  <a class="dropdown-item" routerLink="myprofile"><i class="mdi mdi-chevron-right" aria-hidden="true"></i>  My Profile</a>
-                  <a class="dropdown-item" routerLink="myaddress"><i class="mdi mdi-chevron-right" aria-hidden="true"></i>  My Address</a>
-                  <a class="dropdown-item" routerLink="wishlist"><i class="mdi mdi-chevron-right" aria-hidden="true"></i>  Wish List </a>
-                  <a class="dropdown-item" routerLink="orderlist"><i class="mdi mdi-chevron-right" aria-hidden="true"></i>  Order List</a> 
-               </div>
-            </li>
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               Blog Page
-               </a>
-               <div class="dropdown-menu">
-                  <a class="dropdown-item" href="blog.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i> Blog</a>
-                  <a class="dropdown-item" href="blog-detail.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i> Blog Detail</a>
-               </div>
-            </li>
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               More Pages
-               </a>
-               <div class="dropdown-menu">
-                  <a class="dropdown-item" routerLink="about"><i class="mdi mdi-chevron-right" aria-hidden="true"></i>  About Us</a>
-                  <a class="dropdown-item" routerLink="contact"><i class="mdi mdi-chevron-right" aria-hidden="true"></i>  Contact Us</a>
-                  <a class="dropdown-item" routerLink="faq"><i class="mdi mdi-chevron-right" aria-hidden="true"></i>  FAQ </a>
-                  <!-- <a class="dropdown-item" href="not-found.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i>  404 Error</a>  -->
-               </div>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link" routerLink="contact">Contact</a>
-            </li>
+            
          </ul>
       </div>
    </div>

@@ -6,6 +6,9 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico"> 
+  <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
@@ -45,5 +48,12 @@
   </script>
   <!-- Custom -->
   <script src="assets/js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@11.0.0/dist/lazyload.min.js"></script>
+  <script>
+    const myLazyLoad = new LazyLoad({
+      elements_selector:".photo"
+    });
+  </script>
 </body>
+
 </html>

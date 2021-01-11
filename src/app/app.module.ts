@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { HttpClientModule,HttpInterceptor, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -20,6 +24,13 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { ShopComponent } from './shop/shop.component';
 import { SingleComponent } from './single/single.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { AboutService} from './about.service';
+import { TokenInterceptorService} from './token-interceptor.service';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { LogoutComponent } from './logout/logout.component';
+import { Navigation2Component } from './navigation2/navigation2.component';
+
 
 
 @NgModule({
@@ -38,17 +49,32 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     MyAddressComponent,
     MyprofileComponent,
     OrderListComponent,
-    ShopComponent,
+    ShopComponent,  
     SingleComponent,
-    WishlistComponent       
+    WishlistComponent,
+    LoginComponent,
+    RegisterComponent,
+    LogoutComponent,
+    Navigation2Component,
+         
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot()
     
   ],
-  providers: [],
+  providers: [AboutService,
+    {
+    provide : HTTP_INTERCEPTORS,
+    useClass : TokenInterceptorService,
+    multi : true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,640 +1,513 @@
-<div class="modal fade login-modal-main" id="bd-example-modal">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-       <div class="modal-content">
-          <div class="modal-body">
-             <div class="login-modal">
-                <div class="row">
-                   <div class="col-lg-6 pad-right-0">
-                      <div class="login-modal-left">
+<section class="pt-3 pb-3 page-info section-padding border-bottom bg-white">
+   
+      <div class="row">
+         <div class="col-md-3">
+            <a href="#"><strong><span class="mdi mdi-home"></span> Home</strong></a> <span class="mdi mdi-chevron-right"></span> <a href="#">Shop</a>
+         </div>
+         <div class="col-md-7">
+            <a href="#"><span class="mdi mdi-home"></span> Home</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits & Vegetables</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits</a>
+            
+         </div>
+         <div class="col-md-2">
+            <!-- <div class="btn-group float-right mt-2"> -->
+               <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Sort by Products &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               </button>
+               <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#">Relevance</a>
+                  <a class="dropdown-item" href="#">Price (Low to High)</a>
+                  <a class="dropdown-item" href="#">Price (High to Low)</a>
+                  <a class="dropdown-item" href="#">Discount (High to Low)</a>
+                  <a class="dropdown-item" href="#">Name (A to Z)</a>
+               </div>
+            <!-- </div> -->
+         </div>
+      </div>
+   
+</section>
+<section class="shop-list section-padding">
+   
+      <div class="row">
+         <div class="col-md-3">
+         <div class="shop-filters">
+           <div id="accordion">
+             <div class="card">
+               <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse show" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Category <span class="mdi mdi-chevron-down float-right"></span>
+                    </button>
+                  </h5>
+               </div>
+               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body card-shop-filters">
+                    <form class="form-inline mb-3">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search By Category">
+                        <button type="submit" class="pl-2 pr-2 btn btn-secondary btn-lg"><i class="mdi mdi-file-find"></i></button>
                       </div>
-                   </div>
-                   <div class="col-lg-6 pad-left-0">
-                      <button type="button" class="close close-top-right" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true"><i class="mdi mdi-close"></i></span>
-                      <span class="sr-only">Close</span>
-                      </button>
-                      <form>
-                         <div class="login-modal-right">
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                               <div class="tab-pane active" id="login" role="tabpanel">
-                                  <h5 class="heading-design-h5">Login to your account</h5>
-                                  <fieldset class="form-group">
-                                     <label>Enter Email/Mobile number</label>
-                                     <input type="text" class="form-control" placeholder="+91 123 456 7890">
-                                  </fieldset>
-                                  <fieldset class="form-group">
-                                     <label>Enter Password</label>
-                                     <input type="password" class="form-control" placeholder="********">
-                                  </fieldset>
-                                  <fieldset class="form-group">
-                                     <button type="submit" class="btn btn-lg btn-secondary btn-block">Enter to your account</button>
-                                  </fieldset>
-                                  <div class="login-with-sites text-center">
-                                     <p>or Login with your social profile:</p>
-                                     <button class="btn-facebook login-icons btn-lg"><i class="mdi mdi-facebook"></i> Facebook</button>
-                                     <button class="btn-google login-icons btn-lg"><i class="mdi mdi-google"></i> Google</button>
-                                     <button class="btn-twitter login-icons btn-lg"><i class="mdi mdi-twitter"></i> Twitter</button>
-                                  </div>
-                                  <div class="custom-control custom-checkbox">
-                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                     <label class="custom-control-label" for="customCheck1">Remember me</label>
-                                  </div>
-                               </div>
-                               <div class="tab-pane" id="register" role="tabpanel">
-                                  <h5 class="heading-design-h5">Register Now!</h5>
-                                  <fieldset class="form-group">
-                                     <label>Enter Email/Mobile number</label>
-                                     <input type="text" class="form-control" placeholder="+91 123 456 7890">
-                                  </fieldset>
-                                  <fieldset class="form-group">
-                                     <label>Enter Password</label>
-                                     <input type="password" class="form-control" placeholder="********">
-                                  </fieldset>
-                                  <fieldset class="form-group">
-                                     <label>Enter Confirm Password </label>
-                                     <input type="password" class="form-control" placeholder="********">
-                                  </fieldset>
-                                  <fieldset class="form-group">
-                                     <button type="submit" class="btn btn-lg btn-secondary btn-block">Create Your Account</button>
-                                  </fieldset>
-                                  <div class="custom-control custom-checkbox">
-                                     <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                     <label class="custom-control-label" for="customCheck2">I Agree with <a href="#">Term and Conditions</a></label>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="text-center login-footer-tab">
-                               <ul class="nav nav-tabs" role="tablist">
-                                  <li class="nav-item">
-                                     <a class="nav-link active" data-toggle="tab" href="#login" role="tab"><i class="mdi mdi-lock"></i> LOGIN</a>
-                                  </li>
-                                  <li class="nav-item">
-                                     <a class="nav-link" data-toggle="tab" href="#register" role="tab"><i class="mdi mdi-pencil"></i> REGISTER</a>
-                                  </li>
-                               </ul>
-                            </div>
-                            <div class="clearfix"></div>
-                         </div>
-                      </form>
-                   </div>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
- </div>
- <!-- <div class="navbar-top bg-success pt-2 pb-2">
-    <div class="container-fluid">
-       <div class="row">
-          <div class="col-lg-12 text-center">
-             <a href="shop.html" class="mb-0 text-white">
-             20% cashback for new users | Code: <strong><span class="text-light">OGOFERS13 <span class="mdi mdi-tag-faces"></span></span> </strong>  
-             </a>
-          </div>
-       </div>
-    </div>
- </div> -->
- <section class="pt-3 pb-3 page-info section-padding border-bottom bg-white">
-    <div class="container">
-       <div class="row">
-          <div class="col-md-12">
-             <a href="#"><strong><span class="mdi mdi-home"></span> Home</strong></a> <span class="mdi mdi-chevron-right"></span> <a href="#">Shop</a>
-          </div>
-       </div>
-    </div>
- </section>
- <section class="shop-list section-padding">
-    <div class="container">
-       <div class="row">
-          <div class="col-md-3">
-              <div class="shop-filters">
-                 <div id="accordion">
-                    <div class="card">
-                       <div class="card-header" id="headingOne">
-                          <h5 class="mb-0">
-                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                             Category <span class="mdi mdi-chevron-down float-right"></span>
-                             </button>
-                          </h5>
-                       </div>
-                       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                          <div class="card-body card-shop-filters">
-                             <form class="form-inline mb-3">
-                                <div class="form-group">
-                                   <input type="text" class="form-control" placeholder="Search By Category">
-                                   <button type="submit" class="pl-2 pr-2 btn btn-secondary btn-lg"><i class="mdi mdi-file-find"></i></button>
-                                </div>
-                             </form>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="cb1">
-                                <label class="custom-control-label" for="cb1">All Fruits </label>
-                             </div>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="cb8">
-                                <label class="custom-control-label" for="cb8">Fresh & Herbs <span class="badge badge-primary">5% OFF</span></label>
-                             </div>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="cb2">
-                                <label class="custom-control-label" for="cb2">Seasonal Fruits <span class="badge badge-secondary">NEW</span></label>
-                             </div>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="cb3">
-                                <label class="custom-control-label" for="cb3">Imported Fruits <span class="badge badge-danger">10% OFF</span></label>
-                             </div>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="cb4">
-                                <label class="custom-control-label" for="cb4">Citrus <span class="badge badge-info">50% OFF</span></label>
-                             </div>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="cb5">
-                                <label class="custom-control-label" for="cb5">Cut Fresh & Herbs</label>
-                             </div>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="cb6">
-                                <label class="custom-control-label" for="cb6">Seasonal Fruits <span class="badge badge-success">25% OFF</span></label>
-                             </div>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="cb7">
-                                <label class="custom-control-label" for="cb7">Fresh & Herbs <span class="badge badge-primary">5% OFF</span></label>
-                             </div>
-                          </div>
-                       </div>
-                    </div>
-                    <div class="card">
-                       <div class="card-header" id="headingTwo">
-                          <h5 class="mb-0">
-                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                             Price <span class="mdi mdi-chevron-down float-right"></span>
-                             </button>
-                          </h5>
-                       </div>
-                       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                          <div class="card-body card-shop-filters">
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="1">
-                                <label class="custom-control-label" for="1">$68 to $659 <span class="badge badge-warning">50% OFF</span></label>
-                             </div>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="2">
-                                <label class="custom-control-label" for="2">$660 to $1014</label>
-                             </div>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="3">
-                                <label class="custom-control-label" for="3">$1015 to $1679</label>
-                             </div>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="4">
-                                <label class="custom-control-label" for="4">$1680 to $1856</label>
-                             </div>
-                          </div>
-                       </div>
-                    </div>
-                    <div class="card">
-                       <div class="card-header" id="headingThree">
-                          <h5 class="mb-0">
-                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                             Brand <span class="mdi mdi-chevron-down float-right"></span>
-                             </button>
-                          </h5>
-                       </div>
-                       <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                          <div class="card-body card-shop-filters">
-                             <form class="form-inline mb-3">
-                                <div class="form-group">
-                                   <input type="text" class="form-control" placeholder="Search By Brand">
-                                </div>
-                                <button type="submit" class="btn btn-secondary ml-2">GO</button>
-                             </form>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="b1">
-                                <label class="custom-control-label" for="b1">Imported Fruits <span class="badge badge-warning">50% OFF</span></label>
-                             </div>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="b2">
-                                <label class="custom-control-label" for="b2">Seasonal Fruits <span class="badge badge-secondary">NEW</span></label>
-                             </div>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="b3">
-                                <label class="custom-control-label" for="b3">Imported Fruits <span class="badge badge-danger">10% OFF</span></label>
-                             </div>
-                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="b4">
-                                <label class="custom-control-label" for="b4">Citrus</label>
-                             </div>
-                          </div>
-                       </div>
-                    </div>
-                    <div class="card">
-                       <div class="card-header" id="headingThree">
-                          <h5 class="mb-0">
-                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                             Imported Fruits <span class="mdi mdi-chevron-down float-right"></span>
-                             </button>
-                          </h5>
-                       </div>
-                       <div id="collapsefour" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    </form>  
+                    <div class="list-group"  *ngFor ="let c of cat_subcat">        
+                     <a href= "#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">{{c.category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                       <div id="collapsefive" class="collapse">
                           <div class="card-body">
-                             <div class="list-group">
-                                <a href="#" class="list-group-item list-group-item-action">All Fruits</a>
-                                <a href="#" class="list-group-item list-group-item-action">Imported Fruits</a>
-                                <a href="#" class="list-group-item list-group-item-action">Seasonal Fruits</a>
-                                <a href="#" class="list-group-item list-group-item-action">Citrus</a>
-                                <a href="#" class="list-group-item list-group-item-action disabled">Cut Fresh & Herbs</a>
-                             </div>
+                            <div class="list-group" *ngFor = "let s of c.subCategories">        
+                              <a routerLink ="shop/{{c.category_name}}/{{s.sub_category_name}}/{{s.id}}" routerLinkActive="active" class="list-group-item list-group-item-action">{{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <!-- <a href="#" class="list-group-item list-group-item-action">Dals & Pulses<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Rice  & Rice By Products<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Edible Oils<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Masala & Spices<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Salt & Sugar & Jaggery<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Soya products, wheat & Other Grians<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Dry Fruits<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Nuts<span class="mdi mdi-chevron-right float-right"></span></a> -->
+                            </div>
                           </div>
                        </div>
+                     </a>
+                     <!-- <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">Snacks & Branded Foods<span class="mdi mdi-chevron-right float-right"></span>
+                        <div id="collapsesix" class="collapse">
+                           <div class="card-body">
+                             <div class="list-group">        
+                              <a href="#" class="list-group-item list-group-item-action">Biscuits & Cookies<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Noodle Pasta & Vermicelli<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Breakfast Cereals<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Snacks & Namkeen<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Chocaltes & Candies<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Ready to Cook & Eat<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Frozen Veggies  & Snacks<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Spreads sauces & katcheup<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Indian Sweets<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Pickels & Chtuneys<span class="mdi mdi-chevron-right float-right"></span></a>
+                             </div>
+                           </div>
+                        </div>
+                     </a>
+                     <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">Dairy & Bakery<span class="mdi mdi-chevron-right float-right"></span>
+                        <div id="collapseseven" class="collapse">
+                           <div class="card-body">
+                             <div class="list-group">        
+                              <a href="#" class="list-group-item list-group-item-action">Dairy<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Toast & Khari<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Cakes & Muffins<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Breads<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Buns<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Baked Cookies<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Bakery Snacks<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Butter<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Cheese<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Ghee<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Panner<span class="mdi mdi-chevron-right float-right"></span></a>
+                             </div>
+                           </div>
+                        </div>
+                     </a>
+                     <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseeight" aria-expanded="false" aria-controls="collapseeight">Home Care<span class="mdi mdi-chevron-right float-right"></span>
+                        <div id="collapseeight" class="collapse">
+                           <div class="card-body">
+                             <div class="list-group">        
+                              <a href="#" class="list-group-item list-group-item-action">Detergents<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Dishwash<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">All Purpose Cleans<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Repellents<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Mops, Brushes & Scurbs<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Electrical<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Disposables<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Pooja Needs<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Shoe Care<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Stationery<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Kitchen Ware<span class="mdi mdi-chevron-right float-right"></span></a>
+                             </div>
+                           </div>
+                        </div>
+                     </a>
+                     <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsenine" aria-expanded="false" aria-controls="collapsenine">Personal Care<span class="mdi mdi-chevron-right float-right"></span>
+                        <div id="collapsenine" class="collapse">
+                           <div class="card-body">
+                             <div class="list-group">        
+                              <a href="#" class="list-group-item list-group-item-action">Hair Care<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Oral Care<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Skin Care<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Bath & Hand Wash<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Body Wash<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Bath & Accessories<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Feminine Hygiene<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Mens Grooming<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Health Wellness<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Deo & Fragrance<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Makeup<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Covid Essentials<span class="mdi mdi-chevron-right float-right"></span></a>
+                             </div>
+                           </div>
+                        </div>
+                     </a>
+                     <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseten" aria-expanded="false" aria-controls="collapseten">Bevverages<span class="mdi mdi-chevron-right float-right"></span>
+                        <div id="collapseten" class="collapse">
+                           <div class="card-body">
+                             <div class="list-group">        
+                              <a href="#" class="list-group-item list-group-item-action">Tea<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Coffee<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Fruit Juices<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Energy & Soft drinks<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Health Drink & Supplement<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action disabled">Soda & Flavoured Water<span class="mdi mdi-chevron-right float-right"></span></a>
+                              
+                             </div>
+                           </div>
+                        </div>
+                     </a>
+                     <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseeleven" aria-expanded="false" aria-controls="collapseeleven">Baby Care<span class="mdi mdi-chevron-right float-right"></span>
+                        <div id="collapseeleven" class="collapse">
+                           <div class="card-body">
+                             <div class="list-group">        
+                              <a href="#" class="list-group-item list-group-item-action">Baby Grooming<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Baby Bath & Hygiene<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Diapers & wipes<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a href="#" class="list-group-item list-group-item-action">Health & wellness<span class="mdi mdi-chevron-right float-right"></span></a>
+                              
+                             </div>
+                           </div>
+                        </div>
+                     </a>
+                     <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsetwelve" aria-expanded="false" aria-controls="collapsetwelve">Fruits & Vegetables<span class="mdi mdi-chevron-right float-right"></span>
+                        <div id="collapsetwelve" class="collapse">
+                           <div class="card-body">
+                             <div class="list-group">        
+                               <a href="#" class="list-group-item list-group-item-action">Atta Flours & sooji<span class="mdi mdi-chevron-right float-right"></span></a>
+                               <a href="#" class="list-group-item list-group-item-action">Dals & Pulses</a>
+                               <a href="#" class="list-group-item list-group-item-action">Rice  & Rice By Products</a>
+                               <a href="#" class="list-group-item list-group-item-action">Edible Oils</a>
+                               <a href="#" class="list-group-item list-group-item-action disabled">Masala & Spices</a>
+                               <a href="#" class="list-group-item list-group-item-action disabled">Salt & Sugar & Jaggery</a>
+                               <a href="#" class="list-group-item list-group-item-action disabled">Soya products, wheat & Other Grians</a>
+                               <a href="#" class="list-group-item list-group-item-action disabled">Dry Fruits</a>
+                               <a href="#" class="list-group-item list-group-item-action disabled">Nuts</a>
+                             </div>
+                           </div>
+                        </div>
+                     </a>
+                      -->
+                   </div>                  
+                  </div>
+
+               </div>
+             </div>
+             <div class="card">
+               <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse show" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Price <span class="mdi mdi-chevron-down float-right"></span>
+                    </button>
+                  </h5>
+               </div>
+               <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body card-shop-filters">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="1">
+                      <label class="custom-control-label" for="1">$68 to $659 <span class="badge badge-warning">50% OFF</span></label>
                     </div>
-                 </div>
-              </div>
-              <div class="left-ad mt-4">
-                 <img class="img-fluid" src="http://via.placeholder.com/254x557" alt="">
-              </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="2">
+                      <label class="custom-control-label" for="2">$660 to $1014</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="3">
+                      <label class="custom-control-label" for="3">$1015 to $1679</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="4">
+                      <label class="custom-control-label" for="4">$1680 to $1856</label>
+                    </div>
+                  </div>
+               </div>
+             </div>
+             <div class="card">
+               <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse show" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Brand <span class="mdi mdi-chevron-down float-right"></span>
+                    </button>
+                  </h5>
+               </div>
+               <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="card-body card-shop-filters">
+                    <form class="form-inline mb-3">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search By Brand">
+                      </div>
+                      <button type="submit" class="btn btn-secondary ml-2">GO</button>
+                    </form>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="b1">
+                      <label class="custom-control-label" for="b1">Imported Fruits <span class="badge badge-warning">50% OFF</span></label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="b2">
+                      <label class="custom-control-label" for="b2">Seasonal Fruits <span class="badge badge-secondary">NEW</span></label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="b3">
+                      <label class="custom-control-label" for="b3">Imported Fruits <span class="badge badge-danger">10% OFF</span></label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="b4">
+                      <label class="custom-control-label" for="b4">Citrus</label>
+                    </div>
+                  </div>
+               </div>
+             </div>
+             <div class="card">
+               <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse show" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                    Imported Fruits <span class="mdi mdi-chevron-down float-right"></span>
+                    </button>
+                  </h5>
+               </div>
+               <div id="collapsefour" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="card-body">
+                    <div class="list-group">        
+                      <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">All Fruits
+                        <div id="collapsefive" class="collapse">
+                           <div class="card-body">
+                             <div class="list-group">        
+                               <a href="#" class="list-group-item list-group-item-action">All Fruits</a>
+                               <a href="#" class="list-group-item list-group-item-action">Imported Fruits</a>
+                               <a href="#" class="list-group-item list-group-item-action">Seasonal Fruits</a>
+                               <a href="#" class="list-group-item list-group-item-action">Citrus</a>
+                               <a href="#" class="list-group-item list-group-item-action disabled">Cut Fresh & Herbs</a>
+                             </div>
+                           </div>
+                        </div>
+                      </a>
+                      <a href="#" class="list-group-item list-group-item-action">Imported Fruits</a>
+                      <a href="#" class="list-group-item list-group-item-action">Seasonal Fruits</a>
+                      <a href="#" class="list-group-item list-group-item-action">Citrus</a>
+                      <a href="#" class="list-group-item list-group-item-action disabled">Cut Fresh & Herbs</a>
+                    </div>
+                  </div>
+               </div>
+             </div>
            </div>
-          <div class="col-md-9">
-             <a href="#"><img class="img-fluid mb-3" src="assets/img/shop.jpg" alt=""></a>
-             <div class="shop-head">
-                <a href="#"><span class="mdi mdi-home"></span> Home</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits & Vegetables</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits</a>
-                <div class="btn-group float-right mt-2">
-                   <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Sort by Products &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   </button>
-                   <div class="dropdown-menu dropdown-menu-right">
-                      <a class="dropdown-item" href="#">Relevance</a>
-                      <a class="dropdown-item" href="#">Price (Low to High)</a>
-                      <a class="dropdown-item" href="#">Price (High to Low)</a>
-                      <a class="dropdown-item" href="#">Discount (High to Low)</a>
-                      <a class="dropdown-item" href="#">Name (A to Z)</a>
-                   </div>
-                </div>
-                <h5 class="mb-3">Fruits</h5>
-             </div>
-             <div class="row no-gutters">
-                <div class="col-md-4">
-                   <div class="product">
-                      <a routerLink="single">
-                         <div class="product-header">
-                            <span class="badge badge-success">50% OFF</span>
-                            <img class="img-fluid" src="assets/img/item/1.jpg" alt="">
-                            <span class="veg text-success mdi mdi-circle"></span>
-                         </div>
-                         <div class="product-body">
-                            <h5>Product Title Here</h5>
-                            <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                         </div>
-                         <div class="product-footer">
-                            <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                            <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                         </div>
-                      </a>
-                   </div>
-                </div>
-                <div class="col-md-4">
-                   <div class="product">
-                      <a routerLink="single">
-                         <div class="product-header">
-                            <span class="badge badge-success">50% OFF</span>
-                            <img class="img-fluid" src="assets/img/item/2.jpg" alt="">
-                            <span class="veg text-success mdi mdi-circle"></span>
-                         </div>
-                         <div class="product-body">
-                            <h5>Product Title Here</h5>
-                            <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                         </div>
-                         <div class="product-footer">
-                            <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                            <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                         </div>
-                      </a>
-                   </div>
-                </div>
-                <div class="col-md-4">
-                   <div class="product">
-                      <a routerLink="single">
-                         <div class="product-header">
-                            <span class="badge badge-success">50% OFF</span>
-                            <img class="img-fluid" src="assets/img/item/3.jpg" alt="">
-                            <span class="veg text-success mdi mdi-circle"></span>
-                         </div>
-                         <div class="product-body">
-                            <h5>Product Title Here</h5>
-                            <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                         </div>
-                         <div class="product-footer">
-                            <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                            <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                         </div>
-                      </a>
-                   </div>
-                </div>
-             </div>
-             <div class="row no-gutters">
-                <div class="col-md-4">
-                   <div class="product">
-                      <a routerLink="single">
-                         <div class="product-header">
-                            <span class="badge badge-success">50% OFF</span>
-                            <img class="img-fluid" src="assets/img/item/4.jpg" alt="">
-                            <span class="veg text-success mdi mdi-circle"></span>
-                         </div>
-                         <div class="product-body">
-                            <h5>Product Title Here</h5>
-                            <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                         </div>
-                         <div class="product-footer">
-                            <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                            <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                         </div>
-                      </a>
-                   </div>
-                </div>
-                <div class="col-md-4">
-                   <div class="product">
-                      <a routerLink="single">
-                         <div class="product-header">
-                            <span class="badge badge-success">50% OFF</span>
-                            <img class="img-fluid" src="assets/img/item/5.jpg" alt="">
-                            <span class="veg text-success mdi mdi-circle"></span>
-                         </div>
-                         <div class="product-body">
-                            <h5>Product Title Here</h5>
-                            <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                         </div>
-                         <div class="product-footer">
-                            <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                            <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                         </div>
-                      </a>
-                   </div>
-                </div>
-                <div class="col-md-4">
-                   <div class="product">
-                      <a routerLink="single">
-                         <div class="product-header">
-                            <span class="badge badge-success">50% OFF</span>
-                            <img class="img-fluid" src="assets/img/item/6.jpg" alt="">
-                            <span class="veg text-success mdi mdi-circle"></span>
-                         </div>
-                         <div class="product-body">
-                            <h5>Product Title Here</h5>
-                            <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                         </div>
-                         <div class="product-footer">
-                            <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                            <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                         </div>
-                      </a>
-                   </div>
-                </div>
-             </div>
-             <div class="row no-gutters">
-                <div class="col-md-4">
-                   <div class="product">
-                      <a routerLink="single">
-                         <div class="product-header">
-                            <span class="badge badge-success">50% OFF</span>
-                            <img class="img-fluid" src="assets/img/item/7.jpg" alt="">
-                            <span class="veg text-success mdi mdi-circle"></span>
-                         </div>
-                         <div class="product-body">
-                            <h5>Product Title Here</h5>
-                            <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                         </div>
-                         <div class="product-footer">
-                            <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                            <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                         </div>
-                      </a>
-                   </div>
-                </div>
-                <div class="col-md-4">
-                   <div class="product">
-                      <a routerLink="single">
-                         <div class="product-header">
-                            <span class="badge badge-success">50% OFF</span>
-                            <img class="img-fluid" src="assets/img/item/8.jpg" alt="">
-                            <span class="veg text-success mdi mdi-circle"></span>
-                         </div>
-                         <div class="product-body">
-                            <h5>Product Title Here</h5>
-                            <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                         </div>
-                         <div class="product-footer">
-                            <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                            <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                         </div>
-                      </a>
-                   </div>
-                </div>
-                <div class="col-md-4">
-                   <div class="product">
-                      <a routerLink="single">
-                         <div class="product-header">
-                            <span class="badge badge-success">50% OFF</span>
-                            <img class="img-fluid" src="assets/img/item/9.jpg" alt="">
-                            <span class="veg text-success mdi mdi-circle"></span>
-                         </div>
-                         <div class="product-body">
-                            <h5>Product Title Here</h5>
-                            <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                         </div>
-                         <div class="product-footer">
-                            <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                            <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                         </div>
-                      </a>
-                   </div>
-                </div>
-             </div>
-             <nav>
-                <ul class="pagination justify-content-center mt-4">
-                   <li class="page-item disabled">
-                      <span class="page-link">Previous</span>
-                   </li>
-                   <li class="page-item"><a class="page-link" href="#">1</a></li>
-                   <li class="page-item active">
-                      <span class="page-link">
-                      2
-                      <span class="sr-only">(current)</span>
-                      </span>
-                   </li>
-                   <li class="page-item"><a class="page-link" href="#">3</a></li>
-                   <li class="page-item">
-                      <a class="page-link" href="#">Next</a>
-                   </li>
-                </ul>
-             </nav>
-          </div>
-       </div>
-    </div>
- </section>
- <section class="product-items-slider section-padding bg-white border-top">
-    <div class="container">
-       <div class="section-header">
-          <h5 class="heading-design-h5">Best Offers View <span class="badge badge-primary">20% OFF</span>
-             <a class="float-right text-secondary" href="shop.html">View All</a>
-          </h5>
-       </div>
-       <div class="owl-carousel owl-carousel-featured">
-          <div class="item">
-             <div class="product">
-                <a routerLink="single">
-                   <div class="product-header">
-                      <span class="badge badge-success">50% OFF</span>
-                      <img class="img-fluid" src="assets/img/item/7.jpg" alt="">
-                      <span class="veg text-success mdi mdi-circle"></span>
-                   </div>
-                   <div class="product-body">
-                      <h5>Product Title Here</h5>
-                      <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                   </div>
-                   <div class="product-footer">
-                      <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                      <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                   </div>
-                </a>
-             </div>
-          </div>
-          <div class="item">
-             <div class="product">
-                <a routerLink="single">
-                   <div class="product-header">
-                      <span class="badge badge-success">50% OFF</span>
-                      <img class="img-fluid" src="assets/img/item/8.jpg" alt="">
-                      <span class="non-veg text-danger mdi mdi-circle"></span>
-                   </div>
-                   <div class="product-body">
-                      <h5>Product Title Here</h5>
-                      <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                   </div>
-                   <div class="product-footer">
-                      <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                      <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                   </div>
-                </a>
-             </div>
-          </div>
-          <div class="item">
-             <div class="product">
-                <a routerLink="single">
-                   <div class="product-header">
-                      <span class="badge badge-success">50% OFF</span>
-                      <img class="img-fluid" src="assets/img/item/9.jpg" alt="">
-                      <span class="non-veg text-danger mdi mdi-circle"></span>
-                   </div>
-                   <div class="product-body">
-                      <h5>Product Title Here</h5>
-                      <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                   </div>
-                   <div class="product-footer">
-                      <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                      <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                   </div>
-                </a>
-             </div>
-          </div>
-          <div class="item">
-             <div class="product">
-                <a routerLink="single">
-                   <div class="product-header">
-                      <span class="badge badge-success">50% OFF</span>
-                      <img class="img-fluid" src="assets/img/item/10.jpg" alt="">
-                      <span class="veg text-success mdi mdi-circle"></span>
-                   </div>
-                   <div class="product-body">
-                      <h5>Product Title Here</h5>
-                      <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                   </div>
-                   <div class="product-footer">
-                      <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                      <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                   </div>
-                </a>
-             </div>
-          </div>
-          <div class="item">
-             <div class="product">
-                <a routerLink="single">
-                   <div class="product-header">
-                      <span class="badge badge-success">50% OFF</span>
-                      <img class="img-fluid" src="assets/img/item/11.jpg" alt="">
-                      <span class="veg text-success mdi mdi-circle"></span>
-                   </div>
-                   <div class="product-body">
-                      <h5>Product Title Here</h5>
-                      <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                   </div>
-                   <div class="product-footer">
-                      <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                      <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                   </div>
-                </a>
-             </div>
-          </div>
-          <div class="item">
-             <div class="product">
-                <a routerLink="single">
-                   <div class="product-header">
-                      <span class="badge badge-success">50% OFF</span>
-                      <img class="img-fluid" src="assets/img/item/12.jpg" alt="">
-                      <span class="veg text-success mdi mdi-circle"></span>
-                   </div>
-                   <div class="product-body">
-                      <h5>Product Title Here</h5>
-                      <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                   </div>
-                   <div class="product-footer">
-                      <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                      <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                   </div>
-                </a>
-             </div>
-          </div>
-       </div>
-    </div>
- </section>
- <section class="section-padding bg-white border-top">
-    <div class="container">
-       <div class="row">
-          <div class="col-lg-4 col-sm-6">
-             <div class="feature-box">
-                <i class="mdi mdi-truck-fast"></i>
-                <h6>Free & Next Day Delivery</h6>
-                <p>Lorem ipsum dolor sit amet, cons...</p>
-             </div>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-             <div class="feature-box">
-                <i class="mdi mdi-basket"></i>
-                <h6>100% Satisfaction Guarantee</h6>
-                <p>Rorem Ipsum Dolor sit amet, cons...</p>
-             </div>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-             <div class="feature-box">
-                <i class="mdi mdi-tag-heart"></i>
-                <h6>Great Daily Deals Discount</h6>
-                <p>Sorem Ipsum Dolor sit amet, Cons...</p>
-             </div>
-          </div>
-       </div>
-    </div>
- </section>
-       <!-- Copyright -->
-       <section class="pt-4 pb-4 footer-bottom">
-        <div class="container">
-           <div class="row no-gutters">
-              <div class="col-lg-6 col-sm-6">
-                 <p class="mt-1 mb-0">&copy; Copyright 2020 <strong class="text-dark">Groci</strong>. All Rights Reserved<br>
-                 <small class="mt-0 mb-0">Made with <i class="mdi mdi-heart text-danger"></i> by <a href="https://askbootstrap.com/" target="_blank" class="text-primary">Ask Bootstrap</a>
-                 </small>
-                 </p>
-              </div>
-              <div class="col-lg-6 col-sm-6 text-right">
-                 <img alt="osahan logo" src="img/payment_methods.png">
-              </div>
-           </div>
-        </div>
-     </section>
-     <!-- End Copyright -->
+         </div>
+         <!-- <div class="left-ad mt-4">
+           <img class="img-fluid" src="http://via.placeholder.com/254x557" alt="">
+         </div> -->
+      </div>
+      
+         <div class="col-md-9">
+            <a href="#"><img class="img-fluid mb-3" src="img/shop.jpg" alt=""></a>
+            <!-- <div class="shop-head">
+               <a href="#"><span class="mdi mdi-home"></span> Home</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits & Vegetables</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits</a>
+               <div class="btn-group float-right mt-2">
+                  <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Sort by Products &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                     <a class="dropdown-item" href="#">Relevance</a>
+                     <a class="dropdown-item" href="#">Price (Low to High)</a>
+                     <a class="dropdown-item" href="#">Price (High to Low)</a>
+                     <a class="dropdown-item" href="#">Discount (High to Low)</a>
+                     <a class="dropdown-item" href="#">Name (A to Z)</a>
+                  </div>
+               </div>
+               <h5 class="mb-3">Fruits</h5>
+            </div> -->
+            <div class="row no-gutters"><!--no gutters-->               
+               <div class="col-md-3" *ngFor ="let p of products">
+                  <div class="product">
+                     <!-- <a routerLink ="shop/{{c.category_name}}/{{s.sub_category_name}}/{{s.id}}" routerLinkActive="active"  +'?nocache=true'-->
+                     <a [routerLink] ="['/single', p.id]">
+                        <div class="product-header">
+                           <span class="badge badge-success">50% OFF</span>
+                           <img class="img" src="assets/{{p.product_img}}" alt="">
+                           <span class="veg text-success mdi mdi-circle"></span>
+                        </div>
+                        <div class="product-body">
+                           <h5>{{p.id}}-{{p.product_name}}</h5>
+                           <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+                        </div>
+                        <div class="product-footer">
+                           <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
+                           <p class="offer-price mb-0">Rs.{{p.price}} - {{p.unit_value}}{{p.unit_type}} </p><!-- <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span>-->
+                        </div>
+                     </a>
+                  </div>
+               </div>               
+            </div>
+            <br>
+            
+            <nav>
+               <ul class="pagination justify-content-center mt-4">
+                  <li class="page-item disabled">
+                     <span class="page-link">Previous</span>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item active">
+                     <span class="page-link">
+                     2
+                     <span class="sr-only">(current)</span>
+                     </span>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                     <a class="page-link" href="#">Next</a>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+      </div>
+   
+</section>
+<section class="product-items-slider section-padding bg-white border-top">
+   
+      <div class="section-header">
+         <h5 class="heading-design-h5">Best Offers View <span class="badge badge-primary">20% OFF</span>
+            <a class="float-right text-secondary" href="shop.html">View All</a>
+         </h5>
+      </div>
+      <div class="owl-carousel owl-carousel-featured">
+         <div class="item">
+            <div class="product">
+               <a href="single.html">
+                  <div class="product-header">
+                     <span class="badge badge-success">50% OFF</span>
+                     <img class="img-fluid" src="assets/img/item/7.jpg" alt="">
+                     <span class="veg text-success mdi mdi-circle"></span>
+                  </div>
+                  <div class="product-body">
+                     <h5>Product Title Here</h5>
+                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+                  </div>
+                  <div class="product-footer">
+                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
+                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="item">
+            <div class="product">
+               <a href="single.html">
+                  <div class="product-header">
+                     <span class="badge badge-success">50% OFF</span>
+                     <img class="img-fluid" src="assets/img/item/8.jpg" alt="">
+                     <span class="non-veg text-danger mdi mdi-circle"></span>
+                  </div>
+                  <div class="product-body">
+                     <h5>Product Title Here</h5>
+                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+                  </div>
+                  <div class="product-footer">
+                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
+                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="item">
+            <div class="product">
+               <a href="single.html">
+                  <div class="product-header">
+                     <span class="badge badge-success">50% OFF</span>
+                     <img class="img-fluid" src="assets/img/item/9.jpg" alt="">
+                     <span class="non-veg text-danger mdi mdi-circle"></span>
+                  </div>
+                  <div class="product-body">
+                     <h5>Product Title Here</h5>
+                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+                  </div>
+                  <div class="product-footer">
+                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
+                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="item">
+            <div class="product">
+               <a href="single.html">
+                  <div class="product-header">
+                     <span class="badge badge-success">50% OFF</span>
+                     <img class="img-fluid" src="assets/img/item/10.jpg" alt="">
+                     <span class="veg text-success mdi mdi-circle"></span>
+                  </div>
+                  <div class="product-body">
+                     <h5>Product Title Here</h5>
+                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+                  </div>
+                  <div class="product-footer">
+                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
+                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="item">
+            <div class="product">
+               <a href="single.html">
+                  <div class="product-header">
+                     <span class="badge badge-success">50% OFF</span>
+                     <img class="img-fluid" src="assets/img/item/11.jpg" alt="">
+                     <span class="veg text-success mdi mdi-circle"></span>
+                  </div>
+                  <div class="product-body">
+                     <h5>Product Title Here</h5>
+                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+                  </div>
+                  <div class="product-footer">
+                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
+                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="item">
+            <div class="product">
+               <a href="single.html">
+                  <div class="product-header">
+                     <span class="badge badge-success">50% OFF</span>
+                     <img class="img-fluid" src="assets/img/item/12.jpg" alt="">
+                     <span class="veg text-success mdi mdi-circle"></span>
+                  </div>
+                  <div class="product-body">
+                     <h5>Product Title Here</h5>
+                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+                  </div>
+                  <div class="product-footer">
+                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
+                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+   
+</section>
+<section class="section-padding bg-white border-top">
+   
+      <div class="row">
+         <div class="col-lg-4 col-sm-6">
+            <div class="feature-box">
+               <i class="mdi mdi-truck-fast"></i>
+               <h6>Free & Next Day Delivery</h6>
+               <p>Lorem ipsum dolor sit amet, cons...</p>
+            </div>
+         </div>
+         <div class="col-lg-4 col-sm-6">
+            <div class="feature-box">
+               <i class="mdi mdi-basket"></i>
+               <h6>100% Satisfaction Guarantee</h6>
+               <p>Rorem Ipsum Dolor sit amet, cons...</p>
+            </div>
+         </div>
+         <div class="col-lg-4 col-sm-6">
+            <div class="feature-box">
+               <i class="mdi mdi-tag-heart"></i>
+               <h6>Great Daily Deals Discount</h6>
+               <p>Sorem Ipsum Dolor sit amet, Cons...</p>
+            </div>
+         </div>
+      </div>
+   
+</section>

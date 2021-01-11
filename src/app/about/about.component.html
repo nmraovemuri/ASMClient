@@ -109,6 +109,35 @@
                </div>
             </div>
          </div>
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-4 col-md-4" *ngFor = "let a of data">
+                  <div class="team-card text-center">
+                     <img class="img-fluid mb-4" src="{{a.images}}" alt="">
+                     <p class="mb-4">{{a.content}}</p>
+                     <h6 class="mb-0 text-success">- {{a.title}}</h6>
+                     <small>{{a.pageName}}</small>
+                    
+                  </div>
+               </div>
+                           <div class="col-lg-4 col-md-4">
+                  <div class="team-card text-center">
+                     <img class="img-fluid mb-4" src="assets/img/user/2.jpg" alt="">
+                     <p class="mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+                     <h6 class="mb-0 text-success">- Mark Smith</h6>
+                     <small>Designer</small>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4">
+                  <div class="team-card text-center">
+                     <img class="img-fluid mb-4" src="assets/img/user/3.jpg" alt="">
+                     <p class="mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+                     <h6 class="mb-0 text-success">- Ryan Printz</h6>
+                     <small>Marketing</small>
+                  </div>
+               </div>
+            </div>
+         </div>
       </section>
       <!-- End Our Team -->
       <!-- Footer -->

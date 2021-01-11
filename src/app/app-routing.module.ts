@@ -1,28 +1,59 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent} from './login/login.component'
+import { RegisterComponent} from './register/register.component'
+import { NavigationComponent } from './navigation/navigation.component';
 import { AboutComponent } from './about/about.component';
 import { FruitsComponent } from './fruits/fruits.component';
 import { GroceryComponent } from './grocery/grocery.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import {ShopComponent} from './shop/shop.component';
-import {CartComponent} from './cart/cart.component';
-import {CheckoutComponent} from './checkout/checkout.component';
-import {ContactComponent} from './contact/contact.component';
-import {FaqComponent} from './faq/faq.component';
-import {MyAddressComponent} from './my-address/my-address.component'
-import {MyprofileComponent} from './myprofile/myprofile.component';
-import {OrderListComponent} from './order-list/order-list.component';
-import {SingleComponent} from './single/single.component';
-import {WishlistComponent} from './wishlist/wishlist.component';
+import { ShopComponent } from './shop/shop.component';
+import { CartComponent} from './cart/cart.component';
+import { CheckoutComponent} from './checkout/checkout.component';
+import { ContactComponent} from './contact/contact.component';
+import { FaqComponent} from './faq/faq.component';
+import { MyAddressComponent} from './my-address/my-address.component'
+import { MyprofileComponent} from './myprofile/myprofile.component';
+import { OrderListComponent} from './order-list/order-list.component';
+import { SingleComponent} from './single/single.component';
+import { WishlistComponent} from './wishlist/wishlist.component';
+import { AuthGuard} from './auth.guard';
+import { LogoutComponent} from './logout/logout.component';
+import { Navigation2Component} from './navigation2/navigation2.component'
+
 
 const routes: Routes = [
-  {path : 'home',
-  component: HomeComponent
+  {
+    path :'',
+    component : HomeComponent
+    // pathMatch : 'full'
+  },
+  {
+    path : 'register',
+    component : RegisterComponent
+  },
+  {
+    path :'login',
+    component : LoginComponent
+  },
+  {
+    path : 'logout',
+    component : LoginComponent
+  },
+  {
+    path : 'nav',
+    component :NavigationComponent
+  },
+  {
+    path : 'home',
+    component: HomeComponent,
+    pathMatch : 'prefix'
  },
   {
     path : 'about',
-    component : AboutComponent
+    component : AboutComponent,
+    canActivate : [AuthGuard]
   },
   {
     path : 'fruits',
@@ -37,8 +68,15 @@ const routes: Routes = [
     component : FooterComponent
   },
   {
-    path : 'shop',
-    component : ShopComponent
+    path : 'shop/:cat/:subcat/:id',
+    // children :[
+    //   {
+    //     path : '**',
+    //     
+    //   }
+    // ],    
+    component : ShopComponent,        
+    pathMatch : 'prefix'
   },
   {
     path : 'cart',
@@ -69,19 +107,23 @@ const routes: Routes = [
     component : OrderListComponent
   },
   {
-    path : 'single',
+    path : 'single/:pid',
     component : SingleComponent
   },
   {
     path : 'wishlist',
     component : WishlistComponent
-  }
+  },
+  // {
+  //   path : 'nav2',
+  //   component : Navigation2Component
+  // }
 
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

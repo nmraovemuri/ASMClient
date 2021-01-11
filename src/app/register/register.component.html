@@ -1,0 +1,75 @@
+<section class="section-padding  bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h4 class="heading-design-h5"
+                    style="text-align: center;color: orange;font-family: Verdana, Geneva, Tahoma, sans-serif;">REGISTER
+                    NOW !!</h4>
+                    
+                <form #regForm="ngForm" (ngSubmit)="userRegister(regForm)" novalidate>
+
+                    <fieldset class="form-group" [ngClass]="{ 'has-error': regForm.submitted && !user_id.valid }">
+                        <label>Enter username</label>
+                        <input type="text" class="form-control" placeholder="+91 123 456 7890"
+                            [(ngModel)]="user.user_id" name="user_id" #user_id="ngModel"
+                            [ngClass]="{'is-invalid':regForm.submitted && user_id.invalid}" required />
+                        <div *ngIf="user_id.invalid && (user_id.dirty || user_id.touched)" class="alert alert-danger">
+                            <div *ngIf="user_id.errors.required">user_id is required. </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group" [ngClass]="{ 'has-error': regForm.submitted && !emailphone.valid }">
+                        <label>Enter Email/Mobile number</label>
+                        <input type="text" class="form-control" placeholder="+91 123 456 7890"
+                            [(ngModel)]="user.emailphone" name="emailphone" #emailphone="ngModel" required />
+                        <div *ngIf="emailphone.invalid && (emailphone.dirty || emailphone.touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="emailphone.errors.email">Email is required. </div>
+                            <div *ngIf="emailphone.errors.required">This is not a valid Email. </div>
+                        </div>
+
+                    </fieldset>
+                    <fieldset class="form-group" [ngClass]="{ 'has-error': regForm.submitted && !password.valid }">
+                        <label>Enter Password</label>
+                        <input type="password" class="form-control" placeholder="********" [(ngModel)]="user.password"
+                            name="password" #password="ngModel" required minlength="6" />
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="password.errors.required">password is required. </div>
+                            <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                        </div>
+
+                    </fieldset>
+                    <fieldset class="form-group" [ngClass]="{ 'has-error': regForm.submitted && !cnfmpwd.valid }">
+                        <label>Enter Confirm Password </label>
+                        <input type="password" class="form-control" placeholder="********" [(ngModel)]="user.cnfmpwd"
+                            name="cnfmpwd" #cnfmpwd="ngModel" required />
+                        <div *ngIf="cnfmpwd.invalid && (cnfmpwd.dirty || cnfmpwd.touched)" class="alert alert-danger">
+                            <div *ngIf="cnfmpwd.errors.required">cnfmpwd is required. </div>
+                        </div>
+
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <button type="submit" class="btn btn-lg btn-secondary btn-block" [disabled]="!regForm.valid">
+                            Create Your Account</button>
+                    </fieldset>
+                    {{user|json}}
+                    <!-- <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label" for="customCheck2">I Agree with <a href="#">Term and Conditions</a></label>
+                   </div> -->
+                </form>
+                <div class="clearfix"></div>
+                <!-- <div class="text-center login-footer-tab">
+                <ul class="nav nav-tabs" role="tablist">
+                   <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab" href="#login" role="tab"><i class="mdi mdi-lock"></i> LOGIN</a>
+                   </li>
+                   <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#register" role="tab"><i class="mdi mdi-pencil"></i> REGISTER</a>
+                   </li>
+                </ul>
+             </div> -->
+            </div>
+        </div>
+    </div>
+</section>

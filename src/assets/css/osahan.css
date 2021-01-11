@@ -94,7 +94,8 @@ a:focus {
     background: #1c2224 none repeat scroll 0 0 !important;
 }
 .btn-secondary {
-    background: #e96125 none repeat scroll 0 0 !important;
+    /* background: #e96125 none repeat scroll 0 0 !important; */
+    background: #ba5253 none repeat scroll 0 0 !important;
 }
 .text-secondary{
 	color:#e96125 !important;
@@ -168,7 +169,8 @@ a:focus {
 	border-radius: 2px;
 }
 .card-header {
-    background-color: #fbfbfb;
+    /* background-color: #e76125;  */
+    background-color: #8bc34a;
 	border-bottom: 1px solid #eeeeee;
 }
 .card {
@@ -318,9 +320,10 @@ a:focus {
     padding: 0;
 }
 .osahan-menu-2 .nav-link {
-    color: #666 !important;
+    color: #000 !important;
     font-size: 14px;
-    padding: 13px 16px !important;
+    font-weight: 450 !important;
+    padding: 13px 14px !important;
 }
 .dropdown-menu {
     border: medium none;
@@ -420,9 +423,10 @@ a:focus {
 }
 .product {
     background: #fff none repeat scroll 0 0;
-    border: 1px solid #eeeeee;
-    border-radius: 2px;
-    margin: 0 -1px 0 0;
+    /* border: 1px solid #eeeeee; */
+    border: 1px solid #ba5253;
+    border-radius: 12px;
+    margin: 1px 6px 6px 6px;
     padding: 20px;
     position: relative;
 }
@@ -657,7 +661,7 @@ body.toggled::after {
 }
 /* Shop Filters */
 .shop-filters .card-header .btn {
-    color: #e96125;
+    color: #ffffff;
     font-size: 15px;
     font-weight: 500;
     padding: 7px 0;
