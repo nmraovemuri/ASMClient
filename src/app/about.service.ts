@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http'
 })
 export class AboutService {
   products : any;
+  cartList: any=[];
   constructor(private http:HttpClient) { }
   getAllContent()
   {
@@ -43,9 +44,22 @@ export class AboutService {
   setProducts(products){
     this.products = products;
   }
-  getProduct(pid){
+  getproducts(){
+    return this.products;
+  }
+  getProduct(pid, unit_value){
     return this.products.find((product)=>{
-      return product.id == pid;
+      return product.id == pid && product.unit_value == unit_value;
+
     },pid)
   }
+  addToCart(product){
+    this.cartList.push(product);
+    console.log(this.cartList);
+    
+  }
+  getCartList(){
+    return this.cartList;
+  }
+
 }

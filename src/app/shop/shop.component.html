@@ -2,7 +2,7 @@
    
       <div class="row">
          <div class="col-md-3">
-            <a href="#"><strong><span class="mdi mdi-home"></span> Home</strong></a> <span class="mdi mdi-chevron-right"></span> <a href="#">Shop</a>
+            <!-- <a href="#"><strong><span class="mdi mdi-home"></span> Home</strong></a> <span class="mdi mdi-chevron-right"></span> <a href="#">Shop</a> -->
          </div>
          <div class="col-md-7">
             <a href="#"><span class="mdi mdi-home"></span> Home</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits & Vegetables</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits</a>
@@ -10,7 +10,7 @@
          </div>
          <div class="col-md-2">
             <!-- <div class="btn-group float-right mt-2"> -->
-               <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <button type="button"  class="fltr fltr-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Sort by Products &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                </button>
                <div class="dropdown-menu dropdown-menu-right">
@@ -22,13 +22,12 @@
                </div>
             <!-- </div> -->
          </div>
-      </div>
-   
+      </div>   
 </section>
 <section class="shop-list section-padding">
    
       <div class="row">
-         <div class="col-md-3">
+         <div class="col-md-3" style="padding-left: 25px;padding-right: 25px;">
          <div class="shop-filters">
            <div id="accordion">
              <div class="card">
@@ -41,18 +40,18 @@
                </div>
                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="card-body card-shop-filters">
-                    <form class="form-inline mb-3">
-                      <div class="form-group">
+                    <!-- <form class="form-inline mb-3"> -->
+                      <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search By Category">
-                        <button type="submit" class="pl-2 pr-2 btn btn-secondary btn-lg"><i class="mdi mdi-file-find"></i></button>
-                      </div>
-                    </form>  
+                        <button type="submit" class="pl-2 pr-2 btn btn-secondary btn-lg" style="margin-left:10px;"><i class="mdi mdi-file-find"></i></button>
+                      </div><br>
+                    <!-- </form>   -->
                     <div class="list-group"  *ngFor ="let c of cat_subcat">        
-                     <a href= "#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">{{c.category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">{{c.category_name}}<span class="mdi mdi-chevron-right float-right"></span>
                        <div id="collapsefive" class="collapse">
                           <div class="card-body">
                             <div class="list-group" *ngFor = "let s of c.subCategories">        
-                              <a routerLink ="shop/{{c.category_name}}/{{s.sub_category_name}}/{{s.id}}" routerLinkActive="active" class="list-group-item list-group-item-action">{{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span></a>
+                              <a routerLink ="shop/{{c.category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >{{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span></a><!--list-group-item list-group-item-action-->
                               <!-- <a href="#" class="list-group-item list-group-item-action">Dals & Pulses<span class="mdi mdi-chevron-right float-right"></span></a>
                               <a href="#" class="list-group-item list-group-item-action">Rice  & Rice By Products<span class="mdi mdi-chevron-right float-right"></span></a>
                               <a href="#" class="list-group-item list-group-item-action">Edible Oils<span class="mdi mdi-chevron-right float-right"></span></a>
@@ -231,12 +230,16 @@
                </div>
                <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
                   <div class="card-body card-shop-filters">
-                    <form class="form-inline mb-3">
+                     <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search By Category">
+                        <button type="submit" class="btn btn-secondary ml-2">GO</button> 
+                     </div>                     
+                    <!-- <form class="form-inline mb-3">
                       <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search By Brand">
                       </div>
                       <button type="submit" class="btn btn-secondary ml-2">GO</button>
-                    </form>
+                    </form> -->
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="b1">
                       <label class="custom-control-label" for="b1">Imported Fruits <span class="badge badge-warning">50% OFF</span></label>
@@ -317,27 +320,34 @@
                <div class="col-md-3" *ngFor ="let p of products">
                   <div class="product">
                      <!-- <a routerLink ="shop/{{c.category_name}}/{{s.sub_category_name}}/{{s.id}}" routerLinkActive="active"  +'?nocache=true'-->
-                     <a [routerLink] ="['/single', p.id]">
+                     <a [routerLink] ="['/single', p.id, p.unit_value]">
+                        <!-- <span class="badge badge-danger">10% OFF</span> -->
+                        <span class="dscnt"><img src="assets/img/discount.svg" style="width: 40px;"><span class="top-left">{{p.discount_percentage}}% <span class="top-left1">OFF</span></span></span>
                         <div class="product-header">
-                           <span class="badge badge-success">50% OFF</span>
-                           <img class="img" src="assets/{{p.product_img}}" alt="">
-                           <span class="veg text-success mdi mdi-circle"></span>
+                           <!-- <span class="badge badge-success">50% OFF</span> -->                           
+                           
+                           <img class="img" src="assets/{{p.product_img}}" alt="">  
+                                                   
+                           <!-- <span class="veg text-success mdi mdi-circle"></span> -->                          
                         </div>
                         <div class="product-body">
                            <h5>{{p.id}}-{{p.product_name}}</h5>
                            <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
                         </div>
+                        </a>
                         <div class="product-footer">
-                           <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                           <p class="offer-price mb-0">Rs.{{p.price}} - {{p.unit_value}}{{p.unit_type}} </p><!-- <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span>-->
+                           <!-- <button type="button" class="btn btn-secondary btn-sm float-right" (click)="addToCart(p)"><i class="mdi mdi-cart-outline"></i> Add To Cart</button> -->
+                           <!-- <button type="button" class="btn btn-success btn-circle btn-xl" style="float: right;" (click)="addToCart(p)"><i class="glyphicon glyphicon-plus"></i>+</button> -->
+                           <button type="button" class="cartbtn float-right" (click)="addToCart(p)"><img src="assets/img/shopping-cart (2).png"></button>
+                           <p class="offer-price mb-0">Rs.{{p.sale_price}} - {{p.unit_value}}{{p.unit_type}} </p><!-- <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span>-->
                         </div>
-                     </a>
+                     
                   </div>
                </div>               
             </div>
             <br>
             
-            <nav>
+            <!-- <nav>
                <ul class="pagination justify-content-center mt-4">
                   <li class="page-item disabled">
                      <span class="page-link">Previous</span>
@@ -354,17 +364,16 @@
                      <a class="page-link" href="#">Next</a>
                   </li>
                </ul>
-            </nav>
+            </nav> -->
          </div>
-      </div>
-   
+      </div>   
 </section>
-<section class="product-items-slider section-padding bg-white border-top">
-   
+<section class="product-items-slider section-padding bg-white border-top">   
       <div class="section-header">
-         <h5 class="heading-design-h5">Best Offers View <span class="badge badge-primary">20% OFF</span>
+         <a class="float-right text-secondary" href="shop.html">View All</a>
+         <!-- <h5 class="heading-design-h5">Best Offers View <span class="badge badge-primary">20% OFF</span> 
             <a class="float-right text-secondary" href="shop.html">View All</a>
-         </h5>
+          </h5> -->
       </div>
       <div class="owl-carousel owl-carousel-featured">
          <div class="item">
@@ -481,33 +490,22 @@
                </a>
             </div>
          </div>
-      </div>
-   
+      </div>   
 </section>
-<section class="section-padding bg-white border-top">
-   
-      <div class="row">
-         <div class="col-lg-4 col-sm-6">
-            <div class="feature-box">
-               <i class="mdi mdi-truck-fast"></i>
-               <h6>Free & Next Day Delivery</h6>
-               <p>Lorem ipsum dolor sit amet, cons...</p>
-            </div>
+
+<section>
+   <app-footer></app-footer>
+ </section> 
+ <section class="pt-4 pb-4 footerr footer-bottom" >
+   <div class="container">
+      <div class="row no-gutters">
+         <div class="col-lg-6 col-sm-6">
+            <p class="mt-1 mb-0">&copy; Copyright 2021 <strong class="text-dark">Aswika Stores</strong>. All Rights Reserved<br></p>
          </div>
-         <div class="col-lg-4 col-sm-6">
-            <div class="feature-box">
-               <i class="mdi mdi-basket"></i>
-               <h6>100% Satisfaction Guarantee</h6>
-               <p>Rorem Ipsum Dolor sit amet, cons...</p>
-            </div>
-         </div>
-         <div class="col-lg-4 col-sm-6">
-            <div class="feature-box">
-               <i class="mdi mdi-tag-heart"></i>
-               <h6>Great Daily Deals Discount</h6>
-               <p>Sorem Ipsum Dolor sit amet, Cons...</p>
-            </div>
-         </div>
+         <!-- <div class="col-lg-6 col-sm-6 text-right">
+            <img alt="osahan logo" src="assets/img/payment_methods.png">
+         </div> -->
       </div>
-   
+   </div>
 </section>
+<!-- End Copyright -->

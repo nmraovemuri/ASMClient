@@ -8,20 +8,22 @@
       </div>
    </div>
 </section>
-<section class="shop-single section-padding pt-3">
+<section class="shop-single section-padding pt-3 bg-white">
    <div class="container">
       <div class="row">
-         <div class="col-md-6">
+         <div class="col-md-5">
             <div class="shop-detail-left">
                <div class="shop-detail-slider">
-                  <div class="favourite-icon">
+                  <!-- <div class="favourite-icon">
                      <a class="fav-btn" title="" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="59% OFF"><i class="mdi mdi-tag-outline"></i></a>
-                  </div>
-                  <div id="sync1" class="owl-carousel">
-                     <div class="item"><img alt="" [src]="product.product_img" class="img-fluid img-center"></div>                     
-                  </div>
-                  <div id="sync2" class="owl-carousel">
-                     <div class="item"><img alt="" [src]="product.product_img" class="img-fluid img-center"></div>
+                  </div> -->
+                  <div class="item" ><img alt="" src="assets/images/products/400/{{product.product_img.substr(product.product_img.lastIndexOf('/'))}}"  class="img-fluid img-center"></div>  
+                   
+                  <!-- <div id="sync1" class="owl-carousel">
+                     <div class="item"><img alt="" src="{{product.product_img}}" class="img-fluid img-center"></div>          
+                  </div> -->
+                  <!-- <div id="sync2" class="owl-carousel">
+                     <div class="item"><img alt="" [src]="product.product_img" class="img-fluid img-center"></div> 
                      <div class="item"><img alt="" [src]="product.product_img" class="img-fluid img-center"></div>
                      <div class="item"><img alt="" [src]="product.product_img" class="img-fluid img-center"></div>
                      <div class="item"><img alt="" [src]="product.product_img" class="img-fluid img-center"></div>
@@ -32,20 +34,119 @@
                      <div class="item"><img alt="" src="assets/img/item/3.jpg" class="img-fluid img-center"></div>
                      <div class="item"><img alt="" src="assets/img/item/4.jpg" class="img-fluid img-center"></div>
                      <div class="item"><img alt="" src="assets/img/item/5.jpg" class="img-fluid img-center"></div>
-                     <div class="item"><img alt="" src="assets/img/item/6.jpg" class="img-fluid img-center"></div> -->
-                  </div>
+                     <div class="item"><img alt="" src="assets/img/item/6.jpg" class="img-fluid img-center"></div> 
+                  </div> -->
                </div>
             </div>
          </div>
-         <div class="col-md-6">
-            <div class="shop-detail-right">
-               <span class="badge badge-success">50% OFF</span>
-               <h2>{{product.product_name}}</h2>
-               <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> {{product.unit_value}}{{product.unit_type}}</h6>
-               <p class="regular-price"><i class="mdi mdi-tag-outline"></i> MRP : $800.99</p>
-               <p class="offer-price mb-0">Discounted price : <span class="text-success">{{product.price}}</span></p>
-               <a href="checkout.html"><button type="button" class="btn btn-secondary btn-lg"><i class="mdi mdi-cart-outline"></i> Add To Cart</button> </a>
-               <div class="short-description">
+         <div class="col-md-7">
+           <!-- <div class="shop-detail-right"> -->
+                <!-- <span class="badge badge-success">50% OFF</span>
+               <button class="btn btn-lg btn-success" (click)="nextProduct()">next {{index}}/{{products.length}} </button> -->
+               
+               <h3 style="color:#370617;">{{product.product_name}}</h3>               
+               <table class="table">
+                  <thead>
+                    <tr>                      
+                      <th scope="col"><h6 style="color:#F44336;"><span class="mdi mdi-approval">Available : </span> {{product.unit_value}}{{product.unit_type}}</h6></th>
+                      <th scope="col"><h6 style="color:green;">In Stock </h6></th>                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row">MRP :</td>                      
+                      <td class="regular-price ">Rs.{{product.mrp}}</td>                     
+                    </tr>
+                    <tr>
+                      <th scope="row">Price :</th>                      
+                      <td class="offer-price">Rs.{{product.sale_price}}</td>                     
+                    </tr>
+                    <tr>
+                      <td scope="row">You Save</td>                      
+                      <td><b style="font-size: 18px; color:#ff5239;"> you save {{product.discount_percentage}}%</b> (Inclusive of all taxes)</td>                  
+                    </tr>
+                  </tbody>
+                </table>               
+               <hr>
+                
+                  <!-- <button type="button" class="btn btn-secondary btn-lg" (click)="addToCart()"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>  -->
+                  <div class="row">
+                     <div class="col-md-4" style="padding-top:17px;">
+                        
+                       <!-- <div class="input-group-prepend">
+                              <span>
+                              <a href="#" class="btn1" style="font-size:35px;text-align:center;">-</a></span>                           
+                           
+                              <div class="input-group">
+                                 <input type="text" max="10" min="1" value="1" class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                             </div>
+                              <!-- <div class="input-group">                              
+                                 <input type="text" max="10" min="1" value="1" class="form-control border-form-control form-control-sm input-number" name="quant[1]">                                                            
+                              </div> 
+                           
+                           
+                           <span><a href="#" class="btn1" style="font-size:35px;text-align:center;">+</a></span>                           
+                        </div>-->
+                        
+                        <!-- <div class="input-group">
+                           <div class="input-group-prepend">
+                             <span class="input-group-text" id="">+</span>
+                           </div>
+                           <input type="text" class="form-control">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text" id="">-</span>
+                            </div>
+                         </div> -->
+                         <div class="qty">
+                           <div class="input-group">
+                              <span class="input-group-btn"><button disabled="disabled" class="btn btn-theme-round btn-number" type="button">-</button></span>
+                              <input type="text" max="10" min="1" value="1" class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                              <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button">+</button>
+                              </span>
+                           </div>
+                        </div>
+
+                  </div>
+                   <!-- <div class="col-md-5"><a class="btn-grad">Add Cart</a></div> -->
+                   <div class="col-md-5"><a href="#" class="square_btn mdi mdi-basket">Add Cart</a></div>
+                  </div><br>
+                  <div class="row">
+                         
+                     <table class="table table-hover">
+                      
+                       <tbody>
+                         <tr>
+                           <td>5 kg</td>
+                           <td><span class="offer-price">Rs. 194</span></td>
+                           <td> <span class = "regular-price ">MRP: Rs.275</span> 29% off </td>
+                           <td><div class="checkbox">
+                              <input type="checkbox" value="">
+                            </div></td>
+                         </tr>
+                         <tr>
+                           <td>2 kg</td>
+                           <td><span class="offer-price">Rs 102.55</span></td>
+                           <td> <span class = "regular-price ">MRP: Rs. 109</span> 19% off</td>
+                           <td><div class="checkbox">
+                              <input type="checkbox" value="">
+                            </div></td>
+                         </tr>
+                         <tr>
+                           <td>1 kg</td>
+                           <td><span class="offer-price">Rs 55.55</span></td>
+                           <td><span class = "regular-price ">MRP: Rs.65</span>  18% off</td>
+                           <td><div class="checkbox">
+                              <input type="checkbox" value="">
+                            </div></td>
+                         </tr>
+                       </tbody>
+                     </table>
+                   </div>
+                 
+
+               
+               
+              <!--<div class="short-description">
                   <h5>
                      Quick Overview  
                      <p class="float-right">Availability: <span class="badge badge-success">In Stock</span></p>
@@ -53,9 +154,9 @@
                   <p><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b> Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum.
                   </p>
                   <p class="mb-0"> Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hiMenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum.</p>
-               </div>
-               <h6 class="mb-3 mt-4">Why shop from Groci?</h6>
-               <div class="row">
+               </div> 
+                <h6 class="mb-3 mt-4">Why shop from Groci?</h6>
+                <div class="row">
                   <div class="col-md-6">
                      <div class="feature-box">
                         <i class="mdi mdi-truck-fast"></i>
@@ -70,137 +171,129 @@
                         <p>Rorem Ipsum Dolor sit...</p>
                      </div>
                   </div>
+               </div>  -->
+            </div>
+         <!-- </div>          -->
+      </div>
+      <div class="col-md-12"><br>
+         <h5 style="color:#F44336;text-transform: uppercase;text-decoration: none;letter-spacing: 1px;padding-bottom: 10px;border-bottom: 2px solid #d7d7d7;">Quick Overview :</h5>
+         <p style="color:#333333; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-size: 14px;font-weight: 400;text-align: justify;line-height: 2em;">{{product.description_fst}}</p>
+
+         <p style="color: #333333; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 14px;font-weight:500; text-align: justify;"> 
+            <!-- Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hiMenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. -->
+         </p>
+      </div>
+   </div>
+</section><br>
+<section class="product-items-slider" style="padding:40px;">
+    
+   <div class="section-header">
+      <h5 style="color:#F44336;padding-bottom: 10px;"><u>Related Products:</u>
+         <a class="float-right text-secondary" href="shop.html" style="font-size: 14px;">View All</a>
+      </h5>
+   </div>
+   <div class="row no-gutters">              
+      <div class="col-md-3">
+         <div class="product">
+               <span class="dscnt"><img src="assets/img/discount.svg" style="width: 50px;"><span class="top-left">23% <span class="top-left1">OFF</span></span></span>
+               <div class="product-header">
+                  <img class="img" src="assets/images/products/400/3mango_tomato_pickle.png" alt="">  
                </div>
-            </div>
+               <div class="product-body">
+                  <h5>Product Name</h5>
+                  <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+               </div>               
+               <div class="product-footer">                  
+                  <!-- <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>                             -->
+                  <button type="button" class="cartbtn float-right" ><img src="assets/img/shopping-cart (2).png"></button>
+                  <p class="offer-price1 mb-0">Rs.500 ml <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
+                  <div class="qty">
+                     <div class="input-group">
+                        <span class="input-group-btn"><button disabled="disabled" class="btn btn-theme-round btn-number" type="button">-</button></span>
+                        <input type="text" max="10" min="1" value="1 in basket" class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                        <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button">+</button>
+                        </span>
+                     </div>
+                  </div>
+               </div>            
          </div>
       </div>
+      <div class="col-md-3">
+         <div class="product">
+               <span class="dscnt"><img src="assets/img/discount.svg" style="width: 50px;"><span class="top-left">23% <span class="top-left1">OFF</span></span></span>
+               <div class="product-header">
+                  <img class="img" src="assets/images/products/400/3mango_tomato_pickle.png" alt="">  
+               </div>
+               <div class="product-body">
+                  <h5>Product Name</h5>
+                  <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+               </div>               
+               <div class="product-footer">                 
+                  <button type="button" class="cartbtn float-right" ><img src="assets/img/shopping-cart (2).png"></button>
+                  <p class="offer-price1 mb-0">Rs.500 ml <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
+                  <div class="qty">
+                     <div class="input-group">
+                        <span class="input-group-btn"><button disabled="disabled" class="btn btn-theme-round btn-number" type="button">-</button></span>
+                        <input type="text" max="10" min="1" value="1" class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                        <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button">+</button>
+                        </span>
+                     </div>
+                  </div>
+               </div>            
+         </div>
+      </div>
+      <div class="col-md-3">
+         <div class="product">
+               <span class="dscnt"><img src="assets/img/discount.svg" style="width: 50px;"><span class="top-left">23% <span class="top-left1">OFF</span></span></span>
+               <div class="product-header">
+                  <img class="img" src="assets/images/products/400/3mango_tomato_pickle.png" alt="">  
+               </div>
+               <div class="product-body">
+                  <h5>Product Name</h5>
+                  <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+               </div>               
+               <div class="product-footer">                 
+                  <button type="button" class="cartbtn float-right" ><img src="assets/img/shopping-cart (2).png"></button>
+                  <p class="offer-price1 mb-0">Rs.500 ml <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
+                  <div class="qty">
+                     <div class="input-group">
+                        <span class="input-group-btn"><button disabled="disabled" class="btn btn-theme-round btn-number" type="button">-</button></span>
+                        <input type="text" max="10" min="1" value="1" class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                        <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button">+</button>
+                        </span>
+                     </div>
+                  </div>
+               </div>            
+         </div>
+      </div>
+      <div class="col-md-3">
+         <div class="product">
+               <span class="dscnt"><img src="assets/img/discount.svg" style="width: 50px;"><span class="top-left">23% <span class="top-left1">OFF</span></span></span>
+               <div class="product-header">
+                  <img class="img" src="assets/images/products/400/3mango_tomato_pickle.png" alt="">  
+               </div>
+               <div class="product-body">
+                  <h5>Product Name</h5>
+                  <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+               </div>               
+               <div class="product-footer">                 
+                  <button type="button" class="cartbtn float-right" ><img src="assets/img/shopping-cart (2).png"></button>
+                  <p class="offer-price1 mb-0">Rs.500 ml <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
+                  <div class="qty">
+                     <div class="input-group">
+                        <span class="input-group-btn"><button disabled="disabled" class="btn btn-theme-round btn-number" type="button">-</button></span>
+                        <input type="text" max="10" min="1" value="1" class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                        <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button">+</button>
+                        </span>
+                     </div>
+                  </div>
+               </div>            
+         </div>
+      </div>
+                     
    </div>
+
 </section>
-<!-- <section class="product-items-slider section-padding bg-white border-top">
-   <div class="container">
-      <div class="section-header">
-         <h5 class="heading-design-h5">Best Offers View <span class="badge badge-primary">20% OFF</span>
-            <a class="float-right text-secondary" href="shop.html">View All</a>
-         </h5>
-      </div>
-      <div class="owl-carousel owl-carousel-featured">
-         <div class="item">
-            <div class="product">
-               <a href="shop.html">
-                  <div class="product-header">
-                     <span class="badge badge-success">50% OFF</span>
-                     <img class="img-fluid" src="img/item/7.jpg" alt="">
-                     <span class="veg text-success mdi mdi-circle"></span>
-                  </div>
-                  <div class="product-body">
-                     <h5>Product Title Here</h5>
-                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                  </div>
-                  <div class="product-footer">
-                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  </div>
-               </a>
-            </div>
-         </div>
-         <div class="item">
-            <div class="product">
-               <a href="shop.html">
-                  <div class="product-header">
-                     <span class="badge badge-success">50% OFF</span>
-                     <img class="img-fluid" src="img/item/8.jpg" alt="">
-                     <span class="non-veg text-danger mdi mdi-circle"></span>
-                  </div>
-                  <div class="product-body">
-                     <h5>Product Title Here</h5>
-                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                  </div>
-                  <div class="product-footer">
-                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  </div>
-               </a>
-            </div>
-         </div>
-         <div class="item">
-            <div class="product">
-               <a href="shop.html">
-                  <div class="product-header">
-                     <span class="badge badge-success">50% OFF</span>
-                     <img class="img-fluid" src="img/item/9.jpg" alt="">
-                     <span class="non-veg text-danger mdi mdi-circle"></span>
-                  </div>
-                  <div class="product-body">
-                     <h5>Product Title Here</h5>
-                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                  </div>
-                  <div class="product-footer">
-                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  </div>
-               </a>
-            </div>
-         </div>
-         <div class="item">
-            <div class="product">
-               <a href="shop.html">
-                  <div class="product-header">
-                     <span class="badge badge-success">50% OFF</span>
-                     <img class="img-fluid" src="img/item/10.jpg" alt="">
-                     <span class="veg text-success mdi mdi-circle"></span>
-                  </div>
-                  <div class="product-body">
-                     <h5>Product Title Here</h5>
-                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                  </div>
-                  <div class="product-footer">
-                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  </div>
-               </a>
-            </div>
-         </div>
-         <div class="item">
-            <div class="product">
-               <a href="shop.html">
-                  <div class="product-header">
-                     <span class="badge badge-success">50% OFF</span>
-                     <img class="img-fluid" src="img/item/11.jpg" alt="">
-                     <span class="veg text-success mdi mdi-circle"></span>
-                  </div>
-                  <div class="product-body">
-                     <h5>Product Title Here</h5>
-                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                  </div>
-                  <div class="product-footer">
-                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  </div>
-               </a>
-            </div>
-         </div>
-         <div class="item">
-            <div class="product">
-               <a href="shop.html">
-                  <div class="product-header">
-                     <span class="badge badge-success">50% OFF</span>
-                     <img class="img-fluid" src="img/item/12.jpg" alt="">
-                     <span class="veg text-success mdi mdi-circle"></span>
-                  </div>
-                  <div class="product-body">
-                     <h5>Product Title Here</h5>
-                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                  </div>
-                  <div class="product-footer">
-                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  </div>
-               </a>
-            </div>
-         </div>
-      </div>
-   </div>
-</section> -->
 <section class="section-padding bg-white border-top">
    <div class="container">
       <div class="row">
@@ -208,21 +301,21 @@
             <div class="feature-box">
                <i class="mdi mdi-truck-fast"></i>
                <h6>Free & Next Day Delivery</h6>
-               <p>Lorem ipsum dolor sit amet, cons...</p>
+               <!-- <p>Lorem ipsum dolor sit amet, cons...</p> -->
             </div>
          </div>
          <div class="col-lg-4 col-sm-6">
             <div class="feature-box">
                <i class="mdi mdi-basket"></i>
                <h6>100% Satisfaction Guarantee</h6>
-               <p>Rorem Ipsum Dolor sit amet, cons...</p>
+               
             </div>
          </div>
          <div class="col-lg-4 col-sm-6">
             <div class="feature-box">
                <i class="mdi mdi-tag-heart"></i>
                <h6>Great Daily Deals Discount</h6>
-               <p>Sorem Ipsum Dolor sit amet, Cons...</p>
+               
             </div>
          </div>
       </div>
@@ -232,18 +325,18 @@
  <section>
    <app-footer></app-footer>
  </section> 
- <section class="pt-4 pb-4 footer-bottom">    
+ <section class="pt-4 pb-4 footerr footer-bottom" >
    <div class="container">
       <div class="row no-gutters">
          <div class="col-lg-6 col-sm-6">
-            <p class="mt-1 mb-0">&copy; Copyright 2020 <strong class="text-dark">Groci</strong>. All Rights Reserved<br>
-        <small class="mt-0 mb-0">Made with <i class="mdi mdi-heart text-danger"></i> by <a href="https://askbootstrap.com/" target="_blank" class="text-primary">Ask Bootstrap</a>
-            </small>
-        </p>
+            <p class="mt-1 mb-0">&copy; Copyright 2021 <strong class="text-dark">Aswika Stores</strong>. All Rights Reserved<br>
+            <!-- <small class="mt-0 mb-0">Made with <i class="mdi mdi-heart text-danger"></i> by <a href="https://askbootstrap.com/" target="_blank" class="text-primary">Ask Bootstrap</a>
+            </small> -->
+            </p>
          </div>
-         <div class="col-lg-6 col-sm-6 text-right">
-            <img alt="osahan logo" src="img/payment_methods.png">
-         </div>
+         <!-- <div class="col-lg-6 col-sm-6 text-right">
+            <img alt="osahan logo" src="assets/img/payment_methods.png">
+         </div> -->
       </div>
    </div>
 </section>

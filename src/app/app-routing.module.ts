@@ -79,7 +79,7 @@ const routes: Routes = [
     pathMatch : 'prefix'
   },
   {
-    path : 'cart',
+    path : 'cart', 
     component : CartComponent
   },
   {
@@ -106,10 +106,7 @@ const routes: Routes = [
     path : 'orderlist',
     component : OrderListComponent
   },
-  {
-    path : 'single/:pid',
-    component : SingleComponent
-  },
+  { path : 'single/:pid/:unit_value', component : SingleComponent },
   {
     path : 'wishlist',
     component : WishlistComponent

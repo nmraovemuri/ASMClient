@@ -1,0 +1,81 @@
+.cartbtn{
+    display: inline-block;
+    text-decoration: none;
+    /* background: #87befd; */
+    background: linear-gradient(to bottom, #A8DE1C  0%, #50AC02 100%);
+    color: #FFF;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+     box-shadow: 0px 0px 0px 2px #59B105; 
+    border: dashed 1px #FFF;
+    transition: .4s;
+    margin-top: -60px;
+}
+
+.cartbtn:hover{
+    background: #fc9000;
+     box-shadow: 0px 0px 0px 1px #2c3c51;
+}
+
+.carttbtn{
+    display: inline-block;
+    text-decoration: none;
+    background: linear-gradient(to bottom, #A8DE1C  0%, #50AC02 100%);
+    color: #FFF;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+    overflow: hidden;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #59B105;
+    transition: .4s;
+    margin-top: -60px;
+}
+
+.carttbtn:active{
+    -ms-transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+    border-bottom: none;
+}
+/* .fa{ 
+    width: 40px;
+    height: 40px; 
+    line-height: 40px;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    margin-right: 10px;
+    text-align: center;
+  } */
+  .gradient-btn{ 
+    height: 60px;
+    line-height: 70px;
+    width: 60px;
+    margin: 10px;
+    padding-left: 20px;
+    border-radius: 50px;
+    float: left;
+    color: #FFF; 
+    box-shadow: 5px 5px 2px -2px #a5a5a5;
+    margin-top: -60px;
+}
+.btn-3{
+    /* background-image: linear-gradient(to right top, #eb4f12, #e74717, #e23f1b, #de361e, #d92d21);  */
+    background-image: linear-gradient(to right top, #A8DE1C  0%, #50AC02 100%);
+}
+.gradient-btn:nth-child(odd):hover{
+    transition: all 2s ease;
+    transform: translateX(10px);
+    cursor: pointer;
+    box-shadow: -6px -9px 2px -2px #a5a5a5;
+}

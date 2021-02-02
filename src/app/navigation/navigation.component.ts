@@ -17,6 +17,7 @@ export class NavigationComponent implements OnInit {
   subcategories: any;
   categories: any;
   cat_subcat : any;
+  cartList: [];
 
     
   constructor(private aserv:AboutService,private router:Router){}
@@ -81,6 +82,10 @@ export class NavigationComponent implements OnInit {
     })
     console.log("cat_subcat:",this.cat_subcat);
     })
+  }
+  getCartList(){
+    this.cartList = this.aserv.getCartList();
+    console.log("nav cart clicked : ",this.cartList)
   }
 
 }

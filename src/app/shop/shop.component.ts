@@ -49,7 +49,7 @@ export class ShopComponent implements OnInit {
         cat.subCategories = subcat;
         // JSON.parse
         return cat;
-    })
+    });
     console.log("cat_subcat:",this.cat_subcat);
     })
   }
@@ -71,4 +71,10 @@ export class ShopComponent implements OnInit {
       
     })
   }
+  addToCart(product){
+    
+        this.aServ.addToCart(product);
+      }
+
+
 }
