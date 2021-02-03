@@ -60,6 +60,38 @@ export class AboutService {
   }
   getCartList(){
     return this.cartList;
+
   }
+  removeFromCart(product){
+    this.cartList = this.cartList.filter(p=>!(p.id == product.id && p.unit_value == product.unit_value));
+    console.log(this.cartList);    
+  }
+  incrementProductQuantityByOne(cartItem){
+    console.log("cartItem:",cartItem);
+    
+    let product = this.cartList.find(product => product.id==cartItem.id &&  product.unit_value == cartItem.unit_value);
+    product.quantity = product.quantity + 1; 
+    product.total = product.sale_price * product.quantity;
+
+  }
+  decrementProductQuantityByOne(cartItem){
+    let product = this.cartList.find(product => product.id==cartItem.id &&  product.unit_value == cartItem.unit_value);
+   
+    product.quantity = product.quantity - 1; 
+    product.total = product.sale_price * product.quantity;
+    if(product.quantity == 0){
+      this.removeFromCart(cartItem);
+      return;
+    }
+
+  }
+  getCartTotalPrice(){                                                                
+    return this.cartList.length == 0 ? 0:this.cartList.length == 1 ? this.cartList[0].sale_price * this.cartList[0].quantity : this.cartList.reduce((tot, item)=> (tot instanceof Object? tot.sale_price * tot.quantity : tot) + item.sale_price*item.quantity );
+  }
+  getCartDiscountPrice(){
+    return this.cartList.length == 0 ? 0: this.cartList.length == 1?this.cartList[0].discount_amount * this.cartList[0].quantity : this.cartList.reduce((tot, item)=> (tot instanceof Object? tot.discount_amount * tot.quantity : tot) + item.discount_amount*item.quantity);
+  }
+
+
 
 }

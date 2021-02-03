@@ -72,9 +72,14 @@ export class ShopComponent implements OnInit {
     })
   }
   addToCart(product){
-    
-        this.aServ.addToCart(product);
-      }
+    if(product.quantity)
+       product.quantity = product.quantity + 1;
+    else
+      product.quantity = 1;
+      
+    product.total = product.sale_price * product.quantity;
+    this.aServ.addToCart(product);
+  }
 
 
 }

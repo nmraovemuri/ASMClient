@@ -571,11 +571,11 @@ a:focus {
     margin-left: 12px;
 }
 /* Cart Sidebar */
-body.toggled {
+/* body.toggled {
     overflow: hidden;
-}
+} */
 body.toggled::after {
-    /* background: #000 none repeat scroll 0 0; */
+    background: #000 none repeat scroll 0 0;
     bottom: 0;
     content: "";
     left: 0;
@@ -584,6 +584,7 @@ body.toggled::after {
     right: 0;
 	z-index: 9;
     top: 0;
+    height: 10px;
 }
 .cart-sidebar {
     background: #fff none repeat scroll 0 0;
