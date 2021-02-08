@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { AboutService } from '../about.service';
+import { ASMService } from '../asm.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-single',
@@ -12,7 +13,9 @@ export class SingleComponent implements OnInit {
   product: any;
   index:number = 0
   
-  constructor(private activatedRoute: ActivatedRoute,private aServ : AboutService) { }
+  constructor(private activatedRoute: ActivatedRoute,
+              private asmService : ASMService,
+              private cartService: CartService) { }
   pid : any;
   unit_value : any;
   // product : any = {
@@ -31,8 +34,8 @@ export class SingleComponent implements OnInit {
       this.unit_value = params.unit_value;
       console.log("P-ID & unit_value :", this.pid, this.unit_value);
      // this.pid =  this.pid.substr(0, this.pid.indexOf("?"))
-      this.product = this.aServ.getProduct(this.pid,this.unit_value);
-      this.products = this.aServ.getproducts();
+      this.product = this.asmService.getProduct(this.pid,this.unit_value);
+      this.products = this.asmService.getproducts();
       // console.log("Product Data:", this.products);
       console.log("Product Data:", this.product);
       //this.product = this.products[this.index];
@@ -45,7 +48,7 @@ export class SingleComponent implements OnInit {
     this.product = this.products[this.index];
   }
   addToCart(){
-    this.aServ.addToCart(this.product);
+    this.cartService.addToCart(this.product);
   }
 
 

@@ -150,18 +150,6 @@
       </div>
    </div>
 </div>
-<!-- <div class="navbar-top bg-success pt-2 pb-2">
-   <div class="container-fluid">
-      <div class="row">
-         <div class="col-lg-12 text-center">
-            <a href="shop.html" class="mb-0 text-white">
-               20% cashback for new users | Code: <strong><span class="text-light">OGOFERS13 <span
-                        class="mdi mdi-tag-faces"></span></span> </strong>background: linear-gradient(to bottom, #A8DE1C  0%, #50AC02 100%)
-            </a>
-         </div>
-      </div>
-   </div>
-</div> -->
 <nav class="navbar navbar-light navbar-expand-lg bg-faded osahan-menu" style="background:#370617">
    <div class="container-fluid">
       <a class="navbar-brand" routerLink="home"> <img src="assets/img/logo.png" alt="logo"> </a>
@@ -174,15 +162,6 @@
          <div class="navbar-nav mr-auto mt-2 mt-lg-0 margin-auto top-categories-search-main">
             <div class="top-categories-search">
                <div class="input-group">
-                  <!-- <span class="input-group-btn categories-dropdown">
-                     <select class="form-control-select">
-                        <option selected="selected">Your City</option>
-                        <option value="0">New Delhi</option>
-                        <option value="2">Bengaluru</option>
-                        <option value="3">Hyderabad</option>
-                        <option value="4">Kolkata</option>
-                     </select>
-                  </span> -->
                   <input class="form-control" placeholder="Search products in Your City"
                      aria-label="Search products in Your City" type="text">
                   <span class="input-group-btn">
@@ -222,8 +201,9 @@
 
                </li>
                <li class="list-inline-item cart-btn">
-                  <a routerLink="/" data-toggle="offcanvas" class="btn btn-link border-none" (click)="getCartList()"><i class="mdi mdi-cart"></i> My
-                     Cart <small class="cart-value">5</small></a>
+                  <!--routerLink="/"-->
+                  <a  data-toggle="offcanvas" class="btn btn-link border-none" (click)="getCartList()"><i class="mdi mdi-cart"></i> My
+                     Cart <small class="cart-value">{{cartService.getCartSize()}}</small></a>
                </li>
             </ul>
          </div>
@@ -238,19 +218,52 @@
                <a routerLink="home" routerLinkActive="active" class="nav-link">HOME</a>
             </li>
             <li class="nav-item dropdown upper" *ngFor ="let c of cat_subcat">
-               <a routerLink= "{{c.category_name}}" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+               <!-- routerLink= "{{c.category_name}}" -->
+               <a  class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false"  >{{c.category_name}}</a>
                <ul class="dropdown-menu" >
                    <li class="dropdown-item intro"  *ngFor = "let s of c.subCategories">
-                  <a routerLink ="shop/{{c.category_name}}/{{s.sub_category_name}}/{{s.id}}" routerLinkActive="active"
-                  ><i class="mdi mdi-chevron-right"
-                        aria-hidden="true"></i>
+                  <a routerLink ="/shop/{{c.category_name}}/{{s.sub_category_name}}/{{s.id}}" routerLinkActive="active" data-toggle="offcanvas"> 
+                     <i class="mdi mdi-chevron-right" aria-hidden="true"></i>
                      {{s.sub_category_name}}</a>
                    </li>
                   </ul>
-            </li>
-            
+            </li>            
          </ul>
       </div>
    </div>
 </nav>
+<div class="cart-sidebar">
+   <div class="cart-sidebar-header">
+      <h5>
+         <!-- routerLink="/" -->
+         My Cart <span class="text-success">{{cartService.getCartSize()}} items</span> <a data-toggle="offcanvas" class="float-right"  (click)="getCartList()">X</a>
+      </h5>
+   </div>  
+   <div class="cart-sidebar-body">
+      <div class="cart-list-product" *ngFor ="let cartItem of cartService.getCartList()">
+         <a class="float-right remove-cart" (click)="cartService.removeFromCart(cartItem)" ><i class="mdi mdi-close"></i></a>
+         <img class="img-fluid" src="assets{{cartItem.product_img}}" alt="">
+         <span class="badge badge-success">{{cartItem.discount_percentage}}% OFF</span>
+         <h5><a href="#">{{cartItem.product_name}}</a></h5>
+         <div class="qty col-md-4 float-right">
+            <div class="input-group">
+               <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="decrementQuantityByOne(cartItem)">-</button></span>
+               <input type="text" max="10" min="1" value={{cartItem.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+               <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="incrementQuantityByOne(cartItem)">+</button>
+               </span>
+            </div>
+         </div>
+         <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - {{cartItem.unit_value}}{{cartItem.unit_type}}</h6>
+         <p class="offer-price mb-0">Rs.{{cartItem.sale_price}}
+            <i class="mdi mdi-tag-outline"></i> <span class="regular-price" style="font-size: 12px;">Rs.{{cartItem.mrp}}
+         </span><br><span style="font-size: 12px;">you save Rs.{{cartItem.discount_amount}}</span></p>
+      </div>      
+   </div>
+   <div class="cart-sidebar-footer">
+      <div class="cart-store-details">
+         <p>Sub Total <strong class="float-right">Rs. {{cartService.getCartTotalPrice()}}</strong></p>         
+         <h6>Your total savings <strong class="float-right text-danger">Rs.{{cartService.getCartDiscountPrice()}}</strong></h6>
+      </div>
+      <a routerLink="cart" data-toggle="offcanvas"><button class="btn btn-secondary btn-lg btn-block text-left" type="button"><span class="float-left"><i class="mdi mdi-cart-outline"></i> Proceed to Checkout </span><span class="float-right"><strong>Rs {{cartService.getCartTotalPrice()}}</strong> <span class="mdi mdi-chevron-right"></span></span></button></a>
+   </div>

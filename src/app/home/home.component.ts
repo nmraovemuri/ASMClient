@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'; 
-import { AboutService} from '../about.service';
+import { ASMService} from '../asm.service';
+import { CartService } from '../cart.service';
 
 
 @Component({
@@ -65,57 +66,34 @@ export class HomeComponent implements OnInit {
   categories:Array<any>;
   cartList: []; 
   qnty: any;
-  constructor(private router: Router,public aserv : AboutService) { 
+  constructor(private router: Router, public asmService : ASMService, public cartService: CartService) { 
     this.categoriesList();
-  }
-  
-  ngOnInit(): void {
-    
+  }  
+  ngOnInit(): void {    
   }
   singleProduct(){
     console.log("this.router.navigate(['update', id]) ");
-    this.router.navigate(['single']);
-    
+    this.router.navigate(['single']);    
   }
 categoriesList(){
-  this.aserv.getAllCategories().subscribe((result:any)=>{        
+    this.asmService.getAllCategories().subscribe((result:any)=>{        
     console.log("categories list :",result.data);
     this.categories = result.data;
    // console.log("categories list :",this.categories);
-  })
-  
+  })  
 }
 getCartList(){
-  this.cartList = this.aserv.getCartList();
+  this.cartList = this.cartService.getCartList();
   console.log("cart click handled :", this.cartList);
 }
-getCartTotalPrice(){
-//  return this.aserv.getCartList().length == 0 ? 0:this.aserv.getCartList().length == 1 ? this.aserv.getCartList()[0].sale_price : this.aserv.getCartList().reduce((tot, item)=> (tot instanceof Object? tot.sale_price: tot) + item.sale_price);
-//  return this.aserv.getCartList().length == 0 ? 0:this.aserv.getCartList().length == 1 ? this.aserv.getCartList()[0].sale_price : this.aserv.getCartList().reduce((tot, item)=> (tot instanceof Object? tot.sale_price : tot) + item.sale_price );
-  return this.aserv.getCartList().length == 0 ? 0:this.aserv.getCartList().length == 1 ? this.aserv.getCartList()[0].sale_price * this.aserv.getCartList()[0].quantity : this.aserv.getCartList().reduce((tot, item)=> (tot instanceof Object? tot.sale_price * tot.quantity : tot) + item.sale_price*item.quantity );
-
-
-}
 getCartSize(){
-  return this.aserv.getCartList().length == 0? 0: this.aserv.getCartList().length;
-}
-getCartDiscountPrice(){
-//  return this.aserv.getCartList().length == 0 ? 0: this.aserv.getCartList().length == 1?this.aserv.getCartList()[0].discount_amount:this.aserv.getCartList().reduce((tot, item)=> (tot instanceof Object? tot.discount_amount: tot) + item.discount_amount);
-// return this.aserv.getCartList().length == 0 ? 0: this.aserv.getCartList().length == 1?this.aserv.getCartList()[0].discount_amount: this.aserv.getCartList().reduce((tot, item)=> tot instanceof Object? tot.discount_amount: tot + item.discount_amount);
- return this.aserv.getCartList().length == 0 ? 0: this.aserv.getCartList().length == 1?this.aserv.getCartList()[0].discount_amount * this.aserv.getCartList()[0].quantity : this.aserv.getCartList().reduce((tot, item)=> (tot instanceof Object? tot.discount_amount * tot.quantity : tot) + item.discount_amount*item.quantity);
-
-
-}
-removeProduct(cartItem){
-  console.log("cart remove items :", cartItem );  
-  this.aserv.removeFromCart(cartItem);
+  return this.cartService.getCartList().length == 0? 0: this.cartService.getCartList().length;
 }
 incrementQuantityByOne(cartItem){
-  console.log("cartItem e:",cartItem);
-  
-  this.aserv.incrementProductQuantityByOne(cartItem);
+  console.log("cartItem e:",cartItem);  
+  this.cartService.incrementProductQuantityByOne(cartItem);
 }
 decrementQuantityByOne(cartItem){
-  this.aserv.decrementProductQuantityByOne(cartItem);
+  this.cartService.decrementProductQuantityByOne(cartItem);
 }
 }

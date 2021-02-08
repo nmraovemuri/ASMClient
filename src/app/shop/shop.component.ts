@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { AboutService } from '../about.service';
+import { ASMService } from '../asm.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-shop',
@@ -14,7 +15,7 @@ export class ShopComponent implements OnInit {
   id: any;
   products : any;
 
-  constructor(private aServ : AboutService,private router : Router,private activatedRoute: ActivatedRoute) { }
+  constructor(private asmService : ASMService,private router : Router,private activatedRoute: ActivatedRoute, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.getAllCategories();
@@ -27,7 +28,7 @@ export class ShopComponent implements OnInit {
   }
   getAllCategories()
   {
-    this.aServ.getAllCategories().subscribe((result:any)=>{
+    this.asmService.getAllCategories().subscribe((result:any)=>{
    //   console.log("Allcategoires Data:", data);
       if( result && result.status == "success")
       {
@@ -39,7 +40,7 @@ export class ShopComponent implements OnInit {
     })
   }
   getSubcategories(){
-    this.aServ.getAllSubCategories().subscribe((result:any)=>{
+    this.asmService.getAllSubCategories().subscribe((result:any)=>{
  //     console.log("All SubCategories:",data);
       this.subcategories = result.data;
       console.log("All SubCategories:",this.subcategories);
@@ -59,12 +60,12 @@ export class ShopComponent implements OnInit {
                  "subcat_id": this.id,
                }
     console.log("subcategory ID:", this.id);          
-    this.aServ.getProductsBySubcatId(data).subscribe((result:any)=>{
+    this.asmService.getProductsBySubcatId(data).subscribe((result:any)=>{
      // console.log("Products by Subcategory ID :", result);
       if( result && result.status == "success")
       {
           this.products = result.data;
-          this.aServ.setProducts(this.products);
+          this.asmService.setProducts(this.products);
           console.log("Products by Subcategory ID Data:", this.products);
       }
   
@@ -78,8 +79,9 @@ export class ShopComponent implements OnInit {
       product.quantity = 1;
       
     product.total = product.sale_price * product.quantity;
-    this.aServ.addToCart(product);
+    this.cartService.addToCart(product);
   }
+  isHidden = false;
 
 
 }

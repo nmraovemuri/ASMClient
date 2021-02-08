@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule} from '@angular/router';
-import {AboutService} from './../about.service'
+import {ASMService} from '../asm.service'
 
 @Component({
   selector: 'app-register',
@@ -9,13 +9,13 @@ import {AboutService} from './../about.service'
 })
 export class RegisterComponent implements OnInit {
   user:any={};
-  constructor(private aserv:AboutService, router : Router) { }
+  constructor(private asmService:ASMService, router : Router) { }
 
   ngOnInit(): void {
   }
   userRegister(user){
     console.log("the data value",user.value);
-    this.aserv.createUser(user.value).subscribe((data)=>{
+    this.asmService.createUser(user.value).subscribe((data)=>{
       console.log("user data is added:",data);
     })
   }

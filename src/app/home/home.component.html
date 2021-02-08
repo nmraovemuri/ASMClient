@@ -243,38 +243,6 @@
     </div>
  </section>
  <!-- End Copyright -->
- <div class="cart-sidebar">
-   <div class="cart-sidebar-header">
-      <h5>
-         My Cart <span class="text-success">{{getCartSize()}} items</span> <a data-toggle="offcanvas" class="float-right" routerLink="/" (click)="getCartList()">X</a>
-      </h5>
-   </div>  
-   <div class="cart-sidebar-body">
-      <div class="cart-list-product" *ngFor ="let cartItem of aserv.getCartList()">
-         <a class="float-right remove-cart" (click)="removeProduct(cartItem)" ><i class="mdi mdi-close"></i></a>
-         <img class="img-fluid" src="assets{{cartItem.product_img}}" alt="">
-         <span class="badge badge-success">{{cartItem.discount_percentage}}% OFF</span>
-         <h5><a href="#">{{cartItem.product_name}}</a></h5>
-         <div class="qty col-md-4 float-right">
-            <div class="input-group">
-               <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="decrementQuantityByOne(cartItem)">-</button></span>
-               <input type="text" max="10" min="1" value={{cartItem.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
-               <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="incrementQuantityByOne(cartItem)">+</button>
-               </span>
-            </div>
-         </div>
-         <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - {{cartItem.unit_value}}{{cartItem.unit_type}}</h6>
-         <p class="offer-price mb-0">Rs.{{cartItem.sale_price}}
-            <i class="mdi mdi-tag-outline"></i> <span class="regular-price" style="font-size: 12px;">Rs.{{cartItem.mrp}}
-         </span><br><span style="font-size: 12px;">you save Rs.{{cartItem.discount_amount}}</span></p>
-      </div>      
-   </div>
-   <div class="cart-sidebar-footer">
-      <div class="cart-store-details">
-         <p>Sub Total <strong class="float-right">Rs. {{aserv.getCartTotalPrice()}}</strong></p>         
-         <h6>Your total savings <strong class="float-right text-danger">Rs.{{aserv.getCartDiscountPrice()}}</strong></h6>
-      </div>
-      <a routerLink="cart"><button class="btn btn-secondary btn-lg btn-block text-left" type="button"><span class="float-left"><i class="mdi mdi-cart-outline"></i> Proceed to Checkout </span><span class="float-right"><strong>Rs {{getCartTotalPrice()}}</strong> <span class="mdi mdi-chevron-right"></span></span></button></a>
-   </div>
+
    
  

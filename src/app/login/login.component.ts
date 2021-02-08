@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,RouterModule} from '@angular/router';
-import { AboutService } from './../about.service'
+import { ASMService } from '../asm.service'
 
 @Component({
   selector: 'app-login',
@@ -9,13 +9,13 @@ import { AboutService } from './../about.service'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private aserv: AboutService, private router : Router) { }
+  constructor(private asmService: ASMService, private router : Router) { }
  loginData :any ={};
   ngOnInit(): void {
   }
   userlogin(loginData){
     // console.log("User login data:",loginData.value);
-     this.aserv.userLogin(loginData.value).subscribe((data)=>{
+     this.asmService.userLogin(loginData.value).subscribe((data)=>{
        console.log("data:",data);
       console.log("prsent user login data is :", data[0].token);
       console.log("token :",data[0].token);
@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
      //  let token = localStorage.getItem('token');
      //  console.log("Token:",token);
      },
-     error => {
+    error => {
       console.log(error);
     })
-   }
+  }
 
 }

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {AboutService} from './../about.service';
+import {ASMService} from '../asm.service';
 import {Router,RouterModule} from '@angular/router'
+import { CartService } from '../cart.service';
 
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css'],
-  providers :[AboutService]
+  providers :[ASMService]
 })
 export class NavigationComponent implements OnInit {
   user:any={};
@@ -20,7 +21,8 @@ export class NavigationComponent implements OnInit {
   cartList: [];
 
     
-  constructor(private aserv:AboutService,private router:Router){}
+  constructor(private asmService:ASMService, private router:Router,
+              public cartService: CartService){}
 
   ngOnInit(): void {
     this.getAllCategories();
@@ -28,13 +30,13 @@ export class NavigationComponent implements OnInit {
   }
   userRegister(user){
     console.log("the data value",user.value);
-    this.aserv.createUser(user.value).subscribe((data)=>{
+    this.asmService.createUser(user.value).subscribe((data)=>{
       console.log("user data is added:",data);
     })
   }
   userlogin(loginData){
    // console.log("User login data:",loginData.value);
-    this.aserv.userLogin(loginData.value).subscribe((data)=>{
+    this.asmService.userLogin(loginData.value).subscribe((data)=>{
      console.log("prsent user login data is :", data);
     //  console.log("token",data.token)
      // localStorage.setItem('token',data.token);
@@ -43,13 +45,11 @@ export class NavigationComponent implements OnInit {
     //  console.log("Token:",token);
     })
   }
-  loggedIn()
-  {
-    this.l = this.aserv.getToken();
+  loggedIn(){
+    this.l = this.asmService.getToken();
     return this.l;
   }
-  onLogout()
-  {
+  onLogout(){
     localStorage.removeItem('username');
     localStorage.removeItem('emailID');
     localStorage.removeItem('token'); 
@@ -57,34 +57,31 @@ export class NavigationComponent implements OnInit {
   }
   getAllCategories()
   {
-    this.aserv.getAllCategories().subscribe((result:any)=>{
-   //   console.log("Allcategoires Data:", data);
-      if( result && result.status == "success")
-      {
-         this.categories = result.data;
-         console.log("Allcategoires Data:", this.categories);
-      }
-  
-      
+    this.asmService.getAllCategories().subscribe((result:any)=>{
+     //console.log("Allcategoires Data:", data);
+     if( result && result.status == "success"){
+        this.categories = result.data;
+        console.log("Allcategoires Data:", this.categories);
+      }      
     })
   }
   getSubcategories(){
-    this.aserv.getAllSubCategories().subscribe((result:any)=>{
- //     console.log("All SubCategories:",data);
-      this.subcategories = result.data;
-      console.log("All SubCategories:",this.subcategories);
-      this.cat_subcat = this.categories.map(cat=>{
-      let  subcat = this.subcategories.filter(subcat=> subcat.category_name ===cat.category_name);
-        // console.log(subcat);
-        cat.subCategories = subcat;
-        // JSON.parse
-        return cat;
+    this.asmService.getAllSubCategories().subscribe((result:any)=>{
+    //console.log("All SubCategories:",data);
+    this.subcategories = result.data;
+    console.log("All SubCategories:",this.subcategories);
+    this.cat_subcat = this.categories.map(cat=>{
+    let  subcat = this.subcategories.filter(subcat=> subcat.category_name ===cat.category_name);
+    // console.log(subcat);
+    cat.subCategories = subcat;
+    // JSON.parse
+    return cat;
     })
     console.log("cat_subcat:",this.cat_subcat);
     })
   }
   getCartList(){
-    this.cartList = this.aserv.getCartList();
+    this.cartList = this.cartService.getCartList();
     console.log("nav cart clicked : ",this.cartList)
   }
 

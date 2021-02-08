@@ -33,11 +33,27 @@
              <div class="card">
                <div class="card-header" id="headingOne">
                   <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse show" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     Category <span class="mdi mdi-chevron-down float-right"></span>
                     </button>
                   </h5>
                </div>
+               <!-- <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" ><!--data-parent="#accordion"
+                  <div class="card-body card-shop-filters">
+                    <div class="list-group"  *ngFor ="let c of cat_subcat">        
+                     <button class ="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" (click)="isHidden= !isHidden">
+                        {{c.category_name}}<span class="mdi mdi-chevron-right float-right"></span></button>
+                       <div  class="collapse show">
+                          <div class="card-body "  [hidden]="isHidden">
+                            <div class="list-group" *ngFor = "let s of c.subCategories">        
+                              <a routerLink ="/shop/{{c.category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
+                                 {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span></a><!--list-group-item list-group-item-action
+                            </div>
+                          </div>
+                       </div>                                         
+                   </div>                  
+                  </div>                  
+               </div> -->
                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="card-body card-shop-filters">
                     <!-- <form class="form-inline mb-3"> -->
@@ -46,160 +62,133 @@
                         <button type="submit" class="pl-2 pr-2 btn btn-secondary btn-lg" style="margin-left:10px;"><i class="mdi mdi-file-find"></i></button>
                       </div><br>
                     <!-- </form>   -->
-                    <div class="list-group"  *ngFor ="let c of cat_subcat">        
-                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">{{c.category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                       <div id="collapsefive" class="collapse">
+                    <!-- *ngFor ="let c of cat_subcat" -->
+                    <div class="list-group" >        
+                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryOne" aria-expanded="false" aria-controls="categoryOne">
+                        {{cat_subcat[0].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                       <div id="categoryOne" class="collapse">
                           <div class="card-body">
-                            <div class="list-group" *ngFor = "let s of c.subCategories">        
-                              <a routerLink ="shop/{{c.category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >{{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span></a><!--list-group-item list-group-item-action-->
-                              <!-- <a href="#" class="list-group-item list-group-item-action">Dals & Pulses<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Rice  & Rice By Products<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Edible Oils<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Masala & Spices<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Salt & Sugar & Jaggery<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Soya products, wheat & Other Grians<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Dry Fruits<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Nuts<span class="mdi mdi-chevron-right float-right"></span></a> -->
+                            <div class="list-group" *ngFor = "let s of cat_subcat[0].subCategories">        
+                              <a routerLink ="/shop/{{cat_subcat[0].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
+                                 {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                              </a><!--list-group-item list-group-item-action-->                              
                             </div>
                           </div>
                        </div>
                      </a>
-                     <!-- <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">Snacks & Branded Foods<span class="mdi mdi-chevron-right float-right"></span>
-                        <div id="collapsesix" class="collapse">
-                           <div class="card-body">
-                             <div class="list-group">        
-                              <a href="#" class="list-group-item list-group-item-action">Biscuits & Cookies<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Noodle Pasta & Vermicelli<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Breakfast Cereals<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Snacks & Namkeen<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Chocaltes & Candies<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Ready to Cook & Eat<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Frozen Veggies  & Snacks<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Spreads sauces & katcheup<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Indian Sweets<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Pickels & Chtuneys<span class="mdi mdi-chevron-right float-right"></span></a>
-                             </div>
-                           </div>
-                        </div>
+                    </div>
+                    <!-- *ngFor ="let c of cat_subcat" -->
+                    <div class="list-group" >        
+                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryTwo" aria-expanded="false" aria-controls="categoryTwo">
+                        {{cat_subcat[1].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                       <div id="categoryTwo" class="collapse">
+                          <div class="card-body">
+                            <div class="list-group" *ngFor = "let s of cat_subcat[1].subCategories">        
+                              <a routerLink ="/shop/{{cat_subcat[1].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
+                                 {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                              </a><!--list-group-item list-group-item-action-->                              
+                            </div>
+                          </div>
+                       </div>
                      </a>
-                     <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">Dairy & Bakery<span class="mdi mdi-chevron-right float-right"></span>
-                        <div id="collapseseven" class="collapse">
-                           <div class="card-body">
-                             <div class="list-group">        
-                              <a href="#" class="list-group-item list-group-item-action">Dairy<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Toast & Khari<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Cakes & Muffins<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Breads<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Buns<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Baked Cookies<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Bakery Snacks<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Butter<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Cheese<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Ghee<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Panner<span class="mdi mdi-chevron-right float-right"></span></a>
-                             </div>
-                           </div>
-                        </div>
+                    </div>
+                    <!-- *ngFor ="let c of cat_subcat" -->
+                    <div class="list-group"  >        
+                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryThree" aria-expanded="false" aria-controls="categoryThree">
+                        {{cat_subcat[2].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                       <div id="categoryThree" class="collapse">
+                          <div class="card-body">
+                            <div class="list-group" *ngFor = "let s of cat_subcat[2].subCategories">        
+                              <a routerLink ="/shop/{{cat_subcat[2].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
+                                 {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                              </a><!--list-group-item list-group-item-action-->                              
+                            </div>
+                          </div>
+                       </div>
                      </a>
-                     <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseeight" aria-expanded="false" aria-controls="collapseeight">Home Care<span class="mdi mdi-chevron-right float-right"></span>
-                        <div id="collapseeight" class="collapse">
-                           <div class="card-body">
-                             <div class="list-group">        
-                              <a href="#" class="list-group-item list-group-item-action">Detergents<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Dishwash<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">All Purpose Cleans<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Repellents<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Mops, Brushes & Scurbs<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Electrical<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Disposables<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Pooja Needs<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Shoe Care<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Stationery<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Kitchen Ware<span class="mdi mdi-chevron-right float-right"></span></a>
-                             </div>
-                           </div>
-                        </div>
+                    </div>
+                    <div class="list-group"  >        
+                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryFour" aria-expanded="false" aria-controls="categoryFour">
+                        {{cat_subcat[3].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                       <div id="categoryFour" class="collapse">
+                          <div class="card-body">
+                            <div class="list-group" *ngFor = "let s of cat_subcat[3].subCategories">        
+                              <a routerLink ="/shop/{{cat_subcat[3].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
+                                 {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                              </a><!--list-group-item list-group-item-action-->                              
+                            </div>
+                          </div>
+                       </div>
                      </a>
-                     <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsenine" aria-expanded="false" aria-controls="collapsenine">Personal Care<span class="mdi mdi-chevron-right float-right"></span>
-                        <div id="collapsenine" class="collapse">
-                           <div class="card-body">
-                             <div class="list-group">        
-                              <a href="#" class="list-group-item list-group-item-action">Hair Care<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Oral Care<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Skin Care<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Bath & Hand Wash<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Body Wash<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Bath & Accessories<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Feminine Hygiene<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Mens Grooming<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Health Wellness<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Deo & Fragrance<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Makeup<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Covid Essentials<span class="mdi mdi-chevron-right float-right"></span></a>
-                             </div>
-                           </div>
-                        </div>
+                    </div>
+                    <div class="list-group"  >        
+                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryFive" aria-expanded="false" aria-controls="categoryFive">
+                        {{cat_subcat[4].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                       <div id="categoryFive" class="collapse">
+                          <div class="card-body">
+                            <div class="list-group" *ngFor = "let s of cat_subcat[4].subCategories">        
+                              <a routerLink ="/shop/{{cat_subcat[4].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
+                                 {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                              </a><!--list-group-item list-group-item-action-->                              
+                            </div>
+                          </div>
+                       </div>
                      </a>
-                     <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseten" aria-expanded="false" aria-controls="collapseten">Bevverages<span class="mdi mdi-chevron-right float-right"></span>
-                        <div id="collapseten" class="collapse">
-                           <div class="card-body">
-                             <div class="list-group">        
-                              <a href="#" class="list-group-item list-group-item-action">Tea<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Coffee<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Fruit Juices<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Energy & Soft drinks<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Health Drink & Supplement<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action disabled">Soda & Flavoured Water<span class="mdi mdi-chevron-right float-right"></span></a>
-                              
-                             </div>
-                           </div>
-                        </div>
+                    </div>
+                    <div class="list-group"  >        
+                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categorySix" aria-expanded="false" aria-controls="categorySix">
+                        {{cat_subcat[5].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                       <div id="categorySix" class="collapse">
+                          <div class="card-body">
+                            <div class="list-group" *ngFor = "let s of cat_subcat[5].subCategories">        
+                              <a routerLink ="/shop/{{cat_subcat[5].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
+                                 {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                              </a><!--list-group-item list-group-item-action-->                              
+                            </div>
+                          </div>
+                       </div>
                      </a>
-                     <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseeleven" aria-expanded="false" aria-controls="collapseeleven">Baby Care<span class="mdi mdi-chevron-right float-right"></span>
-                        <div id="collapseeleven" class="collapse">
-                           <div class="card-body">
-                             <div class="list-group">        
-                              <a href="#" class="list-group-item list-group-item-action">Baby Grooming<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Baby Bath & Hygiene<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Diapers & wipes<span class="mdi mdi-chevron-right float-right"></span></a>
-                              <a href="#" class="list-group-item list-group-item-action">Health & wellness<span class="mdi mdi-chevron-right float-right"></span></a>
-                              
-                             </div>
-                           </div>
-                        </div>
+                    </div>
+                    <div class="list-group"  >        
+                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categorySeven" aria-expanded="false" aria-controls="categorySeven">
+                        {{cat_subcat[6].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                       <div id="categorySeven" class="collapse">
+                          <div class="card-body">
+                            <div class="list-group" *ngFor = "let s of cat_subcat[6].subCategories">        
+                              <a routerLink ="/shop/{{cat_subcat[6].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
+                                 {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                              </a><!--list-group-item list-group-item-action-->                              
+                            </div>
+                          </div>
+                       </div>
                      </a>
-                     <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsetwelve" aria-expanded="false" aria-controls="collapsetwelve">Fruits & Vegetables<span class="mdi mdi-chevron-right float-right"></span>
-                        <div id="collapsetwelve" class="collapse">
-                           <div class="card-body">
-                             <div class="list-group">        
-                               <a href="#" class="list-group-item list-group-item-action">Atta Flours & sooji<span class="mdi mdi-chevron-right float-right"></span></a>
-                               <a href="#" class="list-group-item list-group-item-action">Dals & Pulses</a>
-                               <a href="#" class="list-group-item list-group-item-action">Rice  & Rice By Products</a>
-                               <a href="#" class="list-group-item list-group-item-action">Edible Oils</a>
-                               <a href="#" class="list-group-item list-group-item-action disabled">Masala & Spices</a>
-                               <a href="#" class="list-group-item list-group-item-action disabled">Salt & Sugar & Jaggery</a>
-                               <a href="#" class="list-group-item list-group-item-action disabled">Soya products, wheat & Other Grians</a>
-                               <a href="#" class="list-group-item list-group-item-action disabled">Dry Fruits</a>
-                               <a href="#" class="list-group-item list-group-item-action disabled">Nuts</a>
-                             </div>
-                           </div>
-                        </div>
+                    </div>
+                    <div class="list-group"  >        
+                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryEight" aria-expanded="false" aria-controls="categoryEight">
+                        {{cat_subcat[7].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                       <div id="categoryEight" class="collapse">
+                          <div class="card-body">
+                            <div class="list-group" *ngFor = "let s of cat_subcat[7].subCategories">        
+                              <a routerLink ="/shop/{{cat_subcat[7].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
+                                 {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                              </a><!--list-group-item list-group-item-action-->                              
+                            </div>
+                          </div>
+                       </div>
                      </a>
-                      -->
-                   </div>                  
-                  </div>
-
+                    </div>
                </div>
+            </div>
              </div>
              <div class="card">
                <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse show" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     Price <span class="mdi mdi-chevron-down float-right"></span>
                     </button>
                   </h5>
                </div>
-               <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+               <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"><!--data-parent="#accordion"-->
                   <div class="card-body card-shop-filters">
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="1">
@@ -220,82 +209,9 @@
                   </div>
                </div>
              </div>
-             <div class="card">
-               <div class="card-header" id="headingThree">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse show" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Brand <span class="mdi mdi-chevron-down float-right"></span>
-                    </button>
-                  </h5>
-               </div>
-               <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
-                  <div class="card-body card-shop-filters">
-                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search By Category">
-                        <button type="submit" class="btn btn-secondary ml-2">GO</button> 
-                     </div>                     
-                    <!-- <form class="form-inline mb-3">
-                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search By Brand">
-                      </div>
-                      <button type="submit" class="btn btn-secondary ml-2">GO</button>
-                    </form> -->
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="b1">
-                      <label class="custom-control-label" for="b1">Imported Fruits <span class="badge badge-warning">50% OFF</span></label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="b2">
-                      <label class="custom-control-label" for="b2">Seasonal Fruits <span class="badge badge-secondary">NEW</span></label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="b3">
-                      <label class="custom-control-label" for="b3">Imported Fruits <span class="badge badge-danger">10% OFF</span></label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="b4">
-                      <label class="custom-control-label" for="b4">Citrus</label>
-                    </div>
-                  </div>
-               </div>
-             </div>
-             <div class="card">
-               <div class="card-header" id="headingThree">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse show" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                    Imported Fruits <span class="mdi mdi-chevron-down float-right"></span>
-                    </button>
-                  </h5>
-               </div>
-               <div id="collapsefour" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
-                  <div class="card-body">
-                    <div class="list-group">        
-                      <a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">All Fruits
-                        <div id="collapsefive" class="collapse">
-                           <div class="card-body">
-                             <div class="list-group">        
-                               <a href="#" class="list-group-item list-group-item-action">All Fruits</a>
-                               <a href="#" class="list-group-item list-group-item-action">Imported Fruits</a>
-                               <a href="#" class="list-group-item list-group-item-action">Seasonal Fruits</a>
-                               <a href="#" class="list-group-item list-group-item-action">Citrus</a>
-                               <a href="#" class="list-group-item list-group-item-action disabled">Cut Fresh & Herbs</a>
-                             </div>
-                           </div>
-                        </div>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action">Imported Fruits</a>
-                      <a href="#" class="list-group-item list-group-item-action">Seasonal Fruits</a>
-                      <a href="#" class="list-group-item list-group-item-action">Citrus</a>
-                      <a href="#" class="list-group-item list-group-item-action disabled">Cut Fresh & Herbs</a>
-                    </div>
-                  </div>
-               </div>
-             </div>
            </div>
          </div>
-         <!-- <div class="left-ad mt-4">
-           <img class="img-fluid" src="http://via.placeholder.com/254x557" alt="">
-         </div> -->
+        
       </div>
       
          <div class="col-md-9">

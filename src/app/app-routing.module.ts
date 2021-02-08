@@ -20,7 +20,6 @@ import { SingleComponent} from './single/single.component';
 import { WishlistComponent} from './wishlist/wishlist.component';
 import { AuthGuard} from './auth.guard';
 import { LogoutComponent} from './logout/logout.component';
-import { Navigation2Component} from './navigation2/navigation2.component'
 
 
 const routes: Routes = [
@@ -111,12 +110,6 @@ const routes: Routes = [
     path : 'wishlist',
     component : WishlistComponent
   },
-  // {
-  //   path : 'nav2',
-  //   component : Navigation2Component
-  // }
-
-
 ];
 
 @NgModule({

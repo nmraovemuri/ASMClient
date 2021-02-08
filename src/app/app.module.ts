@@ -24,12 +24,12 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { ShopComponent } from './shop/shop.component';
 import { SingleComponent } from './single/single.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-import { AboutService} from './about.service';
+import { ASMService} from './asm.service';
 import { TokenInterceptorService} from './token-interceptor.service';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
-import { Navigation2Component } from './navigation2/navigation2.component';
+import { CartService } from './cart.service';
 
 
 
@@ -54,9 +54,7 @@ import { Navigation2Component } from './navigation2/navigation2.component';
     WishlistComponent,
     LoginComponent,
     RegisterComponent,
-    LogoutComponent,
-    Navigation2Component,
-         
+    LogoutComponent,         
   ],
   imports: [
     BrowserModule,
@@ -69,7 +67,7 @@ import { Navigation2Component } from './navigation2/navigation2.component';
     BsDropdownModule.forRoot()
     
   ],
-  providers: [AboutService,
+  providers: [ASMService, CartService,
     {
     provide : HTTP_INTERCEPTORS,
     useClass : TokenInterceptorService,
