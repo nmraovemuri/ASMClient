@@ -248,9 +248,9 @@
          <h5><a href="#">{{cartItem.product_name}}</a></h5>
          <div class="qty col-md-4 float-right">
             <div class="input-group">
-               <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="decrementQuantityByOne(cartItem)">-</button></span>
+               <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(cartItem)">-</button></span>
                <input type="text" max="10" min="1" value={{cartItem.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
-               <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="incrementQuantityByOne(cartItem)">+</button>
+               <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(cartItem)">+</button>
                </span>
             </div>
          </div>
