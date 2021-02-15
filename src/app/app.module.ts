@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule,HttpInterceptor, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CommonModule } from '@angular/common';
@@ -30,6 +30,17 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CartService } from './cart.service';
+import { ASMCustomerService } from './asmCustomer.service';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { SignupStatusComponent } from './signup-status/signup-status.component';
+import { SignupActivationComponent } from './signup-activation/signup-activation.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ChangeUserPasswordComponent } from './change-user-password/change-user-password.component';
+import { ForgotPasswordStatusComponent } from './forgot-password-status/forgot-password-status.component';
+import { ResetPasswordStatusComponent } from './reset-password-status/reset-password-status.component';
+
+
 
 
 
@@ -54,7 +65,15 @@ import { CartService } from './cart.service';
     WishlistComponent,
     LoginComponent,
     RegisterComponent,
-    LogoutComponent,         
+    LogoutComponent,
+    ForgotPasswordComponent,
+    ChangePasswordComponent,
+    SignupStatusComponent,
+    SignupActivationComponent,
+    ResetPasswordComponent,
+    ChangeUserPasswordComponent,
+    ForgotPasswordStatusComponent,
+    ResetPasswordStatusComponent,         
   ],
   imports: [
     BrowserModule,
@@ -63,11 +82,12 @@ import { CartService } from './cart.service';
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot()
     
   ],
-  providers: [ASMService, CartService,
+  providers: [ASMService, CartService, ASMCustomerService,
     {
     provide : HTTP_INTERCEPTORS,
     useClass : TokenInterceptorService,

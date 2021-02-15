@@ -6,8 +6,8 @@ import {HttpClient} from '@angular/common/http'
 })
 export class ASMService{
   products : any;
-  ASM_SERVER_BASE_URL = "http://52.15.233.153:3000";
-  // ASM_SERVER_BASE_URL = "http://localhost:3000";
+  // ASM_SERVER_BASE_URL = "http://52.15.233.153:3000";
+   ASM_SERVER_BASE_URL = "http://localhost:3000";
 
   constructor(private http:HttpClient) { }
   getAllContent() {
@@ -48,4 +48,8 @@ export class ASMService{
 
     },pid)
   }
+  orderCheckOut(data) {
+    return this.http.post(this.ASM_SERVER_BASE_URL+"/client/orderCheckOut",data);    
+  }
+
 }

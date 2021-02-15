@@ -20,6 +20,14 @@ import { SingleComponent} from './single/single.component';
 import { WishlistComponent} from './wishlist/wishlist.component';
 import { AuthGuard} from './auth.guard';
 import { LogoutComponent} from './logout/logout.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { SignupActivationComponent } from './signup-activation/signup-activation.component';
+import { SignupStatusComponent } from './signup-status/signup-status.component';
+import { ResetPasswordComponent} from './reset-password/reset-password.component'
+import { ChangeUserPasswordComponent } from './change-user-password/change-user-password.component';
+import { ForgotPasswordStatusComponent } from './forgot-password-status/forgot-password-status.component';
+import { ResetPasswordStatusComponent } from './reset-password-status/reset-password-status.component';
 
 
 const routes: Routes = [
@@ -94,11 +102,11 @@ const routes: Routes = [
     component : FaqComponent
   },
   {
-    path : 'myaddress',
+    path : 'my-address',
     component : MyAddressComponent
   },
   {
-    path : 'myprofile',
+    path : 'my-profile',
     component : MyprofileComponent
   },
   {
@@ -110,6 +118,39 @@ const routes: Routes = [
     path : 'wishlist',
     component : WishlistComponent
   },
+  {
+    path: 'forgot-password',
+    component : ForgotPasswordComponent
+  },
+  {
+    path : 'change-password',
+    component : ChangePasswordComponent
+  },   
+  {
+    path : 'signup-status',
+    component : SignupStatusComponent
+  },
+  {
+    path : 'signup-activation-status',
+    component :SignupActivationComponent,  
+  },
+  {
+    path : 'customer_reset_password/:customer_id',
+    component :ResetPasswordComponent,
+  },
+  {
+    path : 'change_password',
+    component :ChangeUserPasswordComponent,         
+     
+  },
+  {
+    path : 'forgot-password-status',
+    component : ForgotPasswordStatusComponent,
+  },
+  {
+    path : 'reset_password_status',
+    component : ResetPasswordStatusComponent
+  }
 ];
 
 @NgModule({

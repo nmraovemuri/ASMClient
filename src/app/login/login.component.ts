@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,RouterModule} from '@angular/router';
-import { ASMService } from '../asm.service'
+import { ASMCustomerService } from '../asmCustomer.service'
 
 @Component({
   selector: 'app-login',
@@ -9,21 +9,25 @@ import { ASMService } from '../asm.service'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private asmService: ASMService, private router : Router) { }
+  constructor(private asmCustomerService: ASMCustomerService, private router : Router) { }
  loginData :any ={};
+ customerLoginData : any ={};
   ngOnInit(): void {
   }
   userlogin(loginData){
     // console.log("User login data:",loginData.value);
-     this.asmService.userLogin(loginData.value).subscribe((data)=>{
-       console.log("data:",data);
-      console.log("prsent user login data is :", data[0].token);
-      console.log("token :",data[0].token);
-      localStorage.setItem('username',data[0].usename);
-       localStorage.setItem('token',data[0].token);
-       this.router.navigate([`/home`]);
-     //  let token = localStorage.getItem('token');
-     //  console.log("Token:",token);
+     this.asmCustomerService.userLogin(loginData.value).subscribe((data)=>{
+      console.log("data:",data);
+      this.customerLoginData = data;
+       console.log("status data:", this.customerLoginData.status);
+      console.log("customer:", this.customerLoginData.customer);
+      console.log("Token:", this.customerLoginData.token);
+      // if(data.status = "success"){
+      //   this.asmCustomerService.setCustomerInfo(data.customer,data.token);
+      // }
+       localStorage.setItem('customer', this.customerLoginData.customer.first_name);
+       localStorage.setItem('token', this.customerLoginData.token);
+       this.router.navigate([`/home`]);     
      },
     error => {
       console.log(error);

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ASMService} from '../asm.service';
 import {Router,RouterModule} from '@angular/router'
 import { CartService } from '../cart.service';
-
+import { ASMCustomerService} from '../asmCustomer.service';
 
 @Component({
   selector: 'app-navigation',
@@ -14,14 +14,16 @@ export class NavigationComponent implements OnInit {
   user:any={};
   loginData:any={};
   l :string;  
-  username = localStorage.getItem("username");
+ customer = localStorage.getItem("customer");
   subcategories: any;
   categories: any;
   cat_subcat : any;
   cartList: [];
 
     
-  constructor(private asmService:ASMService, private router:Router,
+  constructor(private asmService:ASMService, 
+              private asmCustomerService:ASMCustomerService,
+              private router:Router,
               public cartService: CartService){}
 
   ngOnInit(): void {
@@ -46,12 +48,13 @@ export class NavigationComponent implements OnInit {
     })
   }
   loggedIn(){
-    this.l = this.asmService.getToken();
+    this.l = this.asmCustomerService.getToken();
     return this.l;
   }
+  
   onLogout(){
-    localStorage.removeItem('username');
-    localStorage.removeItem('emailID');
+    // localStorage.removeItem('username');
+    localStorage.removeItem('customer');
     localStorage.removeItem('token'); 
     this.router.navigate([`/home`]);
   }
