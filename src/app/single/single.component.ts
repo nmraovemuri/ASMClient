@@ -40,6 +40,9 @@ export class SingleComponent implements OnInit {
       console.log("Product Data:", this.product);
       //this.product = this.products[this.index];
       
+  },
+  error => {
+    console.log(error);
   });
   }
   nextProduct()

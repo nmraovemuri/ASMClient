@@ -34,6 +34,9 @@ export class RegisterComponent implements OnInit {
         //this.router.navigate['/signup-status'];
          this.router.navigate([`/signup-status`])
       }
+    },
+    error => {
+      console.log(error);
     })
   }
 

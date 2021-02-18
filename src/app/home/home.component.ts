@@ -80,6 +80,9 @@ categoriesList(){
     console.log("categories list :",result.data);
     this.categories = result.data;
    // console.log("categories list :",this.categories);
+  },
+  error => {
+    console.log(error);
   })  
 }
 getCartList(){

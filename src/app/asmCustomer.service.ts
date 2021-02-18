@@ -5,8 +5,8 @@ import {HttpClient} from '@angular/common/http'
   providedIn: 'root'
 })
 export class ASMCustomerService{
-  // ASM_SERVER_BASE_URL = "http://52.15.233.153:3000";
-   ASM_SERVER_BASE_URL = "http://localhost:3000";
+   ASM_SERVER_BASE_URL = "http://43.241.36.16:3000";
+  // ASM_SERVER_BASE_URL = "http://localhost:3000";
   customer : any;
   token :any;
   
@@ -40,6 +40,20 @@ export class ASMCustomerService{
   resetPassword(data: any) {
     console.log("data:", data);
     return this.http.post(this.ASM_SERVER_BASE_URL+"/customer_reset_password", data)
+  }
+  changePassword(data: any) {
+    console.log("data:", data);
+    // let customHeaders = {
+    //   headers: { Authorization: "Bearer " + this.token }
+    // }
+    // console.log("customHeaders :",  customHeaders);
+    let customHeaders = {
+      headers: { 'Authorization' : "Bearer " + localStorage.getItem("token"), 
+                 "Content-Type" : "application/json"
+               }
+    }
+    console.log("customHeaders :",  customHeaders);
+    return this.http.post(this.ASM_SERVER_BASE_URL+"/customer_change_password", data, customHeaders)
   }
   
 }

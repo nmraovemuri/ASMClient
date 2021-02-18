@@ -66,6 +66,9 @@ export class NavigationComponent implements OnInit {
         this.categories = result.data;
         console.log("Allcategoires Data:", this.categories);
       }      
+    },
+    error => {
+      console.log(error);
     })
   }
   getSubcategories(){
@@ -81,6 +84,9 @@ export class NavigationComponent implements OnInit {
     return cat;
     })
     console.log("cat_subcat:",this.cat_subcat);
+    },
+    error => {
+      console.log(error);
     })
   }
   getCartList(){

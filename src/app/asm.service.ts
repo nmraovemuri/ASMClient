@@ -6,8 +6,8 @@ import {HttpClient} from '@angular/common/http'
 })
 export class ASMService{
   products : any;
-  // ASM_SERVER_BASE_URL = "http://52.15.233.153:3000";
-   ASM_SERVER_BASE_URL = "http://localhost:3000";
+   ASM_SERVER_BASE_URL = "http://43.241.36.16:3000";
+  // ASM_SERVER_BASE_URL = "http://localhost:3000";
 
   constructor(private http:HttpClient) { }
   getAllContent() {

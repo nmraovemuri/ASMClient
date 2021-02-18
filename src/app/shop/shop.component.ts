@@ -24,7 +24,10 @@ export class ShopComponent implements OnInit {
     this.id = params.id; 
     console.log("ID :", this.id);
   this.getProductsBySubcatId();
-});
+  },
+  error => {
+    console.log(error);
+  });
   }
   getAllCategories()
   {
@@ -35,8 +38,9 @@ export class ShopComponent implements OnInit {
          this.categories = result.data;
          console.log("Allcategoires Data:", this.categories);
       }
-  
-      
+    },
+    error => {
+      console.log(error);
     })
   }
   getSubcategories(){
@@ -52,6 +56,9 @@ export class ShopComponent implements OnInit {
         return cat;
     });
     console.log("cat_subcat:",this.cat_subcat);
+    },
+    error => {
+      console.log(error);
     })
   }
   getProductsBySubcatId()
@@ -68,8 +75,9 @@ export class ShopComponent implements OnInit {
           this.asmService.setProducts(this.products);
           console.log("Products by Subcategory ID Data:", this.products);
       }
-  
-      
+    },
+    error => {
+      console.log(error);
     })
   }
   addToCart(product){
@@ -82,6 +90,4 @@ export class ShopComponent implements OnInit {
     this.cartService.addToCart(product);
   }
   isHidden = false;
-
-
 }

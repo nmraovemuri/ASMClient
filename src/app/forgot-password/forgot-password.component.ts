@@ -29,6 +29,9 @@ export class ForgotPasswordComponent implements OnInit {
       if(this.response[0].status = "success"){
         this.router.navigate([`/forgot-password-status`]);
       }
+    },
+    error => {
+      console.log(error);
     })
   }
 
