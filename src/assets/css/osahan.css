@@ -183,8 +183,16 @@ a:focus {
 .card-header {
     /* background-color: #e76125;  */
     /* background-color: #8bc34a; */
-    background: linear-gradient(to left, #A8DE1C 0%, #50AC02 100%);
+    /* background: linear-gradient(to left, #A8DE1C 0%, #50AC02 100%); */
+    background-color: #6c757d;
 	border-bottom: 1px solid #eeeeee;
+}
+.card-header:hover {
+    /* background-color: #e76125;  */
+    /* background-color: #8bc34a; */
+    /* background: linear-gradient(to left, #A8DE1C 0%, #50AC02 100%); */
+    background-color: #5a6167;
+	border-bottom: 1px solid #5a6167;
 }
 .card {
     background-clip: border-box;
@@ -222,15 +230,17 @@ a:focus {
     background: #384042 none repeat scroll 0 0;
 }
 .main-nav-right .btn {
-    border-radius: 0 !important;
-    border-right: 1px solid #384042;
+    border-radius: 5px !important;
+    /* border-right: 1px solid #384042; */
     color: #fff;
     margin: 0 0 0 -4px;
     padding: 24px;
+    
 }
 .main-nav-right .btn:hover {
      /* background-color: #384042 !important; */
-     background-color: #FF5239 !important;
+     /* background-color: #FF5239 !important; */
+     background: linear-gradient(to bottom, #A8DE1C 0%, #50AC02 100%);
 }
 .main-nav-right li {
     margin: 0 !important;
@@ -263,11 +273,12 @@ a:focus {
     font-size: 10px;
     font-weight: 500;
     height: 18px;
-    left: 31px;
+    right: 76px;
     line-height: 17px;
     min-width: 18px;
     position: absolute;
     top: 11px;
+    text-align: center;
 }
 .location-top {
     color: #fff !important;
@@ -283,6 +294,7 @@ a:focus {
     right: 0;
     top: 16px;
     width: 50%;
+    padding-right:65px;
 }
 .top-categories-search .form-control {
     /* border: medium none; */
@@ -353,6 +365,7 @@ a:focus {
     color: #666;
     font-size: 13px;
     padding: 5px 14px !important;
+    
 }
 .osahan-menu-2 .nav-link.shop {
     border-right: 1px solid #ececec;
@@ -571,9 +584,9 @@ a:focus {
     margin-left: 12px;
 }
 /* Cart Sidebar */
-/* body.toggled {
+body.toggled {
     overflow: hidden;
-} */
+}
 body.toggled::after {
     background: #000 none repeat scroll 0 0;
     bottom: 0;
@@ -590,7 +603,8 @@ body.toggled::after {
     background: #fff none repeat scroll 0 0;
     overflow: auto;
     position: fixed;
-    right: -400px;
+    /* right: -400px; */
+    right: 0px;
     top: 0;
     width: 400px;
 	z-index: 99;
@@ -911,7 +925,7 @@ body.toggled::after {
     margin: 0 0 -1px;
 }
 .checkout-step .card .card-header .btn {
-	color: #333;
+	color: #fff;
     font-size: 17px;
     font-weight: 500;
     padding: 9px 0;
@@ -934,12 +948,16 @@ body.toggled::after {
 	border: 2px solid;
 }
 .checkout-step .card .card-header .btn.collapsed .number {
-     border: 2px solid #e96125;
-	 color: #e96125;
+     /* border: 2px solid #e96125;
+	 color: #e96125; */
+     border: 2px solid #fff;
+	color: #fff;
 }
 .checkout-step .card .card-header .btn .number {
-    border: 2px solid #51aa1b;
-	color: #51aa1b;
+    /* border: 2px solid #51aa1b;
+	color: #51aa1b; */
+    border: 2px solid #b2beb5;
+	color: #b2beb5;
 }
 .order-done .mdi {
     font-size: 135px;
@@ -951,7 +969,7 @@ body.toggled::after {
     float: right;
     height: 300px;
     list-style: outside none none;
-    margin: 70px auto auto;
+    margin: 70px auto auto 75px;
     width: 322px;
 }
 .form-control {
@@ -1143,7 +1161,7 @@ label {
 	.top-categories-search {
 		left: 0;
 		margin: auto;
-		padding: 0 15px 8px;
+		padding: 5px 15px 8px;
 		position: relative;
 		right: 0;
 		top: 0;
@@ -1183,11 +1201,12 @@ label {
 	.main-nav-right .btn {
 		font-size: 0;
 		padding: 21px 15px;
+        display: none;
 	}
 	.osahan-menu .my-2.my-lg-0 .main-nav-right {
 		position: absolute;
 		right: 76px;
-		top: 0;
+		top: 0;        
 	}
 	.main-nav-right .btn .mdi {
 		font-size: 17px !important;

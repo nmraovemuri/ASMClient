@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ef": {
+    "ASMClient": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ef",
+            "outputPath": "dist/ASMClient",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,7 +25,7 @@
             ],
             "styles": ["src/styles.css"],
             "scripts": [
-              // "src/assets/js/custom.js"
+              "src/assets/js/custom.js"
               ]
           },
           "configurations": {
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ef:build"
+            "browserTarget": "ASMClient:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ef:build:production"
+              "browserTarget": "ASMClient:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ef:build"
+            "browserTarget": "ASMClient:build"
           }
         },
         "test": {
@@ -108,18 +108,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ef:serve"
+            "devServerTarget": "ASMClient:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ef:serve:production"
+              "devServerTarget": "ASMClient:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "ef",
+  "defaultProject": "ASMClient",
   "cli": {
     "analytics": "9e39869d-1a61-4e32-9ad5-f8379a82dae5"
   }

@@ -1,3 +1,184 @@
+
+<div *ngIf = "showModal == true">
+   <!-- -->
+   <!--class="modal fade login-modal-main"-->
+<div class="my-login-modal modal-dialog-centered"  id="bd-example-modal" tabindex="-1"  data-keyboard="false" data-backdrop="static" style="padding-right: 16px;margin-top:-143px !important;">
+   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+         <div class="modal-body">
+            <div class="login-modal">
+               <div class="row">
+                  <div class="col-lg-6 pad-right-0">
+                     <div class="login-modal-left">
+                     </div>
+                  </div>
+                  <div class="col-lg-6 pad-left-0">
+                     <button type="button" class="close close-top-right" data-dismiss="modal"  aria-label="Close" (click)="onClose()">  
+                        <span aria-hidden="true"><i class="mdi mdi-close"></i></span>
+                        <span class="sr-only">Close</span>
+                     </button>
+                     <form>
+                        <div class="login-modal-right">
+                           <!-- Tab panes -->
+                           <!-- <div class="tab-content">
+
+                              <div class="tab-pane active" id="login" role="tabpanel"> -->
+                              
+                                 <form #loginForm="ngForm" (ngSubmit)=userlogin(loginForm) novalidate>
+                                    <div class="card-header" style="background-color: #f8f9d2;
+                                    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);">
+                                        <h4 class="text-center font-weight-light">Sign in your Account.</h4>
+                                    </div>
+                                    <!-- <h5 class="heading-design-h5">Login to your account</h5> -->
+                                    <fieldset class="form-group">
+                                        <label>Email:<span style="color: red;">*</span></label> 
+                                        <input type="text" class="form-control" placeholder="Enter your Email"
+                                            [(ngModel)]="loginData.email_id" name="email_id" #email_id="ngModel"
+                                            [ngClass]="{'is-invalid':loginForm.submitted && email_id.invalid}" required />
+                                        <div *ngIf="email_id.invalid && (email_id.dirty || email_id.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="email_id.errors.required">Email is required. </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <label>Password:<span style="color: red;">*</span></label>
+                                        <input type="password" class="form-control" placeholder="********"
+                                            [(ngModel)]="loginData.password" name="password" #password="ngModel"
+                                            [ngClass]="{'is-invalid':loginForm.submitted && email_id.invalid}" required />
+                                        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="password.errors.required">password is required. </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <button type="submit" class="btn square_btn btn-lg btn-block login-button "
+                                            [disabled]="!loginForm.valid">LOGIN</button>
+                                    </fieldset>                   
+                                    <div class="login-with-sites text-center">
+                                        <a routerLink="/forgot-password"><b> Forgot Password</b></a>   
+                                    </div>                   
+                                </form>
+                              <!-- </div> -->
+
+                              <!-- <div class="tab-pane" id="register" role="tabpanel">
+                                 <form [formGroup]= "registrationForm" (ngSubmit)="onSubmit()"  class="form-horizontal">
+
+                                    <div class="form-group">
+                                        <label for="name" class="cols-sm-2 control-label">First Name:<span style="color: red;">*</span></label>
+                                        <div class="cols-sm-10">
+                                            <div class="input-group">                                    
+                                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                                <input type="text" class="form-control" formControlName = "first_name"  id="first_name" placeholder="Enter your Name"
+                                                [ngClass]="{'is-invalid': registrationForm.get('first_name').touched  && registrationForm.get('first_name').invalid }" />                                        
+                                                <div *ngIf="registrationForm.get('first_name').touched  && registrationForm.get('first_name').invalid" class="invalid-feedback">
+                                                    <div *ngIf = "registrationForm.get('first_name').errors.required"> First name is required.</div>
+                                                    <div *ngIf = "registrationForm.get('first_name').errors.minlength || registrationForm.get('first_name').errors.maxlength"> First name is must be greater than 2 characters and less than 10 characters.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name" class="cols-sm-2 control-label">Last Name:<span style="color: red;">*</span></label>
+                                        <div class="cols-sm-10">
+                                            <div class="input-group">                                    
+                                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                                <input type="text" class="form-control" formControlName = "last_name"  id="last_name" placeholder="Enter your Last Name"
+                                                [ngClass]="{'is-invalid': registrationForm.get('last_name').touched  && registrationForm.get('last_name').invalid }" />                                        
+                                                <div *ngIf="registrationForm.get('last_name').touched  && registrationForm.get('last_name').invalid" class="invalid-feedback">
+                                                    <div *ngIf = "registrationForm.get('last_name').errors.required"> last name is required.</div>
+                                                    <div *ngIf = "registrationForm.get('last_name').errors.minlength || registrationForm.get('last_name').errors.maxlength"> Last name is must be greater than 2 characters and less than 10 characters.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="cols-sm-2 control-label">Email:<span style="color: red;">*</span></label>
+                                        <div class="cols-sm-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                                <input type="text" class="form-control" formControlName = "email_id" name="email_id" id="email_id" placeholder="Enter your Email"
+                                                [ngClass]="{'is-invalid': registrationForm.get('email_id').touched  && registrationForm.get('email_id').invalid }" />
+                                                <div *ngIf="registrationForm.get('email_id').touched  && registrationForm.get('email_id').invalid" class="invalid-feedback">
+                                                    <div *ngIf = "registrationForm.get('email_id').errors.required"> Email is required.</div>
+                                                    <div *ngIf = "registrationForm.get('email_id').errors.email"> Email must be valid email Address</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mobile" class="cols-sm-2 control-label">Mobile Number:<span style="color: red;">*</span></label>
+                                        <div class="cols-sm-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                                <input type="number" class="form-control" formControlName = "mobile" name="mobile" id="mobile" placeholder="Enter your Mobile Number"
+                                                [ngClass]="{'is-invalid': registrationForm.get('mobile').touched  && registrationForm.get('mobile').invalid }" />                                        
+                                                <div *ngIf="registrationForm.get('mobile').touched  && registrationForm.get('mobile').invalid" class="invalid-feedback">
+                                                    <div *ngIf = "registrationForm.get('mobile').errors.required"> mobile number is required.</div>
+                                                    <div *ngIf = "registrationForm.get('mobile').errors.minlength || registrationForm.get('mobile').errors.maxlength"> Mobile Number is must be 10 digits.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="cols-sm-2 control-label">Password:<span style="color: red;">*</span></label>
+                                        <div class="cols-sm-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                                <input type="password" class="form-control" formControlName="password" name="password" id="password" placeholder="Enter your Password" 
+                                                [ngClass]="{'is-invalid': registrationForm.get('password').touched  && registrationForm.get('password').invalid }" />                                        
+                                                <div *ngIf="registrationForm.get('password').touched  && registrationForm.get('password').invalid" class="invalid-feedback">
+                                                    <div *ngIf = "registrationForm.get('password').errors.required"> password is required.</div>
+                                                    <div *ngIf = "registrationForm.get('password').errors.minlength || registrationForm.get('password').errors.maxlength"> password  is must be greater than 6 characters and less than 8 characters.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirm" class="cols-sm-2 control-label">Confirm Password:<span style="color: red;">*</span></label>
+                                        <div class="cols-sm-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                                <input type="password" class="form-control" formControlName = "confirm_password" name="confirm_password" id="confirm_password" placeholder="Confirm your Password" 
+                                                [ngClass]="{'is-invalid': registrationForm.get('confirm_password').touched  && registrationForm.get('confirm_password').invalid }" />                                        
+                                                <div *ngIf="registrationForm.get('confirm_password').touched  && registrationForm.get('confirm_password').invalid" class="invalid-feedback">
+                                                    <div *ngIf = "registrationForm.get('confirm_password').errors.required"> confirm password is required.</div>
+                                                    <div *ngIf = "registrationForm.get('confirm_password').errors.minlength || registrationForm.get('confirm_password').errors.maxlength"> confirm password  is must be greater than 6 characters and less than 8 characters.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <button type="submit" class="btn square_btn btn-lg btn-block login-button " [disabled]="!registrationForm.valid">Register</button>
+                                    </div>
+                                    
+                                </form>
+                              </div> -->
+                           <!-- </div> -->
+                           <div class="clearfix"></div>
+                           <!-- <div class="text-center login-footer-tab">
+                              <ul class="nav nav-tabs" role="tablist">
+                                 <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#login" role="tab"><i
+                                          class="mdi mdi-lock"></i> LOGIN</a>
+                                 </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#register" role="tab"><i
+                                          class="mdi mdi-pencil"></i> REGISTER</a>
+                                 </li>
+                              </ul>
+                           </div> -->
+                           <div class="clearfix"></div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+
 <section class="pt-3 pb-3 page-info section-padding border-bottom bg-white">
     <div class="container">
        <div class="row">
@@ -16,22 +197,24 @@
                    <table class="table cart_summary">
                       <thead>
                          <tr>
+                            <th style="text-align : center !important;">S.No</th>
                             <th class="cart_product">Product</th>
-                            <th>Description</th>
+                            <th style="text-align : center !important;">Description</th>
                             <th>Avail.</th>
                             <th>MRP</th>
                             <th>Discount</th>
                             <th>Unit price</th>                            
-                            <th>Qty</th>
+                            <th style="text-align : center !important;">Qty</th>
                             <th>Total</th>
-                            <th class="action"><i class="mdi mdi-delete-forever"></i></th>
+                            <th class="action" style="font-size: 30px;"><i class="mdi mdi-delete-forever"></i></th>
                          </tr>
                       </thead>
                       <tbody>
-                         <tr *ngFor = "let cartItem of cartService.getCartList()">
-                            <td class="cart_product"><a href="#"><img class="img-fluid" src="assets{{cartItem.product_img}}" alt=""></a></td>
+                         <tr *ngFor = "let cartItem of cartService.getCartList(), let sno = index">
+                            <td style="text-align: right;"><strong>{{sno+1}}.</strong></td>
+                            <td class="cart_product"><a [routerLink] ="['/single', cartItem.id, cartItem.unit_value]"><img class="img-fluid" src="assets{{cartItem.product_img}}" alt=""></a></td>
                             <td class="cart_description">
-                               <h5 class="product-name"><a href="#">{{cartItem.product_name}} </a></h5>
+                               <h5 class="product-name"><a [routerLink] ="['/single', cartItem.id, cartItem.unit_value]">{{cartItem.product_name}} </a></h5>
                                <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - {{cartItem.unit_value}}{{cartItem.unit_type}}</h6>
                             </td>
                             <td class="availability in-stock"><span class="badge badge-success">In stock</span></td>
@@ -46,7 +229,7 @@
                                   </span>
                                </div>
                             </td>
-                            <td class="price"><span>Rs.{{cartItem.total}}</span></td>
+                            <td class="price"><span>Rs.{{cartItem.total_amount}}</span></td>
                             <td class="action">
                                <a class="btn btn-sm btn-danger" data-original-title="Remove"  title="" data-placement="top" data-toggle="tooltip" (click)="cartService.removeFromCart(cartItem)"><i class="mdi mdi-close-circle-outline"></i></a>
                                <!--routerLink="/cart"-->
@@ -57,30 +240,27 @@
                       <tfoot>
                          <tr>
                             <td colspan="1"></td>
-                            <td colspan="6">
-                               <!-- <form class="form-inline float-right">
-                                  <div class="form-group">
-                                     <input type="text" placeholder="Enter discount code" class="form-control border-form-control form-control-sm">
-                                  </div>
-                                  &nbsp;
-                                  <button class="btn btn-success float-left btn-sm" type="submit">Apply</button>
-                               </form> -->
-                            </td>
-                            <td colspan="2">Discount : {{cartService.getCartDiscountPrice()}} </td>
+                            <td colspan="8" class=" text-right"><strong>Discount:</strong></td>
+                            <td colspan="3"> <strong>Rs.{{cartService.getCartDiscountPrice()}}</strong> </td>
                          </tr>
                          <tr>
-                            <td colspan="2"></td>
-                            <td class="text-right"  colspan="5">Total products</td>
-                            <td colspan="2">{{cartService.getCartSize()}} / {{cartService.getCartQuantity()}}</td>
+                            <td colspan="1"></td>
+                            <td class="text-right"  colspan="8"><strong>Total products:</strong></td>
+                            <td colspan="3"><strong>{{cartService.getCartSize()}} / {{cartService.getCartQuantity()}}</strong></td>
                          </tr>
                          <tr>
-                            <td class="text-right" colspan="7"><strong>Total</strong></td>
-                            <td class="text-danger" colspan="2"><strong>Rs. {{cartService.getCartTotalPrice()}} </strong></td>
+                           <td colspan="1"></td>
+                            <td class="text-right" colspan="8"><strong>Total:</strong></td>
+                            <td class="text-danger" colspan="3"><strong>Rs. {{cartService.getCartTotalPrice()}} </strong></td>
                          </tr>
                       </tfoot>
                    </table>
                 </div>
-                <a routerLink="/checkout"><button class="btn btn-secondary btn-lg btn-block text-left" type="button"><span class="float-left"><i class="mdi mdi-cart-outline"></i> Proceed to Checkout </span><span class="float-right"><strong>$1200.69</strong> <span class="mdi mdi-chevron-right"></span></span></button></a>
+                <div class="row">
+                   <div class="col-md-6" style="display : none;"><button class="btn btn-secondary btn-block text-left" data-toggle="modal" (click) = "checkLogin()" type="button" style="background: linear-gradient(to bottom, #A8DE1C 0%, #50AC02 100%) !important"><span class="float-left"><i class="mdi mdi-heart-outline"></i> Add wish List </span><span class="float-right"> <span class="mdi mdi-chevron-right"></span></span></button></div>
+                   <div class="offset-6 col-md-6 "><button class="btn btn-secondary btn-block text-left" data-toggle="modal" (click) = "checkLogin()" type="button"><span class="float-left"><i class="mdi mdi-cart-outline"></i> Proceed to Checkout </span><span class="float-right"><span class="mdi mdi-chevron-right"></span></span></button></div>
+                </div>
+                
              </div>
              
           </div>

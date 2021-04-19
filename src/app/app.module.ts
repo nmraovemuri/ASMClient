@@ -39,8 +39,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { ChangeUserPasswordComponent } from './change-user-password/change-user-password.component';
 import { ForgotPasswordStatusComponent } from './forgot-password-status/forgot-password-status.component';
 import { ResetPasswordStatusComponent } from './reset-password-status/reset-password-status.component';
-
-
+import { SearchComponent } from './search/search.component';
+import { TopDealsoftheDayComponent } from './top-dealsofthe-day/top-dealsofthe-day.component';
 
 
 
@@ -73,7 +73,9 @@ import { ResetPasswordStatusComponent } from './reset-password-status/reset-pass
     ResetPasswordComponent,
     ChangeUserPasswordComponent,
     ForgotPasswordStatusComponent,
-    ResetPasswordStatusComponent,         
+    ResetPasswordStatusComponent,
+    SearchComponent,
+    TopDealsoftheDayComponent,         
   ],
   imports: [
     BrowserModule,
@@ -83,8 +85,8 @@ import { ResetPasswordStatusComponent } from './reset-password-status/reset-pass
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-    BsDropdownModule.forRoot()
+    BrowserAnimationsModule,   
+    BsDropdownModule.forRoot(),  
     
   ],
   providers: [ASMService, CartService, ASMCustomerService,

@@ -12,7 +12,7 @@ export class ChangeUserPasswordComponent implements OnInit {
   customer_id: any;
   changePasswordForm: FormGroup;
   constructor(private activatedRoute: ActivatedRoute,
-    private asmCustomerService : ASMCustomerService,
+    public asmCustomerService : ASMCustomerService,
     private router : Router) { }
 
   ngOnInit(): void {
@@ -53,6 +53,13 @@ onSubmit(): void {
   error => {
     console.log(error);
   })
+}
+onLogout(){
+  // localStorage.removeItem('username');
+  localStorage.removeItem('customer');
+  localStorage.removeItem('token'); 
+  this.asmCustomerService.setCustomerInfo(null, null);
+  this.router.navigate([`/home`]);
 }
 
 }

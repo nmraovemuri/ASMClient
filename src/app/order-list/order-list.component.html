@@ -6,16 +6,16 @@
                 <div class="col-md-4">
                    <div class="card account-left">
                       <div class="user-profile-header">
-                         <img alt="logo" src="img/user.jpg">
-                         <h5 class="mb-1 text-secondary"><strong>Hi </strong> OSAHAN</h5>
-                         <p> +91 8568079956</p>
+                         <img alt="logo" src="assets/img/user.jpg">
+                         <h5 class="mb-1 text-secondary" style="text-transform: capitalize;"><strong>Hi </strong> {{customerService.getFirstName()}}</h5>
+                         <p> {{customerService.getMobile()}}</p>
                       </div>
                       <div class="list-group">
-                         <a href="my-profile.html" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-account-outline"></i>  My Profile</a>
-                         <a href="my-address.html" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>  My Address</a>
-                         <a href="wishlist.html" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-heart-outline"></i>  Wish List </a>
-                         <a href="orderlist.html" class="list-group-item list-group-item-action active"><i aria-hidden="true" class="mdi mdi-format-list-bulleted"></i>  Order List</a> 
-                         <a href="#" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-lock"></i>  Logout</a> 
+                        <a routerLink="/my-profile" class="list-group-item list-group-item-action "><i aria-hidden="true" class="mdi mdi-account-outline"></i>  My Profile</a>
+                        <a routerLink="/my-address" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>  My Address</a>
+                        <a routerLink="/wishlist" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-heart-outline"></i>  Wish List </a>
+                        <a routerLink="/orderlist" class="list-group-item list-group-item-action active"><i aria-hidden="true" class="mdi mdi-format-list-bulleted"></i>  Order List</a> 
+                        <a routerLink="/logout" class="list-group-item list-group-item-action" (click)="onLogout()"><i aria-hidden="true" class="mdi mdi-lock"></i>  Logout</a> 
                       </div>
                    </div>
                 </div>
@@ -33,96 +33,21 @@
                                   <tr>
                                      <th>Order #</th>
                                      <th>Date Purchased</th>
-                                     <th>Status</th>
+                                     <th>Total Items</th>
                                      <th>Total</th>
+                                     <th>Status</th>                                     
                                      <th>Action</th>
                                   </tr>
                                </thead>
                                <tbody>
-                                  <tr>
-                                     <td>#243</td>
-                                     <td>August 08, 2017</td>
-                                     <td><span class="badge badge-danger">Canceled</span></td>
-                                     <td>$760.50</td>
-                                     <td><a data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="View Detail" class="btn btn-info btn-sm"><i class="mdi mdi-eye"></i></a></td>
-                                  </tr>
-                                  <tr>
-                                     <td>#258</td>
-                                     <td>July 21, 2017</td>
-                                     <td><span class="badge badge-info">In Progress</span></td>
-                                     <td>$315.20</td>
-                                     <td><a data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="View Detail" class="btn btn-info btn-sm"><i class="mdi mdi-eye"></i></a></td>
-                                  </tr>
-                                  <tr>
-                                     <td>#254</td>
-                                     <td>June 15, 2017</td>
-                                     <td><span class="badge badge-warning">Delayed</span></td>
-                                     <td>$1,264.00</td>
-                                     <td><a data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="View Detail" class="btn btn-info btn-sm"><i class="mdi mdi-eye"></i></a></td>
-                                  </tr>
-                                  <tr>
-                                     <td>#293</td>
-                                     <td>May 19, 2017</td>
-                                     <td><span class="badge badge-success">Delivered</span></td>
-                                     <td>$198.35</td>
-                                     <td><a data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="View Detail" class="btn btn-info btn-sm"><i class="mdi mdi-eye"></i></a></td>
-                                  </tr>
-                                  <tr>
-                                     <td>#266</td>
-                                     <td>April 04, 2017</td>
-                                     <td><span class="badge badge-success">Delivered</span></td>
-                                     <td>$598.35</td>
-                                     <td><a data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="View Detail" class="btn btn-info btn-sm"><i class="mdi mdi-eye"></i></a></td>
-                                  </tr>
-                                  <tr>
-                                     <td>#277</td>
-                                     <td>March 30, 2017</td>
-                                     <td><span class="badge badge-success">Delivered</span></td>
-                                     <td>$98.35</td>
-                                     <td><a data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="View Detail" class="btn btn-info btn-sm"><i class="mdi mdi-eye"></i></a></td>
-                                  </tr>
-                                  <tr>
-                                     <td>#243</td>
-                                     <td>August 08, 2017</td>
-                                     <td><span class="badge badge-danger">Canceled</span></td>
-                                     <td>$760.50</td>
-                                     <td><a data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="View Detail" class="btn btn-info btn-sm"><i class="mdi mdi-eye"></i></a></td>
-                                  </tr>
-                                  <tr>
-                                     <td>#258</td>
-                                     <td>July 21, 2017</td>
-                                     <td><span class="badge badge-info">In Progress</span></td>
-                                     <td>$315.20</td>
-                                     <td><a data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="View Detail" class="btn btn-info btn-sm"><i class="mdi mdi-eye"></i></a></td>
-                                  </tr>
-                                  <tr>
-                                     <td>#254</td>
-                                     <td>June 15, 2017</td>
-                                     <td><span class="badge badge-warning">Delayed</span></td>
-                                     <td>$1,264.00</td>
-                                     <td><a data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="View Detail" class="btn btn-info btn-sm"><i class="mdi mdi-eye"></i></a></td>
-                                  </tr>
-                                  <tr>
-                                     <td>#293</td>
-                                     <td>May 19, 2017</td>
-                                     <td><span class="badge badge-success">Delivered</span></td>
-                                     <td>$198.35</td>
-                                     <td><a data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="View Detail" class="btn btn-info btn-sm"><i class="mdi mdi-eye"></i></a></td>
-                                  </tr>
-                                  <tr>
-                                     <td>#266</td>
-                                     <td>April 04, 2017</td>
-                                     <td><span class="badge badge-success">Delivered</span></td>
-                                     <td>$598.35</td>
-                                     <td><a data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="View Detail" class="btn btn-info btn-sm"><i class="mdi mdi-eye"></i></a></td>
-                                  </tr>
-                                  <tr>
-                                     <td>#277</td>
-                                     <td>March 30, 2017</td>
-                                     <td><span class="badge badge-success">Delivered</span></td>
-                                     <td>$98.35</td>
-                                     <td><a data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="View Detail" class="btn btn-info btn-sm"><i class="mdi mdi-eye"></i></a></td>
-                                  </tr>
+                                  <tr *ngFor ="let  order of ordersHistoryList">
+                                     <td>{{order.order_id}}</td>
+                                     <td>{{order.created_date}}</td>
+                                     <td>{{order.total_items}}</td>
+                                     <td>Rs.{{order.total_amount}}</td>
+                                     <td><span class="badge badge-danger">{{order.status}}</span></td>                                     
+                                     <td><a data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="View Detail" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" (click)="orderDetails(order.order_id)"><i class="mdi mdi-eye"></i></a></td>
+                                  </tr>                              
                                </tbody>
                             </table>
                          </div>
@@ -178,3 +103,157 @@
         </div>
      </section>
      <!-- End Copyright -->
+    <!-- Button to Open the Modal -->
+<!-- <button type="button" class="btn btn-primary btn-block btn-lg" data-toggle="modal" data-target="#myModal">
+   Open modal
+ </button> -->
+ 
+   
+   <!-- The Modal -->
+ <div class="modal" id="myModal">
+   <div class="modal-dialog modal-lg" style=" max-width: 979px !important">
+     <div class="modal-content">
+ 
+       <!-- Modal Header -->
+       <div class="modal-header">
+          <div class="row">
+             <div class="col-md-6"><h4 class="modal-title">Billing Address:</h4><hr>
+               <div class="table-responsive">
+                  <table style="width: 80%;">
+                      <tr>
+                          <td>customer_id:</td>
+                          <td>{{billingAddress.customer_id}}</td>
+                          <td>Name:</td>
+                          <td>{{billingAddress.first_name}}</td>
+                      </tr>                                                
+                      <tr>
+                          <td>email_id:</td>
+                          <td>{{billingAddress.email_id}}</td>
+                          <td>mobile :</td>
+                          <td>{{billingAddress.mobile}}</td>
+                      </tr>                                                
+                      <tr>
+                          <td>created_date:</td>
+                          <td>{{billingAddress.created_date}}</td>
+                          <td>updated_date:</td>
+                          <td>{{billingAddress.updated_date}}</td>
+                      </tr>
+                      
+                      <tr>
+                          <td>addr_field1:</td>
+                          <td>{{billingAddress.addr_field1}}</td>
+                          <td>addr_field2:</td>
+                          <td>{{billingAddress.addr_field2}}</td>
+                      </tr>
+                      
+                      <tr>
+                          <td>addr_field3:</td>
+                          <td>{{billingAddress.addr_field3}}</td>
+                          <td>addr_field4:</td>
+                          <td>{{billingAddress.addr_field4}}</td>
+                      </tr>
+                      
+                      <tr>
+                          <td>addr_field5:</td>
+                          <td>{{billingAddress.addr_field5}}</td>
+                          <td>pincode:</td>
+                          <td>{{billingAddress.pin_code}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Order ID:</strong></td>
+                        <td><strong>{{orderID}}</strong></td>
+                       
+                    </tr>
+                      
+                  </table>
+              </div>
+         </div>
+             <div class="col-md-6"><h4 class="modal-title">Shipping Address:</h4><hr>
+               <div class="table-responsive">
+                  <table style="width: 80%;">
+                      <tr>
+                          <td>customer_id:</td>
+                          <td>{{shippingAddress.customer_id}}</td>
+                          <td>Name:</td>
+                          <td>{{shippingAddress.first_name}}</td>
+                      </tr>                                                
+                      <tr>
+                          <td>email_id:</td>
+                          <td>{{shippingAddress.email_id}}</td>
+                          <td>mobile :</td>
+                          <td>{{shippingAddress.mobile}}</td>
+                      </tr>                                                
+                      <tr>
+                          <td>created_date:</td>
+                          <td>{{shippingAddress.created_date}}</td>
+                          <td>updated_date:</td>
+                          <td>{{shippingAddress.updated_date}}</td>
+                      </tr>
+                      
+                      <tr>
+                          <td>addr_field1:</td>
+                          <td>{{shippingAddress.addr_field1}}</td>
+                          <td>addr_field2:</td>
+                          <td>{{shippingAddress.addr_field2}}</td>
+                      </tr>
+                      
+                      <tr>
+                          <td>addr_field3:</td>
+                          <td>{{shippingAddress.addr_field3}}</td>
+                          <td>addr_field4:</td>
+                          <td>{{shippingAddress.addr_field4}}</td>
+                      </tr>
+                      
+                      <tr>
+                          <td>addr_field5:</td>
+                          <td>{{shippingAddress.addr_field5}}</td>
+                          <td>pincode:</td>
+                          <td>{{shippingAddress.pin_code}}</td>
+                      </tr>
+                      
+                  </table>
+              </div>
+             </div>
+          </div>
+         
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+       </div>
+ 
+       <!-- Modal body -->
+       <div class="modal-body">
+           <table class="table table-striped">
+     <thead>
+       <tr>
+         <th>S.No</th>
+         <th>Product Name</th>
+         <th>Unit/Type</th>
+         <th>MRP</th>
+         <th>GST</th>
+         <th>Qty</th>
+         <th>Sale_price</th>
+         <th>Total Amount</th>         
+       </tr>
+     </thead>
+     <tbody>
+      <tr *ngFor = "let product of orderDetailsList, let sno = index">
+         <td>{{sno+1}}</td>
+         <td>{{product.product_name}}</td>
+         <td>{{product.unit_value}}{{product.unit_type}}</td>
+         <td>{{product.mrp}}</td>
+         <td> {{product.gst_slab}}%</td>
+         <td>{{product.quantity}}</td>                                                                                     
+         <td>{{product.sale_price}} </td>                            
+         <td>{{product.total_amount}}</td>
+     </tr>      
+     </tbody>
+   </table>
+   </div>
+ 
+       <!-- Modal footer -->
+       <div class="modal-footer">
+         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+       </div> 
+     </div>
+   </div>
+ </div>
+ 

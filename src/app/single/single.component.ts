@@ -15,7 +15,7 @@ export class SingleComponent implements OnInit {
   
   constructor(private activatedRoute: ActivatedRoute,
               private asmService : ASMService,
-              private cartService: CartService) { }
+              public cartService: CartService) { }
   pid : any;
   unit_value : any;
   // product : any = {
@@ -29,6 +29,7 @@ export class SingleComponent implements OnInit {
   //             unit_value: "1",
   // }
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.activatedRoute.params.subscribe((params: Params) => {
       this.pid = params.pid; 
       this.unit_value = params.unit_value;
@@ -50,8 +51,19 @@ export class SingleComponent implements OnInit {
     this.index = this.index + 1;
     this.product = this.products[this.index];
   }
+  // addToCart(){
+  //   this.cartService.addToCart(this.product);
+  // }
   addToCart(){
-    this.cartService.addToCart(this.product);
+    if(this.product.quantity){
+      this.product.quantity = this.product.quantity + 1;
+      this.product.total_amount = this.product.sale_price * this.product.quantity;
+    }
+    else{
+      this.product.quantity = 1;
+      this.product.total_amount = this.product.sale_price * this.product.quantity;
+      this.cartService.addToCart(this.product);
+    }
   }
 
 

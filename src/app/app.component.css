@@ -1,0 +1,17 @@
+.custom-heading{
+    position: relative;
+    width: 100%;
+    height:130px;
+}
+@media screen and (max-width: 992px) {
+    .custom-heading {
+        width: 100%;
+        height:130px;
+    }
+  }
+  @media(max-width:768px){
+    .custom-heading {
+        width: 100%;
+        height:185px;
+    } 
+  }

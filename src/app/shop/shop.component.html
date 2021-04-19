@@ -5,7 +5,12 @@
             <!-- <a href="#"><strong><span class="mdi mdi-home"></span> Home</strong></a> <span class="mdi mdi-chevron-right"></span> <a href="#">Shop</a> -->
          </div>
          <div class="col-md-7">
-            <a href="#"><span class="mdi mdi-home"></span> Home</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits & Vegetables</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits</a>
+            <p><strong>Number of Products : {{products.length}}</strong></p>
+            <!-- <a routerLink="/home"><span class="mdi mdi-home"></span> Home</a> 
+            <span class="mdi mdi-chevron-right"></span> 
+            <a routerLink = "{{cat_subcat[0].category_name}}">{{cat_subcat[0].category_name}}</a> 
+            <span class="mdi mdi-chevron-right"></span>
+            <a href="#">Fruits</a> -->
             
          </div>
          <div class="col-md-2">
@@ -15,10 +20,10 @@
                </button>
                <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="#">Relevance</a>
-                  <a class="dropdown-item" href="#">Price (Low to High)</a>
-                  <a class="dropdown-item" href="#">Price (High to Low)</a>
-                  <a class="dropdown-item" href="#">Discount (High to Low)</a>
-                  <a class="dropdown-item" href="#">Name (A to Z)</a>
+                  <a class="dropdown-item" (click)="priceLowToHigh()" style="cursor: pointer;">Price (Low to High)</a>
+                  <a class="dropdown-item" (click)="priceHighToLow()" style="cursor: pointer;">Price (High to Low)</a>
+                  <a class="dropdown-item" (click)="Discount()" style="cursor: pointer;">Discount (High to Low)</a>
+                  <a class="dropdown-item" (click)="productNameAscendingOrder()" style="cursor: pointer;">Name (A to Z)</a>
                </div>
             <!-- </div> -->
          </div>
@@ -64,7 +69,7 @@
                     <!-- </form>   -->
                     <!-- *ngFor ="let c of cat_subcat" -->
                     <div class="list-group" >        
-                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryOne" aria-expanded="false" aria-controls="categoryOne">
+                     <a routerLink = "{{cat_subcat[0].category_name}}" class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryOne" aria-expanded="false" aria-controls="categoryOne">
                         {{cat_subcat[0].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
                        <div id="categoryOne" class="collapse">
                           <div class="card-body">
@@ -79,7 +84,7 @@
                     </div>
                     <!-- *ngFor ="let c of cat_subcat" -->
                     <div class="list-group" >        
-                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryTwo" aria-expanded="false" aria-controls="categoryTwo">
+                     <a routerLink = "{{cat_subcat[1].category_name}}" class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryTwo" aria-expanded="false" aria-controls="categoryTwo">
                         {{cat_subcat[1].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
                        <div id="categoryTwo" class="collapse">
                           <div class="card-body">
@@ -94,7 +99,7 @@
                     </div>
                     <!-- *ngFor ="let c of cat_subcat" -->
                     <div class="list-group"  >        
-                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryThree" aria-expanded="false" aria-controls="categoryThree">
+                     <a routerLink = "{{cat_subcat[2].category_name}}" class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryThree" aria-expanded="false" aria-controls="categoryThree">
                         {{cat_subcat[2].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
                        <div id="categoryThree" class="collapse">
                           <div class="card-body">
@@ -108,7 +113,7 @@
                      </a>
                     </div>
                     <div class="list-group"  >        
-                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryFour" aria-expanded="false" aria-controls="categoryFour">
+                     <a routerLink = "{{cat_subcat[3].category_name}}" class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryFour" aria-expanded="false" aria-controls="categoryFour">
                         {{cat_subcat[3].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
                        <div id="categoryFour" class="collapse">
                           <div class="card-body">
@@ -122,7 +127,7 @@
                      </a>
                     </div>
                     <div class="list-group"  >        
-                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryFive" aria-expanded="false" aria-controls="categoryFive">
+                     <a routerLink = "{{cat_subcat[4].category_name}}" class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryFive" aria-expanded="false" aria-controls="categoryFive">
                         {{cat_subcat[4].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
                        <div id="categoryFive" class="collapse">
                           <div class="card-body">
@@ -136,7 +141,7 @@
                      </a>
                     </div>
                     <div class="list-group"  >        
-                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categorySix" aria-expanded="false" aria-controls="categorySix">
+                     <a routerLink = "{{cat_subcat[5].category_name}}"   class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categorySix" aria-expanded="false" aria-controls="categorySix">
                         {{cat_subcat[5].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
                        <div id="categorySix" class="collapse">
                           <div class="card-body">
@@ -150,7 +155,7 @@
                      </a>
                     </div>
                     <div class="list-group"  >        
-                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categorySeven" aria-expanded="false" aria-controls="categorySeven">
+                     <a routerLink = "{{cat_subcat[6].category_name}}" class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categorySeven" aria-expanded="false" aria-controls="categorySeven">
                         {{cat_subcat[6].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
                        <div id="categorySeven" class="collapse">
                           <div class="card-body">
@@ -164,7 +169,7 @@
                      </a>
                     </div>
                     <div class="list-group"  >        
-                     <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryEight" aria-expanded="false" aria-controls="categoryEight">
+                     <a routerLink = "/shop/{{cat_subcat[7].category_name}}"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryEight" aria-expanded="false" aria-controls="categoryEight">
                         {{cat_subcat[7].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
                        <div id="categoryEight" class="collapse">
                           <div class="card-body">
@@ -184,38 +189,26 @@
                <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Price <span class="mdi mdi-chevron-down float-right"></span>
+                    Brands <span class="mdi mdi-chevron-down float-right"></span>
                     </button>
                   </h5>
                </div>
                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"><!--data-parent="#accordion"-->
-                  <div class="card-body card-shop-filters">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="1">
-                      <label class="custom-control-label" for="1">$68 to $659 <span class="badge badge-warning">50% OFF</span></label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="2">
-                      <label class="custom-control-label" for="2">$660 to $1014</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="3">
-                      <label class="custom-control-label" for="3">$1015 to $1679</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="4">
-                      <label class="custom-control-label" for="4">$1680 to $1856</label>
-                    </div>
+                  <div class="card-body" style="margin-left: 6px; padding: 6px;" *ngFor ="let brand of brandsList">
+                    <div class="custom-control custom-checkbox" >
+                      <input type="checkbox" style="margin-right: 13px;" (change)="onBrandChange($event, brand)"><!--class="custom-control-input"-->
+                      <label><span style= "color: #333; font-size: 14px;font-weight: 500;">{{brand}}</span> </label><!-- <span class="badge badge-warning">50% OFF</span> class="custom-control-label"-->
+                    </div>                   
                   </div>
                </div>
              </div>
            </div>
          </div>
         
-      </div>
+       </div>
       
          <div class="col-md-9">
-            <a href="#"><img class="img-fluid mb-3" src="img/shop.jpg" alt=""></a>
+            <!-- <p><strong>Number of Products : {{products.length}}</strong></p> -->
             <!-- <div class="shop-head">
                <a href="#"><span class="mdi mdi-home"></span> Home</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits & Vegetables</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits</a>
                <div class="btn-group float-right mt-2">
@@ -235,27 +228,39 @@
             <div class="row no-gutters"><!--no gutters-->               
                <div class="col-md-3" *ngFor ="let p of products">
                   <div class="product">
+                     <p class="discount-logo">{{p.discount_percentage}}% OFF</p>
                      <!-- <a routerLink ="shop/{{c.category_name}}/{{s.sub_category_name}}/{{s.id}}" routerLinkActive="active"  +'?nocache=true'-->
                      <a [routerLink] ="['/single', p.id, p.unit_value]">
                         <!-- <span class="badge badge-danger">10% OFF</span> -->
-                        <span class="dscnt"><img src="assets/img/discount.svg" style="width: 40px;"><span class="top-left">{{p.discount_percentage}}% <span class="top-left1">OFF</span></span></span>
+                        <!-- <span class="dscnt"><img src="assets/img/discount.svg" style="width: 40px;"><span class="top-left">{{p.discount_percentage}}% <span class="top-left1">OFF</span></span></span> -->
                         <div class="product-header">
                            <!-- <span class="badge badge-success">50% OFF</span> -->                           
                            
-                           <img class="img" src="assets/{{p.product_img}}" alt="">  
+                           <img class="img" src="assets{{p.product_img}}" alt="">  
                                                    
                            <!-- <span class="veg text-success mdi mdi-circle"></span> -->                          
                         </div>
                         <div class="product-body">
-                           <h5>{{p.id}}-{{p.product_name}}</h5>
-                           <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+                           <h5><span style="display: none;">{{p.id}}</span>{{p.product_name}}</h5><!--{{p.id}}--->
+                           <!-- <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6> -->
+                           <h6><strong class="regular-price"><span class="mdi mdi-approval" ></span> Rs.{{p.mrp}}</strong> - {{p.unit_value}} {{p.unit_type}}</h6>
+                           <p class="offer-price mb-0">Rs.{{p.sale_price}} - {{p.unit_value}}{{p.unit_type}} </p>
                         </div>
-                        </a>
+                        </a><br>
+                        
                         <div class="product-footer">
                            <!-- <button type="button" class="btn btn-secondary btn-sm float-right" (click)="addToCart(p)"><i class="mdi mdi-cart-outline"></i> Add To Cart</button> -->
                            <!-- <button type="button" class="btn btn-success btn-circle btn-xl" style="float: right;" (click)="addToCart(p)"><i class="glyphicon glyphicon-plus"></i>+</button> -->
-                           <button type="button" class="cartbtn float-right" (click)="addToCart(p)"><img src="assets/img/shopping-cart (2).png"></button>
-                           <p class="offer-price mb-0">Rs.{{p.sale_price}} - {{p.unit_value}}{{p.unit_type}} </p><!-- <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span>-->
+                           <button type="button" class="cartbtn float-right" (click)="addToCart(p)" *ngIf= "!p.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                           <div class="qty" *ngIf = "p.quantity >= 1">
+                              <div class="input-group" style="height: 9px;margin-top:-19px;margin-bottom: 6px;">
+                                 <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(p)">-</button></span>
+                                 <input  disabled type="text" max="10" min="1" value={{p.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                                 <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(p)">+</button>
+                                 </span>
+                              </div>
+                           </div>
+                           <!-- <p class="offer-price mb-0">Rs.{{p.sale_price}} - {{p.unit_value}}{{p.unit_type}} </p> -->
                         </div>
                      
                   </div>
@@ -283,131 +288,11 @@
             </nav> -->
          </div>
       </div>   
-</section>
-<section class="product-items-slider section-padding bg-white border-top">   
-      <div class="section-header">
-         <a class="float-right text-secondary" href="shop.html">View All</a>
-         <!-- <h5 class="heading-design-h5">Best Offers View <span class="badge badge-primary">20% OFF</span> 
-            <a class="float-right text-secondary" href="shop.html">View All</a>
-          </h5> -->
+      <div>
+         <button type="button" class="goto-top" (click)="gotoTop()"></button>
       </div>
-      <div class="owl-carousel owl-carousel-featured">
-         <div class="item">
-            <div class="product">
-               <a href="single.html">
-                  <div class="product-header">
-                     <span class="badge badge-success">50% OFF</span>
-                     <img class="img-fluid" src="assets/img/item/7.jpg" alt="">
-                     <span class="veg text-success mdi mdi-circle"></span>
-                  </div>
-                  <div class="product-body">
-                     <h5>Product Title Here</h5>
-                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                  </div>
-                  <div class="product-footer">
-                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  </div>
-               </a>
-            </div>
-         </div>
-         <div class="item">
-            <div class="product">
-               <a href="single.html">
-                  <div class="product-header">
-                     <span class="badge badge-success">50% OFF</span>
-                     <img class="img-fluid" src="assets/img/item/8.jpg" alt="">
-                     <span class="non-veg text-danger mdi mdi-circle"></span>
-                  </div>
-                  <div class="product-body">
-                     <h5>Product Title Here</h5>
-                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                  </div>
-                  <div class="product-footer">
-                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  </div>
-               </a>
-            </div>
-         </div>
-         <div class="item">
-            <div class="product">
-               <a href="single.html">
-                  <div class="product-header">
-                     <span class="badge badge-success">50% OFF</span>
-                     <img class="img-fluid" src="assets/img/item/9.jpg" alt="">
-                     <span class="non-veg text-danger mdi mdi-circle"></span>
-                  </div>
-                  <div class="product-body">
-                     <h5>Product Title Here</h5>
-                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                  </div>
-                  <div class="product-footer">
-                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  </div>
-               </a>
-            </div>
-         </div>
-         <div class="item">
-            <div class="product">
-               <a href="single.html">
-                  <div class="product-header">
-                     <span class="badge badge-success">50% OFF</span>
-                     <img class="img-fluid" src="assets/img/item/10.jpg" alt="">
-                     <span class="veg text-success mdi mdi-circle"></span>
-                  </div>
-                  <div class="product-body">
-                     <h5>Product Title Here</h5>
-                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                  </div>
-                  <div class="product-footer">
-                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  </div>
-               </a>
-            </div>
-         </div>
-         <div class="item">
-            <div class="product">
-               <a href="single.html">
-                  <div class="product-header">
-                     <span class="badge badge-success">50% OFF</span>
-                     <img class="img-fluid" src="assets/img/item/11.jpg" alt="">
-                     <span class="veg text-success mdi mdi-circle"></span>
-                  </div>
-                  <div class="product-body">
-                     <h5>Product Title Here</h5>
-                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                  </div>
-                  <div class="product-footer">
-                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  </div>
-               </a>
-            </div>
-         </div>
-         <div class="item">
-            <div class="product">
-               <a href="single.html">
-                  <div class="product-header">
-                     <span class="badge badge-success">50% OFF</span>
-                     <img class="img-fluid" src="assets/img/item/12.jpg" alt="">
-                     <span class="veg text-success mdi mdi-circle"></span>
-                  </div>
-                  <div class="product-body">
-                     <h5>Product Title Here</h5>
-                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                  </div>
-                  <div class="product-footer">
-                     <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                     <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  </div>
-               </a>
-            </div>
-         </div>
-      </div>   
 </section>
+
 
 <section>
    <app-footer></app-footer>
@@ -420,8 +305,8 @@
          </div>
          <!-- <div class="col-lg-6 col-sm-6 text-right">
             <img alt="osahan logo" src="assets/img/payment_methods.png">
-         </div> -->
+         </div> -->         
       </div>
-   </div>
+   </div>   
 </section>
 <!-- End Copyright -->

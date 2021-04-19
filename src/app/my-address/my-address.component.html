@@ -6,16 +6,16 @@
                 <div class="col-md-4">
                    <div class="card account-left">
                       <div class="user-profile-header">
-                         <img alt="logo" src="img/user.jpg">
-                         <h5 class="mb-1 text-secondary"><strong>Hi </strong> OSAHAN</h5>
-                         <p> +91 8568079956</p>
+                         <img alt="logo" src="assets/img/user.jpg">
+                         <h5 class="mb-1 text-secondary" style="text-transform: capitalize;"><strong>Hi </strong>{{asmCustomerService.getFirstName()}}</h5>
+                         <p> {{asmCustomerService.getMobile()}}</p>
                       </div>
                       <div class="list-group">
-                         <a href="my-profile.html" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-account-outline"></i>  My Profile</a>
-                         <a href="my-address.html" class="list-group-item list-group-item-action active"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>  My Address</a>
-                         <a href="wishlist.html" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-heart-outline"></i>  Wish List </a>
-                         <a href="orderlist.html" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-format-list-bulleted"></i>  Order List</a> 
-                         <a href="#" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-lock"></i>  Logout</a> 
+                        <a routerLink="/my-profile" class="list-group-item list-group-item-action "><i aria-hidden="true" class="mdi mdi-account-outline"></i>  My Profile</a>
+                        <a routerLink="/my-address" class="list-group-item list-group-item-action active"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>  My Address</a>
+                        <a routerLink="/wishlist" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-heart-outline"></i>  Wish List </a>
+                        <a routerLink="/orderlist" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-format-list-bulleted"></i>  Order List</a> 
+                        <a routerLink="/logout" class="list-group-item list-group-item-action" (click)="onLogout()"><i aria-hidden="true" class="mdi mdi-lock"></i>  Logout</a> 
                       </div>
                    </div>
                 </div>

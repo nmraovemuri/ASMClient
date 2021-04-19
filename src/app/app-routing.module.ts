@@ -28,6 +28,8 @@ import { ResetPasswordComponent} from './reset-password/reset-password.component
 import { ChangeUserPasswordComponent } from './change-user-password/change-user-password.component';
 import { ForgotPasswordStatusComponent } from './forgot-password-status/forgot-password-status.component';
 import { ResetPasswordStatusComponent } from './reset-password-status/reset-password-status.component';
+import { SearchComponent } from './search/search.component';
+import { TopDealsoftheDayComponent } from './top-dealsofthe-day/top-dealsofthe-day.component';
 
 
 const routes: Routes = [
@@ -36,6 +38,11 @@ const routes: Routes = [
     component : HomeComponent
     // pathMatch : 'full'
   },
+  {
+    path : 'home',
+    component: HomeComponent,
+   // pathMatch : 'prefix'
+ },
   {
     path : 'register',
     component : RegisterComponent
@@ -52,11 +59,7 @@ const routes: Routes = [
     path : 'nav',
     component :NavigationComponent
   },
-  {
-    path : 'home',
-    component: HomeComponent,
-    pathMatch : 'prefix'
- },
+  
   {
     path : 'about',
     component : AboutComponent,
@@ -149,7 +152,15 @@ const routes: Routes = [
   },
   {
     path : 'reset_password_status',
-    component : ResetPasswordStatusComponent
+    component : ResetPasswordStatusComponent,
+  },
+  {
+    path : 'search/:search_string',
+    component : SearchComponent,
+  },
+  {
+    path : 'top_deals_of_the_day',
+    component : TopDealsoftheDayComponent
   }
 ];
 

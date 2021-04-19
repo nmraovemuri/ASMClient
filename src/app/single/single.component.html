@@ -99,18 +99,19 @@
                          </div> -->
                          <div class="qty">
                            <div class="input-group">
-                              <span class="input-group-btn"><button disabled="disabled" class="btn btn-theme-round btn-number" type="button">-</button></span>
-                              <input type="text" max="10" min="1" value="1" class="form-control border-form-control form-control-sm input-number" name="quant[1]">
-                              <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button">+</button>
+                              <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(product)">-</button></span>
+                              <input type="text"  *ngIf = "product!= undefined && product.quantity==undefined" max="10" min="1" value="1" class="form-control border-form-control form-control-sm input-number" name="quant[1]" disabled>
+                              <input type="text" *ngIf = "product!= undefined && product.quantity>0" max="10" min="1" value={{product.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]" disabled>
+                              <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(product)">+</button>
                               </span>
                            </div>
                         </div>
 
                   </div>
                    <!-- <div class="col-md-5"><a class="btn-grad">Add Cart</a></div> -->
-                   <div class="col-md-5"><a href="#" class="square_btn mdi mdi-basket">Add Cart</a></div>
+                   <div class="col-md-5"><a  class="square_btn mdi mdi-basket" (click)="addToCart()" style="cursor: pointer;">Add Cart</a></div>
                   </div><br>
-                  <div class="row">
+                  <!-- <div class="row">
                          
                      <table class="table table-hover">
                       
@@ -141,7 +142,7 @@
                          </tr>
                        </tbody>
                      </table>
-                   </div>
+                   </div> -->
                  
 
                
@@ -184,116 +185,8 @@
          </p>
       </div>
    </div>
-</section><br>
-<section class="product-items-slider" style="padding:40px;">
-    
-   <div class="section-header">
-      <h5 style="color:#F44336;padding-bottom: 10px;"><u>Related Products:</u>
-         <a class="float-right text-secondary" href="shop.html" style="font-size: 14px;">View All</a>
-      </h5>
-   </div>
-   <div class="row no-gutters">              
-      <div class="col-md-3">
-         <div class="product">
-               <span class="dscnt"><img src="assets/img/discount.svg" style="width: 50px;"><span class="top-left">23% <span class="top-left1">OFF</span></span></span>
-               <div class="product-header">
-                  <img class="img" src="assets/images/products/400/3mango_tomato_pickle.png" alt="">  
-               </div>
-               <div class="product-body">
-                  <h5>Product Name</h5>
-                  <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-               </div>               
-               <div class="product-footer">                  
-                  <!-- <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>                             -->
-                  <button type="button" class="cartbtn float-right" ><img src="assets/img/shopping-cart (2).png"></button>
-                  <p class="offer-price1 mb-0">Rs.500 ml <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  <div class="qty">
-                     <div class="input-group">
-                        <span class="input-group-btn"><button disabled="disabled" class="btn btn-theme-round btn-number" type="button">-</button></span>
-                        <input type="text" max="10" min="1" value="1 in basket" class="form-control border-form-control form-control-sm input-number" name="quant[1]">
-                        <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button">+</button>
-                        </span>
-                     </div>
-                  </div>
-               </div>            
-         </div>
-      </div>
-      <div class="col-md-3">
-         <div class="product">
-               <span class="dscnt"><img src="assets/img/discount.svg" style="width: 50px;"><span class="top-left">23% <span class="top-left1">OFF</span></span></span>
-               <div class="product-header">
-                  <img class="img" src="assets/images/products/400/3mango_tomato_pickle.png" alt="">  
-               </div>
-               <div class="product-body">
-                  <h5>Product Name</h5>
-                  <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-               </div>               
-               <div class="product-footer">                 
-                  <button type="button" class="cartbtn float-right" ><img src="assets/img/shopping-cart (2).png"></button>
-                  <p class="offer-price1 mb-0">Rs.500 ml <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  <div class="qty">
-                     <div class="input-group">
-                        <span class="input-group-btn"><button disabled="disabled" class="btn btn-theme-round btn-number" type="button">-</button></span>
-                        <input type="text" max="10" min="1" value="1" class="form-control border-form-control form-control-sm input-number" name="quant[1]">
-                        <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button">+</button>
-                        </span>
-                     </div>
-                  </div>
-               </div>            
-         </div>
-      </div>
-      <div class="col-md-3">
-         <div class="product">
-               <span class="dscnt"><img src="assets/img/discount.svg" style="width: 50px;"><span class="top-left">23% <span class="top-left1">OFF</span></span></span>
-               <div class="product-header">
-                  <img class="img" src="assets/images/products/400/3mango_tomato_pickle.png" alt="">  
-               </div>
-               <div class="product-body">
-                  <h5>Product Name</h5>
-                  <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-               </div>               
-               <div class="product-footer">                 
-                  <button type="button" class="cartbtn float-right" ><img src="assets/img/shopping-cart (2).png"></button>
-                  <p class="offer-price1 mb-0">Rs.500 ml <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  <div class="qty">
-                     <div class="input-group">
-                        <span class="input-group-btn"><button disabled="disabled" class="btn btn-theme-round btn-number" type="button">-</button></span>
-                        <input type="text" max="10" min="1" value="1" class="form-control border-form-control form-control-sm input-number" name="quant[1]">
-                        <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button">+</button>
-                        </span>
-                     </div>
-                  </div>
-               </div>            
-         </div>
-      </div>
-      <div class="col-md-3">
-         <div class="product">
-               <span class="dscnt"><img src="assets/img/discount.svg" style="width: 50px;"><span class="top-left">23% <span class="top-left1">OFF</span></span></span>
-               <div class="product-header">
-                  <img class="img" src="assets/images/products/400/3mango_tomato_pickle.png" alt="">  
-               </div>
-               <div class="product-body">
-                  <h5>Product Name</h5>
-                  <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-               </div>               
-               <div class="product-footer">                 
-                  <button type="button" class="cartbtn float-right" ><img src="assets/img/shopping-cart (2).png"></button>
-                  <p class="offer-price1 mb-0">Rs.500 ml <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                  <div class="qty">
-                     <div class="input-group">
-                        <span class="input-group-btn"><button disabled="disabled" class="btn btn-theme-round btn-number" type="button">-</button></span>
-                        <input type="text" max="10" min="1" value="1" class="form-control border-form-control form-control-sm input-number" name="quant[1]">
-                        <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button">+</button>
-                        </span>
-                     </div>
-                  </div>
-               </div>            
-         </div>
-      </div>
-                     
-   </div>
-
 </section>
+
 <section class="section-padding bg-white border-top">
    <div class="container">
       <div class="row">
@@ -307,15 +200,13 @@
          <div class="col-lg-4 col-sm-6">
             <div class="feature-box">
                <i class="mdi mdi-basket"></i>
-               <h6>100% Satisfaction Guarantee</h6>
-               
+               <h6>100% Satisfaction Guarantee</h6>               
             </div>
          </div>
          <div class="col-lg-4 col-sm-6">
             <div class="feature-box">
                <i class="mdi mdi-tag-heart"></i>
-               <h6>Great Daily Deals Discount</h6>
-               
+               <h6>Great Daily Deals Discount</h6>               
             </div>
          </div>
       </div>
