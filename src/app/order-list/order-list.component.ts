@@ -15,12 +15,17 @@ export class OrderListComponent implements OnInit {
   billingAddress : any ={};
   shippingAddress : any= {};
   orderID : any = '';
+  colors = [{ status: "submitted", color: "lightgreen" }, { status: "processing", color: "orange" }, { status: "closed", color: "pink" }, { status: "canceled", color: "palevioletred" }]
   constructor(private asmService : ASMService, public customerService: ASMCustomerService, private router: Router, private cartService: CartService) { }
   
   ngOnInit(): void {
     console.log("orderHistory");
     this.customerOrdersHistory();
   }
+  getTheColor(status) {
+    return this.colors.filter(item => item.status === status)[0].color;
+
+  } 
   customerOrdersHistory(){      
     let customer_id = this.customerService.customer.customer_id;
     let order_details = {
@@ -59,5 +64,8 @@ export class OrderListComponent implements OnInit {
     localStorage.removeItem('token'); 
     this.customerService.setCustomerInfo(null, null);
     this.router.navigate([`/home`]);
+  }
+  gotoTop(){
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 }

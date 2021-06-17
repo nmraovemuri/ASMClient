@@ -9,15 +9,20 @@ import { CartService } from '../cart.service';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit {
-  subcategories: any;
-  categories: any;
+  categories: any = [];
+  subcategories: any = [];  
   cat_subcat : any= [];
   id: any;
   products : any = [];
   productsList : any=[];
   brandsList :any =[];
   filteredBrands :any =[];
-  constructor(private asmService : ASMService,private router : Router,
+  isHidden = true;
+  categoryLabel :string = '';
+  subcategoryLabel : string = '';
+  server_url : string =''; // "http://localhost:3000";>
+  // server_url = "https://aswikamart.com";
+  constructor(public asmService : ASMService,public router : Router,
               private activatedRoute: ActivatedRoute,
               private cartService: CartService) { 
     console.log("from constructor");
@@ -25,10 +30,21 @@ export class ShopComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     console.log("from ngOnInit");
-    
-    this.getAllCategories();
-    this.getSubcategories();
+    this.server_url = this.asmService.ASM_SERVER_BASE_URL; 
+    console.log("url:", this.router.url); 
+    console.log("service navlist:", this.asmService.navList);
+       
+    console.log("asm-service:", this.asmService);
+    // this.getAllCategories();
+    // this.getSubcategories();
+    this.categories = this.asmService.getCategories();                      
+    this.subcategories = this.asmService.getSubcategories();
+    this.cat_subcat = this.asmService.getCatSubcat();
+    console.log ("1:",this.categories);
+    console.log ("2 : ",this.subcategories);
+    console.log("cat_subcat :", this.cat_subcat);
     this.activatedRoute.params.subscribe((params: Params) => {
       this.id = params.id; 
       console.log("ID :", this.id);
@@ -62,9 +78,9 @@ export class ShopComponent implements OnInit {
       this.cat_subcat = this.categories.map(cat=>{
       let  subcat = this.subcategories.filter(subcat=> subcat.category_name ===cat.category_name);
          console.log(subcat);
-        cat.subCategories = subcat;
+         cat.subCategories = subcat;
         // JSON.parse
-        return cat;
+         return cat;
     });
     console.log("cat_subcat:",this.cat_subcat);
     },
@@ -89,6 +105,21 @@ export class ShopComponent implements OnInit {
           
           console.log("Products by Subcategory ID Data:", this.products);
           this.brandsInit();
+        //  let subcat =  this.subcategories.filter(subcat=>subcat.id=this.id)
+        //  console.log("shop subcat:",subcat);
+        //  console.log("shop subcategories:", this.subcategories);
+        let uri = this.router.url;
+        uri = uri.replace(/%20/g, " ");
+        let uriArray = uri.split('/');
+         this.categoryLabel = uriArray[2];
+         this.subcategoryLabel =uriArray[3];
+         let navNode = {
+           uri,
+           label : this.categoryLabel + " > " + this.subcategoryLabel
+         }
+         this.asmService.navList[1] = navNode;
+         console.log("navlist 1 :", this.asmService.navList[1]);
+         
       }
     },
     error => {
@@ -116,7 +147,7 @@ export class ShopComponent implements OnInit {
     }
   }
 
-   isHidden = false;
+  //  isHidden = false;
 
   priceLowToHigh(){
     this.products.sort((low, high) => low.sale_price - high.sale_price)

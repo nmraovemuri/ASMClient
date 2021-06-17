@@ -1,7 +1,7 @@
-
-<nav class="navbar fixed-top navbar-light navbar-expand-lg bg-faded osahan-menu" style="background:#370617;z-index:59;">
+<!--fixed-top-->
+<nav class="navbar navbar-light navbar-expand-lg bg-faded osahan-menu" style="background:#370617;z-index:59;">
    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="home"> <img src="assets/img/logo.png" alt="logo"> </a>
+      <a class="navbar-brand" routerLink="/"> <img src="assets/img/logo.png" alt="logo"> </a>
       <p class="list-inline-item cart-btn" style="color: #fff; display: none;">         
          <a class="btn btn-link border-none"(click)="toggleSideCart()"><i class="mdi mdi-cart"></i> My
             Cart <small class="cart-value">{{cartService.getCartSize()}}</small></a>
@@ -11,8 +11,8 @@
          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="row mb-v">
-         <div class="col-md-6 col-xs-6 col-sm-6 mb-v1">
+      <div class="row mb-v"><!--mb-v-->
+         <div class="col-md-6 col-xs-6 col-sm-6 mb-v1"><!--mb-v1-->
             <a routerLink="register" class="btn btn-link" *ngIf="!loggedIn()">
                <i class="mdi mdi-account-circle"></i> Register
             </a>
@@ -38,11 +38,11 @@
                </ul>
             </div>       -->
          </div>
-         <div class="col-md-6  col-xs-6 col-sm-6 mb-v2">
-            <a routerLink="login" class="btn btn-link" *ngIf="!loggedIn()" >
-               <i class="mdi mdi-account-circle"></i>Login
+         <div class=" col-md-6 col-xs-6 col-sm-6"><!--mb-v2-->
+            <a routerLink="login" class="btn btn-link" style="float:right;margin-top:-30px;margin-right:-10px;" *ngIf="!loggedIn()" >
+               <i class="mdi mdi-account-circle" style="margin-right: 3px;"></i>Login
             </a>
-            <div class="btn-group" dropdown *ngIf="loggedIn()" style="margin-left: -111px; margin-top: 26px;">
+            <div class="btn-group" dropdown *ngIf="loggedIn()" style="margin-left: 280px; margin-top: 26px;">
                <p class="btn" style="background: linear-gradient(to bottom, #A8DE1C 0%, #50AC02 100%);text-transform: capitalize;">{{asmCustomerService.getFirstName()}}</p>
                <p id="button-split" type="button" 
                   dropdownToggle class="btn dropdown-toggle dropdown-toggle-split" aria-controls="dropdown-split" style="background: linear-gradient(to bottom, #A8DE1C 0%, #50AC02 100%);"
@@ -54,7 +54,7 @@
                   aria-labelledby="button-split" style="width: 190px;">
                   <li role="menuitem"><a class="dropdown-item" routerLink="/my-profile">My Profile</a></li>
                   <li role="menuitem"><a class="dropdown-item" routerLink="/my-address">My Address</a></li>
-                  <li role="menuitem"><a class="dropdown-item" routerLink="/wishlist">Wish List </a></li>
+                  <!-- <li role="menuitem"><a class="dropdown-item" routerLink="/wishlist">Wish List </a></li> -->
                   <li role="menuitem"><a class="dropdown-item" routerLink="/orderlist" >Order List </a></li>
                   <li role="menuitem"><a class="dropdown-item" routerLink="/change_password">Change Password</a></li>
                   <li class="divider dropdown-divider"></li>
@@ -107,7 +107,7 @@
                         aria-labelledby="button-split" style="width: 190px; z-index:1212 !important;">
                         <li role="menuitem"><a class="dropdown-item" routerLink="/my-profile">My Profile</a></li>
                         <li role="menuitem"><a class="dropdown-item" routerLink="/my-address">My Address</a></li>
-                        <li role="menuitem"><a class="dropdown-item" routerLink="/wishlist">Wish List </a></li>
+                        <!-- <li role="menuitem"><a class="dropdown-item" routerLink="/wishlist">Wish List </a></li> -->
                         <li role="menuitem"><a class="dropdown-item" routerLink="/orderlist" >Order List </a></li>
                         <li role="menuitem"><a class="dropdown-item" routerLink="/change_password">Change Password</a></li>
                         <li class="divider dropdown-divider"></li>
@@ -127,15 +127,15 @@
       </div>
    </div>
 </nav>
-<nav class="navbar   navbar-expand-lg navbar-light osahan-menu-2 pad-none-mobile zz">
-   <div class="container-fluid">
+<nav class="navbar  navbar-expand-lg navbar-light osahan-menu-2 pad-none-mobile "> <!--zz-->
+   <div class="container">
       <div class="collapse navbar-collapse" id="navbarText">
          <ul class="navbar-nav mr-auto mt-2 mt-lg-0 margin-auto">
             <li class="nav-item">
-               <a routerLink="home" routerLinkActive="active" class="nav-link">HOME</a>
+               <a routerLink="/" routerLinkActive="active" class="nav-link">HOME</a>
             </li>           
             <li class="nav-item dropdown upper" style="cursor: pointer;"  *ngFor ="let c of cat_subcat">
-               <!-- routerLink= "{{c.category_name}}"--> 
+               <!-- routerLink= "{{c.category_name}}" *ngFor ="let c of cat_subcat"--> 
                <a  class="nav-link dropdown-toggle " data-toggle="dropdown" aria-haspopup="true"aria-expanded="false">
                   {{c.category_name}}
                </a>
@@ -163,7 +163,7 @@
    <div class="cart-sidebar-body">
       <div class="cart-list-product" *ngFor ="let cartItem of cartService.getCartList()">
          <a class="float-right remove-cart" (click)="cartService.removeFromCart(cartItem)" ><i class="mdi mdi-close" style="cursor: pointer;"></i></a>
-         <img class="img-fluid" src="assets{{cartItem.product_img}}" alt="">
+         <img class="img-fluid" src="{{cartItem.product_img_200}}" alt="">
          <span class="badge badge-success">{{cartItem.discount_percentage}}% OFF</span>
          <h5 style="cursor: pointer;font-size: 12px;">{{cartItem.product_name}}</h5>
          <div class="qty col-md-4 float-right">

@@ -29,10 +29,12 @@
                     </fieldset>
                     <fieldset class="form-group">
                         <button type="submit" class="btn btn-lg btn-secondary btn-block"
-                            [disabled]="!loginForm.valid">Enter to your account</button>
+                            [disabled]="!loginForm.valid">Enter to your account</button><br>
+                            <h5 style="text-align: center; color: red;" *ngIf = "loginFail">Invalid Email ID or password</h5>
                     </fieldset>                   
                     <div class="login-with-sites text-center">
-                        <a routerLink="/forgot-password"><b> Forgot Password</b></a>   
+                        <a routerLink="/forgot-password"><b> Forgot Password</b></a> 
+                        <p>If your are not Registered yet, Please take <a routerLink="/register"><b>Register</b></a> now.</p>  
                         <!--<p>or Login with your social profile:</p>
                          <button class="btn-facebook login-icons btn-lg" style="margin-right: 2em;"><i class="mdi mdi-facebook"></i>
                             Facebook</button>

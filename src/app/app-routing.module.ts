@@ -30,6 +30,11 @@ import { ForgotPasswordStatusComponent } from './forgot-password-status/forgot-p
 import { ResetPasswordStatusComponent } from './reset-password-status/reset-password-status.component';
 import { SearchComponent } from './search/search.component';
 import { TopDealsoftheDayComponent } from './top-dealsofthe-day/top-dealsofthe-day.component';
+import { BrandedProductsComponent } from './branded-products/branded-products.component';
+import { SitemapComponent } from './sitemap/sitemap.component';
+import { TermConditionsComponent } from './term-conditions/term-conditions.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { RefundComponent } from './refund/refund.component';
 
 
 const routes: Routes = [
@@ -161,6 +166,26 @@ const routes: Routes = [
   {
     path : 'top_deals_of_the_day',
     component : TopDealsoftheDayComponent
+  },
+  {
+    path : 'branded_products/:product_brand',
+    component : BrandedProductsComponent
+  },
+  {
+     path: 'sitemap',
+     component : SitemapComponent
+  },
+  {
+    path : 'terms_&_conditions',
+    component : TermConditionsComponent
+  },
+  {
+    path : 'privacy_&_policy',
+    component : PrivacyPolicyComponent
+  },
+  {
+    path : 'refund_&_policy',
+    component : RefundComponent
   }
 ];
 

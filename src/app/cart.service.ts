@@ -11,7 +11,7 @@ export class CartService {
     console.log(this.cartList);
   }
   removeFromCart(product){
-    this.cartList = this.cartList.filter(p=> !(p.id == product.id && p.unit_value == product.unit_value));
+    this.cartList = this.cartList.filter(p=> !(p.product_id == product.product_id && p.unit_value == product.unit_value));
     console.log(this.cartList);
   }
   getCartList(){
@@ -19,12 +19,14 @@ export class CartService {
   }
   
   incrementProductQuantityByOne(cartItem){
-    let product = this.cartList.find(product => product.id==cartItem.id &&  product.unit_value == cartItem.unit_value);
+    let product = this.cartList.find(product => product.product_id==cartItem.product_id &&  product.unit_value == cartItem.unit_value);
+    if(product.quantity > 9) 
+      return "max-limit-reached"
     product.quantity = product.quantity + 1; 
     product.total_amount = product.sale_price * product.quantity;
   }
   decrementProductQuantityByOne(cartItem){
-    let product = this.cartList.find(product => product.id==cartItem.id &&  product.unit_value == cartItem.unit_value);    
+    let product = this.cartList.find(product => product.product_id==cartItem.product_id &&  product.unit_value == cartItem.unit_value);    
     product.quantity = product.quantity - 1; 
     product.total_amount = product.sale_price * product.quantity;
     if(product.quantity == 0){

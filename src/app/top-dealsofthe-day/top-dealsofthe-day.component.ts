@@ -17,7 +17,9 @@ export class TopDealsoftheDayComponent implements OnInit {
   productsList : any=[];
   brandsList :any =[];
   filteredBrands :any =[];
-  constructor(private asmService : ASMService,
+  server_url :string='';// "http://localhost:3000";
+  // server_url = "https://aswikamart.com";
+  constructor(public asmService : ASMService,
               private router : Router,
               private activatedRoute: ActivatedRoute,
               private cartService: CartService) { 
@@ -26,6 +28,8 @@ export class TopDealsoftheDayComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+    this.server_url = this.asmService.ASM_SERVER_BASE_URL; 
     console.log("from ngOnInit");
     
     this.getAllCategories();

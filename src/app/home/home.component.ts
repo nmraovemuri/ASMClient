@@ -117,4 +117,7 @@ categoiesData :any = [{
       this.cartService.addToCart(product);
     }
   }
+  gotoTop(){
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
 }

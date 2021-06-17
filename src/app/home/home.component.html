@@ -1,4 +1,4 @@
-<section class="carousel-slider-main text-center border-top border-bottom bg-white">
+<section class="carousel-slider-main text-center border-top border-bottom bg-white" style="margin-top: -15px;">
     <div class="owl-carousel owl-carousel-slider"> 
        <div class="item">
           <a href="shop.html"><img class="img-fluid" src="assets/img/slider/Ugadi1.jpg" alt="First slide"></a>
@@ -19,29 +19,29 @@
  </section> 
  <section style="margin-top: 20px;">
     <div class="row">
-       <div class="cat"><img class="img-fluid" src="assets/images/categories/grocery.png">
+       <div class="cat"><a routerLink = "/shop/Grocery/Atta%20Flours%20&%20Sooji/1"><img class="img-fluid" src="assets/images/categories/grocery.png">
          <p routerLink = "/shop/Grocery/Atta%20Flours%20&%20Sooji/1" style="text-align: center; cursor:pointer;font-weight: 500;">Grocery</p>
-         <p style="text-align: center;font-weight: 500;">273 Items</p>
+         <p style="text-align: center;font-weight: 500;">273 Items</p></a>
        </div>
-       <div class=" cat"><img class="img-fluid" src="assets/images/categories/dairy.png">
+       <div class=" cat"><a routerLink = "/shop/Dairy%20&%20Bakery/Toast%20&%20Khari/20"><img class="img-fluid" src="assets/images/categories/dairy.png">
          <p routerLink = "/shop/Dairy%20&%20Bakery/Toast%20&%20Khari/20" style="text-align: center;cursor:pointer;font-weight: 500;">Dairy</p>
-         <p style="text-align: center;font-weight: 500;">103 Items</p>
+         <p style="text-align: center;font-weight: 500;">103 Items</p></a>
        </div>
-       <div class="cat"><img class="img-fluid" src="assets/images/categories/beverages.png">
+       <div class="cat"><a routerLink ="/shop/Beverages/Tea/51"><img class="img-fluid" src="assets/images/categories/beverages.png">
          <p routerLink ="/shop/Beverages/Tea/51" style="text-align: center;cursor:pointer;font-weight: 500;">Beverages</p>
-         <p style="text-align: center;font-weight: 500;">106 Items</p>
+         <p style="text-align: center;font-weight: 500;">106 Items</p></a>
        </div>
-       <div class="cat"><img class="img-fluid" src="assets/images/categories/baby_care.png">
+       <div class="cat"><a routerLink = "/shop/Baby%20Care/Baby%20Grooming/57"><img class="img-fluid" src="assets/images/categories/baby_care.png">
          <p routerLink = "/shop/Baby%20Care/Baby%20Grooming/57" style="text-align: center;cursor:pointer;font-weight: 500;">Baby Care</p>
-         <p style="text-align: center;font-weight: 500;">84 Items</p>
+         <p style="text-align: center;font-weight: 500;">84 Items</p></a>
        </div>
-       <div class="cat"><img class="img-fluid" src="assets/images/categories/personal_care.png">
+       <div class="cat"><a routerLink = "/shop/Personal%20Care/Hair%20Care/39"><img class="img-fluid" src="assets/images/categories/personal_care.png">
          <p routerLink = "/shop/Personal%20Care/Hair%20Care/39" style="text-align: center;cursor:pointer;font-weight: 500;">Personal Care</p>
-         <p style="text-align: center;font-weight: 500;">787 Items</p>
+         <p style="text-align: center;font-weight: 500;">787 Items</p></a>
        </div>
-       <div class="cat"><img class="img-fluid" src="assets/images/categories/snacks.png">
+       <div class="cat"><a routerLink = "/shop/Snacks%20&%20Branded%20Foods/Biscuits%20&%20Cookies/9"><img class="img-fluid" src="assets/images/categories/snacks.png">
          <p routerLink = "/shop/Snacks%20&%20Branded%20Foods/Biscuits%20&%20Cookies/9" style="text-align: center;cursor:pointer;font-weight: 500;">Snacks</p>
-         <p style="text-align: center;font-weight: 500;">337 Items</p>
+         <p style="text-align: center;font-weight: 500;">337 Items</p></a>
        </div>
        
     </div>
@@ -50,28 +50,28 @@
    <div class="row">
       <div class="section-header">
          <h5 class="heading-design-h5">Top Savers Today <span class="badge badge-primary">30% OFF</span>
-            <a class="float-right text-secondary" routerLink="shop/Grocery/Dals%20&%20Pulses/2">View All</a>
+            <a class="float-right text-secondary" routerLink="../shop/Grocery/Dals%20&%20Pulses/2">View All</a>
          </h5>
       </div>
       <div class="owl-carousel owl-carousel-featured" ><!--*ngIf = " asmService.getDealsOfTheday().length > 0"-->
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[0].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday30()[0].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[0]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday30()[0]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday30()[0].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday30()[0].unit_value}}- {{asmService.getDealsOfTheday30()[0].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[0].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[0].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday30()[0]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday30()[0]?.unit_value}}- {{asmService.getDealsOfTheday30()[0]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[0]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[0]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[0])" *ngIf= "!asmService.getDealsOfTheday30()[0].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[0].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[0])" *ngIf= "!asmService.getDealsOfTheday30()[0]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[0]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday30()[0])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[0].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[0]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday30()[0])">+</button>
                            </span>
                         </div>
@@ -82,21 +82,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[1].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday30()[1].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[1]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday30()[1]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday30()[1].product_name}}</h5>
-                     <h6> {{asmService.getDealsOfTheday30()[1].unit_value}}- {{asmService.getDealsOfTheday30()[1].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[1].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[1].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday30()[1]?.product_name}}</h5>
+                     <h6> {{asmService.getDealsOfTheday30()[1]?.unit_value}}- {{asmService.getDealsOfTheday30()[1]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[1]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[1]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[1])" *ngIf= "!asmService.getDealsOfTheday30()[1].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[1].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[1])" *ngIf= "!asmService.getDealsOfTheday30()[1]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[1]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday30()[1])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[1].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[1]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday30()[1])">+</button>
                            </span>
                         </div>
@@ -107,21 +107,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[2].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday30()[2].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[2]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday30()[2]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday30()[2].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday30()[2].unit_value}}- {{asmService.getDealsOfTheday30()[2].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[2].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[2].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday30()[2]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday30()[2]?.unit_value}}- {{asmService.getDealsOfTheday30()[2]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[2]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[2]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[2])" *ngIf= "!asmService.getDealsOfTheday30()[2].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[2].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[2])" *ngIf= "!asmService.getDealsOfTheday30()[2]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[2]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday30()[2])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[2].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[2]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday30()[2])">+</button>
                            </span>
                         </div>
@@ -132,21 +132,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[3].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday30()[3].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[3]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday30()[3]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday30()[3].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday30()[3].unit_value}}- {{asmService.getDealsOfTheday30()[3].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[3].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[3].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday30()[3]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday30()[3]?.unit_value}}- {{asmService.getDealsOfTheday30()[3]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[3]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[3]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[3])" *ngIf= "!asmService.getDealsOfTheday30()[3].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[3].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[3])" *ngIf= "!asmService.getDealsOfTheday30()[3]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[3]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday30()[3])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[3].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[3]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday30()[3])">+</button>
                            </span>
                         </div>
@@ -157,21 +157,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[4].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday30()[4].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[4]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday30()[4]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday30()[4].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday30()[4].unit_value}}- {{asmService.getDealsOfTheday30()[4].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[4].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[4].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday30()[4]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday30()[4]?.unit_value}}- {{asmService.getDealsOfTheday30()[4]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[4]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[4]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[4])" *ngIf= "!asmService.getDealsOfTheday30()[4].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[4].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[4])" *ngIf= "!asmService.getDealsOfTheday30()[4]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[4]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday30()[4])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[4].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[4]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday30()[4])">+</button>
                            </span>
                         </div>
@@ -182,21 +182,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[5].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday30()[5].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[5]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday30()[5]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday30()[5].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday30()[5].unit_value}}- {{asmService.getDealsOfTheday30()[5].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[5].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[5].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday30()[5]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday30()[5]?.unit_value}}- {{asmService.getDealsOfTheday30()[5]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[5]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[5]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[5])" *ngIf= "!asmService.getDealsOfTheday30()[5].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[5].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[5])" *ngIf= "!asmService.getDealsOfTheday30()[5]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[5]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday30()[5])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[5].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[5]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday30()[5])">+</button>
                            </span>
                         </div>
@@ -207,21 +207,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[6].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday30()[6].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[6]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday30()[6]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday30()[6].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday30()[6].unit_value}}- {{asmService.getDealsOfTheday30()[6].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[6].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[6].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday30()[6]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday30()[6]?.unit_value}}- {{asmService.getDealsOfTheday30()[6]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[6]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[6]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[6])" *ngIf= "!asmService.getDealsOfTheday30()[6].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[6].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[6])" *ngIf= "!asmService.getDealsOfTheday30()[6]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[6]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday30()[6])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[6].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[6]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday30()[6])">+</button>
                            </span>
                         </div>
@@ -232,21 +232,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[7].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday30()[7].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[7]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday30()[7]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday30()[7].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday30()[7].unit_value}}- {{asmService.getDealsOfTheday30()[7].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[7].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[7].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday30()[7]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday30()[7]?.unit_value}}- {{asmService.getDealsOfTheday30()[7]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[7]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[7]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[7])" *ngIf= "!asmService.getDealsOfTheday30()[7].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[7].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[7])" *ngIf= "!asmService.getDealsOfTheday30()[7]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[7]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday30()[7])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[7].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[7]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday30()[7])">+</button>
                            </span>
                         </div>
@@ -257,21 +257,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[8].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday30()[8].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday30()[8]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday30()[8]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday30()[8].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday30()[8].unit_value}}- {{asmService.getDealsOfTheday30()[8].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[8].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[8].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday30()[8]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday30()[8]?.unit_value}}- {{asmService.getDealsOfTheday30()[8]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday30()[8]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday30()[8]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[8])" *ngIf= "!asmService.getDealsOfTheday30()[8].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[8].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday30()[8])" *ngIf= "!asmService.getDealsOfTheday30()[8]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday30()[8]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday30()[8])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[8].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday30()[8]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday30()[8])">+</button>
                            </span>
                         </div>
@@ -285,45 +285,56 @@
 </section>
  <section style="background:#EFECEC; padding-top: 20px;padding-bottom: 20px;">
     <div class="row">
-       <div class="col-md-3"><img class="img-fluid1" src="assets/img/item/5_percent.png">
-         <p routerLink="/shop/Snacks%20&%20Branded%20Foods/Biscuits%20&%20Cookies/9" style="text-align: center;font-weight: 500;cursor: pointer;">Biscuits & Cookies</p>
+       <div class="col-md-3"><a routerLink="/shop/Snacks%20&%20Branded%20Foods/Biscuits%20&%20Cookies/9"><img class="img-fluid1" src="assets/img/item/biscuits_5.png">
+         <p routerLink="/shop/Snacks%20&%20Branded%20Foods/Biscuits%20&%20Cookies/9" style="text-align: center;font-weight: 500;cursor: pointer;color:#000; text-transform: uppercase;font-size: 15px;">Biscuits & Cookies</p></a>
        </div>
-       <div class="col-md-3"><img class="img-fluid1" src="assets/img/item/7_percent.png">
-         <p routerLink="/shop/Beverages/Health%20Drink%20&%20Supplement/55" style="text-align: center;font-weight: 500;cursor: pointer;">Health Drinks</p>  
+       <div class="col-md-3"><a routerLink="/shop/Beverages/Health%20Drink%20&%20Supplement/55"><img class="img-fluid1" src="assets/img/item/healthdrinks_7.png">
+         <p routerLink="/shop/Beverages/Health%20Drink%20&%20Supplement/55" style="text-align: center;font-weight: 500;cursor: pointer;color:#000; text-transform: uppercase;font-size: 15px;">Health Drinks</p></a>
       </div>
-       <div class="col-md-3"><img class="img-fluid1" src="assets/img/item/11_percent.png">
-         <p routerLink="/shop/Dairy%20&%20Bakery/%20Bakery%20Snacks/25" style="text-align: center;font-weight: 500;cursor: pointer;">Bakery Snacks</p>  
+       <div class="col-md-3"><a routerLink="/shop/Dairy%20&%20Bakery/%20Bakery%20Snacks/25"><img class="img-fluid1" src="assets/img/item/bakery_11.png">
+         <p routerLink="/shop/Dairy%20&%20Bakery/%20Bakery%20Snacks/25" style="text-align: center;font-weight: 500;cursor: pointer;color:#000; text-transform: uppercase;font-size: 15px;">Bakery Snacks</p></a>
        </div>
-       <div class="col-md-3"><img class="img-fluid1" src="assets/img/item/19_percent.png">
-         <p routerLink="/shop/Personal%20Care/Deo%20&%20Fragrance/48" style="text-align: center;font-weight: 500;cursor: pointer;">Deo & Fragrance</p>
+       <div class="col-md-3"><a routerLink="/shop/Personal%20Care/Deo%20&%20Fragrance/48"><img class="img-fluid1" src="assets/img/item/deo_19.png">
+         <p routerLink="/shop/Personal%20Care/Deo%20&%20Fragrance/48" style="text-align: center;font-weight: 500;cursor: pointer;color:#000; text-transform: uppercase;font-size: 15px;">Deo & Fragrance</p></a>
        </div>
     </div><br>
     <div class="row">
-      <div class="col-md-3"><img class="img-fluid1" src="assets/img/item/22_percent.png">
-         <p routerLink="/shop/Grocery/Rice%20%20&%20Rice%20By%20Products/3" style="text-align: center;font-weight: 500;cursor: pointer;">Rice & Rice By Products</p>
+      <div class="col-md-3"><a routerLink="/shop/Grocery/Rice%20%20&%20Rice%20By%20Products/3"><img class="img-fluid1" src="assets/img/item/rice_22.png">
+         <p routerLink="/shop/Grocery/Rice%20%20&%20Rice%20By%20Products/3" style="text-align: center;font-weight: 500;cursor: pointer;color:#000; text-transform: uppercase;font-size: 15px;">Rice & Rice By Products</p></a>
       </div>
-      <div class="col-md-3"><img class="img-fluid1" src="assets/img/item/30_percent.png">
-         <p routerLink="/shop/Grocery/Dals%20&%20Pulses/2" style="text-align: center;font-weight: 500;cursor: pointer;">Dals & Pulses</p>
+      <div class="col-md-3"><a routerLink="/shop/Grocery/Dals%20&%20Pulses/2"><img class="img-fluid1" src="assets/img/item/dal_30.png">
+         <p routerLink="/shop/Grocery/Dals%20&%20Pulses/2" style="text-align: center;font-weight: 500;cursor: pointer;color:#000; text-transform: uppercase;font-size: 15px;">Dals & Pulses</p></a>
       </div>
-      <div class="col-md-3"><img class="img-fluid1" src="assets/img/item/40_percent.png">
-         <p routerLink="/shop/Grocery/Salt%20&%20Sugar%20&%20Jaggery/6" style="text-align: center;font-weight: 500;cursor: pointer;">Salt, Sugar & Jagerry</p>
+      <div class="col-md-3"><a routerLink="/shop/Grocery/Salt%20&%20Sugar%20&%20Jaggery/6"><img class="img-fluid1" src="assets/img/item/salt_40.png">
+         <p routerLink="/shop/Grocery/Salt%20&%20Sugar%20&%20Jaggery/6" style="text-align: center;font-weight: 500;cursor: pointer;color:#000; text-transform: uppercase;font-size: 15px;">Salt, Sugar & Jagerry</p></a>
       </div>
-      <div class="col-md-3"><img class="img-fluid1" src="assets/img/item/50_percent.png">
-         <p routerLink="/shop/Grocery/Masala%20&%20Spices/5" style="text-align: center;font-weight: 500;cursor: pointer;">Masala & Spices</p>
+      <div class="col-md-3"><a routerLink="/shop/Grocery/Masala%20&%20Spices/5"><img class="img-fluid1" src="assets/img/item/masala_50.png">
+         <p routerLink="/shop/Grocery/Masala%20&%20Spices/5" style="text-align: center;font-weight: 500;cursor: pointer;color:#000; text-transform: uppercase;font-size: 15px;">Masala & Spices</p></a>
       </div>
    </div>
  </section>
  
  <section class="carousel-slider-main text-center border-top border-bottom bg-white">
-   <div class="owl-carousel owl-carousel-slider">       
+   <div class="owl-carousel owl-carousel-slider">      
       <div class="item">
-         <img class="img-fluid" src="assets/img/slider/banjara.png">
+         <a class="float-right text-secondary" routerLink="/branded_products/Aswika">
+             <img class="img-fluid" src="assets/img/slider/delivery.png">
+         </a>
+      </div> 
+      <div class="item">
+         <a class="float-right text-secondary" routerLink="/branded_products/Banjara's"> 
+             <img class="img-fluid" src="assets/img/slider/banjara.png">
+         </a>
       </div>
       <div class="item">
-         <img class="img-fluid" src="assets/img/slider/Aswika.png">
+         <a class="float-right text-secondary" routerLink="/branded_products/Aswika">
+             <img class="img-fluid" src="assets/img/slider/Aswika.png">
+         </a>
       </div>
       <div class="item">
-         <img class="img-fluid" src="assets/img/slider/Stay-Fresh-and-Clean-Banner.png">
+         <a class="float-right text-secondary" routerLink="/branded_products/Nivea">
+            <img class="img-fluid" src="assets/img/slider/Stay-Fresh-and-Clean-Banner.png">
+         </a>
       </div>
       
    </div>
@@ -332,55 +343,55 @@
 <section style="margin-top: 20px;" class="product-items-slider section-padding">
    <div class="row">
    <div class="section-header">
-      <h5 class="heading-design-h5">Top Savers Today <span class="badge badge-primary">50% OFF</span>
-         <a class="float-right text-secondary" routerLink="top_deals_of_the_day">View All</a>
+      <h5 class="heading-design-h5">Top Savers Today <span class="badge badge-primary">50% OFF</span> 
+         <a class="float-right text-secondary" routerLink="/top_deals_of_the_day"> View All</a>
       </h5>
    </div>
       <div class="owl-carousel owl-carousel-featured" ><!--*ngIf = " asmService.getDealsOfTheday().length > 0"-->
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[0].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[0].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[0]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[0]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[0].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[0].unit_value}}- {{asmService.getDealsOfTheday()[0].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[0].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[0].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[0]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[0]?.unit_value}}- {{asmService.getDealsOfTheday()[0]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[0]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[0]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[0])" *ngIf= "!asmService.getDealsOfTheday()[0].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[0].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[0])" *ngIf= "!asmService.getDealsOfTheday()[0]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[0]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[0])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[0].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[0]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[0])">+</button>
                            </span>
                         </div>
                      </div>
-                     <!-- <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[0].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[0].sale_price}}</span></p> -->
+                     <!-- <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[0]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[0]?.sale_price}}</span></p> -->
                   </div>               
             </div>
          </div>
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[1].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[1].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[1]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[1]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[1].product_name}}</h5>
-                     <h6> {{asmService.getDealsOfTheday()[1].unit_value}}- {{asmService.getDealsOfTheday()[1].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[1].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[1].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[1]?.product_name}}</h5>
+                     <h6> {{asmService.getDealsOfTheday()[1]?.unit_value}}- {{asmService.getDealsOfTheday()[1]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[1]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[1]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[1])" *ngIf= "!asmService.getDealsOfTheday()[1].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[1].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[1])" *ngIf= "!asmService.getDealsOfTheday()[1]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[1]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[1])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[1].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[1]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[1])">+</button>
                            </span>
                         </div>
@@ -391,21 +402,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[2].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[2].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[2]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[2]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[2].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[2].unit_value}}- {{asmService.getDealsOfTheday()[2].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[2].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[2].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[2]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[2]?.unit_value}}- {{asmService.getDealsOfTheday()[2]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[2]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[2]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[2])" *ngIf= "!asmService.getDealsOfTheday()[2].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[2].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[2])" *ngIf= "!asmService.getDealsOfTheday()[2]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[2]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[2])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[2].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[2]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[2])">+</button>
                            </span>
                         </div>
@@ -416,21 +427,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[3].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[3].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[3]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[3]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[3].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[3].unit_value}}- {{asmService.getDealsOfTheday()[3].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[3].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[3].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[3]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[3]?.unit_value}}- {{asmService.getDealsOfTheday()[3]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[3]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[3]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[3])" *ngIf= "!asmService.getDealsOfTheday()[3].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[3].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[3])" *ngIf= "!asmService.getDealsOfTheday()[3]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[3]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[3])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[3].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[3]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[3])">+</button>
                            </span>
                         </div>
@@ -441,21 +452,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[4].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[4].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[4]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[4]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[4].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[4].unit_value}}- {{asmService.getDealsOfTheday()[4].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[4].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[4].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[4]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[4]?.unit_value}}- {{asmService.getDealsOfTheday()[4]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[4]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[4]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[4])" *ngIf= "!asmService.getDealsOfTheday()[4].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[4].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[4])" *ngIf= "!asmService.getDealsOfTheday()[4]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[4]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[4])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[4].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[4]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[4])">+</button>
                            </span>
                         </div>
@@ -466,21 +477,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[5].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[5].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[5]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[5]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[5].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[5].unit_value}}- {{asmService.getDealsOfTheday()[5].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[5].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[5].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[5]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[5]?.unit_value}}- {{asmService.getDealsOfTheday()[5]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[5]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[5]?.sale_price}}</span></p>
                   </div>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[5])" *ngIf= "!asmService.getDealsOfTheday()[5].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[5].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[5])" *ngIf= "!asmService.getDealsOfTheday()[5]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[5]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[5])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[5].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[5]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[5])">+</button>
                            </span>
                         </div>
@@ -491,21 +502,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[6].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[6].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[6]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[6]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[6].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[6].unit_value}}- {{asmService.getDealsOfTheday()[6].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[6].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[6].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[6]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[6]?.unit_value}}- {{asmService.getDealsOfTheday()[6]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[6]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[6]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[6])" *ngIf= "!asmService.getDealsOfTheday()[6].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[6].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[6])" *ngIf= "!asmService.getDealsOfTheday()[6]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[6]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[6])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[6].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[6]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[6])">+</button>
                            </span>
                         </div>
@@ -516,21 +527,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[7].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[7].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[7]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[7]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[7].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[7].unit_value}}- {{asmService.getDealsOfTheday()[7].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[7].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[7].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[7]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[7]?.unit_value}}- {{asmService.getDealsOfTheday()[7]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[7]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[7]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[7])" *ngIf= "!asmService.getDealsOfTheday()[7].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[7].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[7])" *ngIf= "!asmService.getDealsOfTheday()[7]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[7]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[7])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[7].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[7]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[7])">+</button>
                            </span>
                         </div>
@@ -541,21 +552,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[8].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[8].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[8]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[8]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[8].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[8].unit_value}}- {{asmService.getDealsOfTheday()[8].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[8].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[8].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[8]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[8]?.unit_value}}- {{asmService.getDealsOfTheday()[8]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[8]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[8]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[8])" *ngIf= "!asmService.getDealsOfTheday()[8].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[8].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[8])" *ngIf= "!asmService.getDealsOfTheday()[8]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[8]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[8])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[8].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[8]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[8])">+</button>
                            </span>
                         </div>
@@ -566,21 +577,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[9].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[9].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[9]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[9]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[9].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[9].unit_value}}- {{asmService.getDealsOfTheday()[9].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[9].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[9].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[9]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[9]?.unit_value}}- {{asmService.getDealsOfTheday()[9]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[9]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[9]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[9])" *ngIf= "!asmService.getDealsOfTheday()[9].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[9].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[9])" *ngIf= "!asmService.getDealsOfTheday()[9]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[9]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[9])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[9].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[9]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[9])">+</button>
                            </span>
                         </div>
@@ -591,21 +602,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[10].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[10].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[10]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[10]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[10].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[10].unit_value}}- {{asmService.getDealsOfTheday()[10].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[10].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[10].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[10]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[10]?.unit_value}}- {{asmService.getDealsOfTheday()[10]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[10]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[10]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[10])" *ngIf= "!asmService.getDealsOfTheday()[10].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[10].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[10])" *ngIf= "!asmService.getDealsOfTheday()[10]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[10]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[10])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[10].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[10]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[10])">+</button>
                            </span>
                         </div>
@@ -616,21 +627,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[11].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[11].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[11]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[11]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[11].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[11].unit_value}}- {{asmService.getDealsOfTheday()[11].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[11].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[11].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[11]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[11]?.unit_value}}- {{asmService.getDealsOfTheday()[11]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[11]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[11]?.sale_price}}</span></p>
                   </div>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[11])" *ngIf= "!asmService.getDealsOfTheday()[11].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[11].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[11])" *ngIf= "!asmService.getDealsOfTheday()[11]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[11]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[11])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[11].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[11]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[11])">+</button>
                            </span>
                         </div>
@@ -641,21 +652,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[12].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[12].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[12]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[12]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[12].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[12].unit_value}}- {{asmService.getDealsOfTheday()[12].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[12].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[12].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[12]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[12]?.unit_value}}- {{asmService.getDealsOfTheday()[12]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[12]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[12]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[12])" *ngIf= "!asmService.getDealsOfTheday()[12].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[12].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[12])" *ngIf= "!asmService.getDealsOfTheday()[12]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[12]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[12])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[12].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[12]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[12])">+</button>
                            </span>
                         </div>
@@ -666,21 +677,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[13].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[13].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[13]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[13]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[13].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[13].unit_value}}- {{asmService.getDealsOfTheday()[13].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[13].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[13].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[13]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[13]?.unit_value}}- {{asmService.getDealsOfTheday()[13]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[13]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[13]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[13])" *ngIf= "!asmService.getDealsOfTheday()[13].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[13].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[13])" *ngIf= "!asmService.getDealsOfTheday()[13]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[13]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[13])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[13].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[13]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[13])">+</button>
                            </span>
                         </div>
@@ -691,21 +702,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[14].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[14].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[14]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[14]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[14].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[14].unit_value}}- {{asmService.getDealsOfTheday()[14].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[14].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[14].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[14]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[14]?.unit_value}}- {{asmService.getDealsOfTheday()[14]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[14]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[14]?.sale_price}}</span></p>
                   </div>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[14])" *ngIf= "!asmService.getDealsOfTheday()[14].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[14].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[14])" *ngIf= "!asmService.getDealsOfTheday()[14]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[14]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[14])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[14].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[14]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[14])">+</button>
                            </span>
                         </div>
@@ -716,21 +727,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[15].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[15].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[15]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[15]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[15].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[15].unit_value}}- {{asmService.getDealsOfTheday()[15].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[15].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[15].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[15]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[15]?.unit_value}}- {{asmService.getDealsOfTheday()[15]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[15]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[15]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[15])" *ngIf= "!asmService.getDealsOfTheday()[15].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[15].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[15])" *ngIf= "!asmService.getDealsOfTheday()[15]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[15]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[15])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[15].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[15]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[15])">+</button>
                            </span>
                         </div>
@@ -741,21 +752,21 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[16].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[16].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[16]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[16]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[16].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[16].unit_value}}- {{asmService.getDealsOfTheday()[16].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[16].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[16].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[16]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[16]?.unit_value}}- {{asmService.getDealsOfTheday()[16]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[16]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[16]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[16])" *ngIf= "!asmService.getDealsOfTheday()[16].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[16].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[16])" *ngIf= "!asmService.getDealsOfTheday()[16]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[16]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[16])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[16].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[16]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[16])">+</button>
                            </span>
                         </div>
@@ -763,24 +774,24 @@
                   </div>               
             </div>
          </div>
-         <div class="item" >
+         <!-- <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[17].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[17].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[17]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[17]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[17].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[17].unit_value}}- {{asmService.getDealsOfTheday()[17].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[17].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[17].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[17]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[17]?.unit_value}}- {{asmService.getDealsOfTheday()[17]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[17]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[17]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[17])" *ngIf= "!asmService.getDealsOfTheday()[17].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[17].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[17])" *ngIf= "!asmService.getDealsOfTheday()[17]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[17]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[17])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[17].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[17]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[17])">+</button>
                            </span>
                         </div>
@@ -791,28 +802,28 @@
          <div class="item" >
             <div class="product">               
                   <div class="product-header">
-                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[18].discount_percentage}}% OFF</span>
-                     <img class="img-fluid" src="assets{{asmService.getDealsOfTheday()[18].product_img}}" alt="">
+                     <span class="badge badge-success">{{asmService.getDealsOfTheday()[18]?.discount_percentage}}% OFF</span>
+                     <img class="img-fluid" src="{{asmService.getDealsOfTheday()[18]?.product_img_200}}" alt="">
                      <span class="veg text-success mdi mdi-circle"></span>
                   </div>
                   <div class="product-body">
-                     <h5>{{asmService.getDealsOfTheday()[18].product_name}}</h5>
-                     <h6>{{asmService.getDealsOfTheday()[18].unit_value}}- {{asmService.getDealsOfTheday()[18].unit_type}}</h6>
-                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[18].mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[18].sale_price}}</span></p>
+                     <h5>{{asmService.getDealsOfTheday()[18]?.product_name}}</h5>
+                     <h6>{{asmService.getDealsOfTheday()[18]?.unit_value}}- {{asmService.getDealsOfTheday()[18]?.unit_type}}</h6>
+                     <p><strong class="regular-price"> Rs.{{asmService.getDealsOfTheday()[18]?.mrp}}</strong><br><span class="offer-price mb-0">Rs.{{asmService.getDealsOfTheday()[18]?.sale_price}}</span></p>
                   </div><br>
                   <div class="product-footer">
-                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[18])" *ngIf= "!asmService.getDealsOfTheday()[18].quantity "><img src="assets/img/shopping-cart (2).png"></button>
-                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[18].quantity >= 1">
+                     <button type="button" class="cartbtn float-right" (click)="addToCart(asmService.getDealsOfTheday()[18])" *ngIf= "!asmService.getDealsOfTheday()[18]?.quantity "><img src="assets/img/shopping-cart (2).png"></button>
+                     <div class="qty" *ngIf = "asmService.getDealsOfTheday()[18]?.quantity >= 1">
                         <div class="input-group" style="height: 9px;margin-top:-22px;margin-bottom: 13px;">
                            <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="cartService.decrementProductQuantityByOne(asmService.getDealsOfTheday()[18])">-</button></span>
-                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[18].quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
+                           <input  disabled type="text" max="10" min="1" value={{asmService.getDealsOfTheday()[18]?.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]">
                            <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="cartService.incrementProductQuantityByOne(asmService.getDealsOfTheday()[18])">+</button>
                            </span>
                         </div>
                      </div>
                   </div>               
             </div>
-         </div>         
+         </div>          -->
    </div>
 </div>
 </section>
@@ -841,6 +852,9 @@
          </div>
       </div>
    </div>
+   <div>
+      <button type="button" class="goto-top" (click)="gotoTop()"><span class="mdi mdi-chevron-up"></span></button>
+   </div>
 </section>
  <section>
    <app-footer></app-footer>
@@ -852,9 +866,7 @@
           <div class="col-lg-6 col-sm-6">
              <p class="mt-1 mb-0">&copy; Copyright 2021 <strong class="text-dark">ASWIKA STORES</strong>. All Rights Reserved<br></p>
           </div>
-          <!-- <div class="col-lg-6 col-sm-6 text-right">
-             <img alt="osahan logo" src="assets/img/payment_methods.png">
-          </div> -->
+         
        </div>
     </div>
  </section>

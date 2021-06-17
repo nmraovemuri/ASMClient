@@ -1,6 +1,6 @@
 <section class="section-padding  bg-white">
     <div class="container">
-        <div class="row">              
+        <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="card">
                     <div class="card-header" style="background-color: #f8f9d2;
@@ -8,148 +8,208 @@
                         <h4 class="text-center font-weight-light">Register your Account.</h4>
                     </div>
                     <div class="card-body">
-
-                        <form [formGroup]= "registrationForm" (ngSubmit)="onSubmit()"  class="form-horizontal">
-
+                        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="form-horizontal">
                             <div class="form-group">
-                                <label for="name" class="cols-sm-2 control-label">First Name:<span style="color: red;">*</span></label>
-                                <div class="cols-sm-10">
-                                    <div class="input-group">                                    
-                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control" formControlName = "first_name"  id="first_name" placeholder="Enter your Name"
-                                        [ngClass]="{'is-invalid': registrationForm.get('first_name').touched  && registrationForm.get('first_name').invalid }" />                                        
-                                        <div *ngIf="registrationForm.get('first_name').touched  && registrationForm.get('first_name').invalid" class="invalid-feedback">
-                                            <div *ngIf = "registrationForm.get('first_name').errors.required"> First name is required.</div>
-                                            <div *ngIf = "registrationForm.get('first_name').errors.minlength || registrationForm.get('first_name').errors.maxlength"> First name is must be greater than 2 characters and less than 10 characters.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="name" class="cols-sm-2 control-label">Last Name:<span style="color: red;">*</span></label>
-                                <div class="cols-sm-10">
-                                    <div class="input-group">                                    
-                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control" formControlName = "last_name"  id="last_name" placeholder="Enter your Last Name"
-                                        [ngClass]="{'is-invalid': registrationForm.get('last_name').touched  && registrationForm.get('last_name').invalid }" />                                        
-                                        <div *ngIf="registrationForm.get('last_name').touched  && registrationForm.get('last_name').invalid" class="invalid-feedback">
-                                            <div *ngIf = "registrationForm.get('last_name').errors.required"> last name is required.</div>
-                                            <div *ngIf = "registrationForm.get('last_name').errors.minlength || registrationForm.get('last_name').errors.maxlength"> Last name is must be greater than 2 characters and less than 10 characters.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="form-group">
-                                <label for="userName" class="cols-sm-2 control-label">user Name:</label>
+                                <label for="location" class="cols-sm-2 control-label">User Location:
+                                    <span style="color: #dc3545;"> ( Currently Our Services are providing this locationsonly)*</span>
+                                </label>
                                 <div class="cols-sm-10">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control" formControlName = "userName" name="userName" id="userName" placeholder="Enter your userName"
-                                        [ngClass]="{'is-invalid': registrationForm.get('userName').touched  && registrationForm.get('userName').invalid }" />                                        
-                                        <div *ngIf="registrationForm.get('userName').touched  && registrationForm.get('userName').invalid" class="invalid-feedback">
-                                            <div *ngIf = "registrationForm.get('userName').errors.required"> user name is required.</div>
-                                            <div *ngIf = "registrationForm.get('userName').errors.minlength || registrationForm.get('userName').errors.maxlength"> user name is must be greater than 5 characters and less than 8 characters.</div>
+                                        <select formControlName="location" class="form-control" name="location" id="location" >
+                                            <!--value ="{{registrationForm.value.location}}"-->
+                                            <option value="" >Choose Location</option>
+                                            <option *ngFor="let area_location of locationList" [ngValue]="area_location">{{area_location}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div *ngIf="registrationFormControl.location.invalid && (registrationFormControl.location.dirty || registrationFormControl.location.touched)" class="location_error">
+                                    <div *ngIf="registrationFormControl.location.errors?.required">Location is required.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name" class="cols-sm-2 control-label">First Name:<span
+                                        style="color: red;">*</span></label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" formControlName="first_name"
+                                            id="first_name" placeholder="Enter your Name"
+                                            [ngClass]="{'is-invalid': registrationForm.get('first_name').touched  && registrationForm.get('first_name').invalid }" />
+                                        <div *ngIf="registrationForm.get('first_name').touched  && registrationForm.get('first_name').invalid"
+                                            class="invalid-feedback">
+                                            <div *ngIf="registrationForm.get('first_name').errors.required"> First name
+                                                is required.</div>
+                                            <div
+                                                *ngIf="registrationForm.get('first_name').errors.minlength || registrationForm.get('first_name').errors.maxlength">
+                                                First name is must be greater than 3 characters and less than 55
+                                                characters.</div>
                                         </div>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
+                            <div></div>
                             <div class="form-group">
-                                <label for="email" class="cols-sm-2 control-label">Email:<span style="color: red;">*</span></label>
+                                <label for="name" class="cols-sm-2 control-label">Last Name:<span
+                                        style="color: red;">*</span></label>
                                 <div class="cols-sm-10">
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control" formControlName = "email_id" name="email_id" id="email_id" placeholder="Enter your Email"
-                                        [ngClass]="{'is-invalid': registrationForm.get('email_id').touched  && registrationForm.get('email_id').invalid }" />
-                                        <div *ngIf="registrationForm.get('email_id').touched  && registrationForm.get('email_id').invalid" class="invalid-feedback">
-                                            <div *ngIf = "registrationForm.get('email_id').errors.required"> Email is required.</div>
-                                            <div *ngIf = "registrationForm.get('email_id').errors.email"> Email must be valid email Address</div>
+                                        <span class="input-group-addon"><i class="fa fa-user fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" formControlName="last_name"
+                                            id="last_name" placeholder="Enter your Last Name"
+                                            [ngClass]="{'is-invalid': registrationForm.get('last_name').touched  && registrationForm.get('last_name').invalid }" />
+                                        <div *ngIf="registrationForm.get('last_name').touched  && registrationForm.get('last_name').invalid"
+                                            class="invalid-feedback">
+                                            <div *ngIf="registrationForm.get('last_name').errors.required"> last name is
+                                                required.</div>
+                                            <div
+                                                *ngIf="registrationForm.get('last_name').errors.minlength || registrationForm.get('last_name').errors.maxlength">
+                                                Last name is must be greater than 1 characters and less than 40
+                                                characters.</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="mobile" class="cols-sm-2 control-label">Mobile Number:<span style="color: red;">*</span></label>
+                                <label for="email" class="cols-sm-2 control-label">Email:<span
+                                        style="color: red;">*</span></label>
                                 <div class="cols-sm-10">
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                        <input type="number" class="form-control" formControlName = "mobile" name="mobile" id="mobile" placeholder="Enter your Mobile Number"
-                                        [ngClass]="{'is-invalid': registrationForm.get('mobile').touched  && registrationForm.get('mobile').invalid }" />                                        
-                                        <div *ngIf="registrationForm.get('mobile').touched  && registrationForm.get('mobile').invalid" class="invalid-feedback">
-                                            <div *ngIf = "registrationForm.get('mobile').errors.required"> mobile number is required.</div>
-                                            <div *ngIf = "registrationForm.get('mobile').errors.minlength || registrationForm.get('mobile').errors.maxlength"> Mobile Number is must be 10 digits.</div>
+                                        <span class="input-group-addon"><i class="fa fa-envelope fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" formControlName="email_id"
+                                            name="email_id" id="email_id" placeholder="Enter your Email"
+                                            [ngClass]="{'is-invalid': registrationForm.get('email_id').touched  && registrationForm.get('email_id').invalid }"
+                                            (blur)="checkEmailAlreadyExisted()" />
+                                        <div *ngIf="registrationForm.get('email_id').touched  && registrationForm.get('email_id').invalid"
+                                            class="invalid-feedback">
+                                            <div *ngIf="registrationForm.get('email_id').errors.required"> Email is
+                                                required.</div>
+                                            <div *ngIf="registrationForm.get('email_id').errors.email"> Email must be
+                                                valid email Address</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf="email_existed_error"><span style="color: #dc3545;">
+                                        {{email_existed_error}}</span></div>
+                                <div *ngIf="check_email_existed_error"><span style="color: #dc3545;">
+                                        {{check_email_existed_error}}</span></div>
+                                <div *ngIf="check_email_existed_success"><span style="color: green;">
+                                        {{check_email_existed_success}}</span></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile" class="cols-sm-2 control-label">Mobile Number:<span
+                                        style="color: red;">*</span></label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="number" class="form-control" formControlName="mobile" name="mobile"
+                                            id="mobile" placeholder="Enter your Mobile Number"
+                                            [ngClass]="{'is-invalid': registrationForm.get('mobile').touched  && registrationForm.get('mobile').invalid }" />
+                                        <div *ngIf="registrationForm.get('mobile').touched  && registrationForm.get('mobile').invalid"
+                                            class="invalid-feedback">
+                                            <div *ngIf="registrationForm.get('mobile').errors.required"> mobile number
+                                                is required.</div>
+                                            <div
+                                                *ngIf="registrationForm.get('mobile').errors.minlength || registrationForm.get('mobile').errors.maxlength">
+                                                Mobile Number is must be 10 digits.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password" class="cols-sm-2 control-label">Password:<span
+                                        style="color: red;">*</span></label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" formControlName="password"
+                                            name="password" id="password" placeholder="Enter your Password"
+                                            [ngClass]="{'is-invalid': registrationForm.get('password').touched  && registrationForm.get('password').invalid }" />
+                                        <div *ngIf="registrationForm.get('password').touched  && registrationForm.get('password').invalid"
+                                            class="invalid-feedback">
+                                            <div *ngIf="registrationForm.get('password').errors.required"> password is
+                                                required.</div>
+                                            <div
+                                                *ngIf="registrationForm.get('password').errors.minlength || registrationForm.get('password').errors.maxlength">
+                                                password is must be greater than 6 characters and less than 8
+                                                characters.</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="password" class="cols-sm-2 control-label">Password:<span style="color: red;">*</span></label>
+                                <label for="confirm" class="cols-sm-2 control-label">Confirm Password:<span
+                                        style="color: red;">*</span></label>
                                 <div class="cols-sm-10">
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                        <input type="password" class="form-control" formControlName="password" name="password" id="password" placeholder="Enter your Password" 
-                                        [ngClass]="{'is-invalid': registrationForm.get('password').touched  && registrationForm.get('password').invalid }" />                                        
-                                        <div *ngIf="registrationForm.get('password').touched  && registrationForm.get('password').invalid" class="invalid-feedback">
-                                            <div *ngIf = "registrationForm.get('password').errors.required"> password is required.</div>
-                                            <div *ngIf = "registrationForm.get('password').errors.minlength || registrationForm.get('password').errors.maxlength"> password  is must be greater than 6 characters and less than 8 characters.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="confirm" class="cols-sm-2 control-label">Confirm Password:<span style="color: red;">*</span></label>
-                                <div class="cols-sm-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                        <input type="password" class="form-control" formControlName = "confirm_password" name="confirm_password" id="confirm_password" placeholder="Confirm your Password" 
-                                        [ngClass]="{'is-invalid': registrationForm.get('confirm_password').touched  && registrationForm.get('confirm_password').invalid }" />                                        
-                                        <div *ngIf="registrationForm.get('confirm_password').touched  && registrationForm.get('confirm_password').invalid" class="invalid-feedback">
-                                            <div *ngIf = "registrationForm.get('confirm_password').errors.required"> confirm password is required.</div>
-                                            <div *ngIf = "registrationForm.get('confirm_password').errors.minlength || registrationForm.get('confirm_password').errors.maxlength"> confirm password  is must be greater than 6 characters and less than 8 characters.</div>
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" formControlName="confirm_password"
+                                            name="confirm_password" id="confirm_password"
+                                            placeholder="Confirm your Password"
+                                            [ngClass]="{'is-invalid': registrationForm.get('confirm_password').touched  && registrationForm.get('confirm_password').invalid }" />
+                                        <div *ngIf="registrationForm.get('confirm_password').touched  && registrationForm.get('confirm_password').invalid"
+                                            class="invalid-feedback">
+                                            <div *ngIf="registrationForm.get('confirm_password').errors.required">
+                                                confirm password is required.</div>
+                                            <div
+                                                *ngIf="registrationForm.get('confirm_password').errors.minlength || registrationForm.get('confirm_password').errors.maxlength">
+                                                confirm password is must be greater than 6 characters and less than 8
+                                                characters.</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group ">
-                                <button type="submit" class="btn square_btn btn-lg btn-block login-button " [disabled]="!registrationForm.valid">Register</button>
+                                <button type="submit" class="btn square_btn btn-lg btn-block login-button "
+                                    [disabled]="!registrationForm.valid">Register</button>
                             </div>
-                            
                         </form>
                     </div>
-
                 </div>
-            </div>       
+            </div>
+        </div>
+    </div>
+    <div>
+        <button type="button" class="goto-top" (click)="gotoTop()"><span class="mdi mdi-chevron-up"></span></button>
+    </div>
+</section>
+
+<section class="section-padding bg-white border-top" style="background: radial-gradient(orange, transparent);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-6">
+                <div class="feature-box">
+                    <i class="mdi mdi-truck-fast" style="color : #3a0808;border :1px solid #3a0808; border-style: dotted;"></i>
+                    <h6>Free & Next Day Delivery</h6>
+                    
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="feature-box">
+                    <i class="mdi mdi-basket" style="color : #3a0808;border :1px solid #3a0808; border-style: dotted;"></i>
+                    <h6>100% Satisfaction Guarantee</h6>
+                    
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="feature-box">
+                    <i class="mdi mdi-tag-heart" style="color : #3a0808;border :1px solid #3a0808; border-style: dotted;"></i>
+                    <h6>Great Daily Deals Discount</h6>
+                    
+                </div>
+            </div>
         </div>
     </div>
 </section>
-  
-<section class="section-padding bg-white border-top">
-    <div class="container">
-       <div class="row">
-          <div class="col-lg-4 col-sm-6">
-             <div class="feature-box">
-                <i class="mdi mdi-truck-fast"></i>
-                <h6>Free & Next Day Delivery</h6>
-                <p>Lorem ipsum dolor sit amet, cons...</p>
-             </div>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-             <div class="feature-box">
-                <i class="mdi mdi-basket"></i>
-                <h6>100% Satisfaction Guarantee</h6>
-                <p>Rorem Ipsum Dolor sit amet, cons...</p>
-             </div>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-             <div class="feature-box">
-                <i class="mdi mdi-tag-heart"></i>
-                <h6>Great Daily Deals Discount</h6>
-                <p>Sorem Ipsum Dolor sit amet, Cons...</p>
-             </div>
-          </div>
-       </div>
-    </div>
- </section>
- 
- <section>
-<app-footer></app-footer>
+
+<section>
+    <app-footer></app-footer>
 </section>

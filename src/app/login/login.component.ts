@@ -8,10 +8,11 @@ import { ASMCustomerService } from '../asmCustomer.service'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  loginFail :boolean =false;
   constructor(private asmCustomerService: ASMCustomerService, private router : Router) { }
  loginData :any ={};
  customerLoginData : any ={};
+ 
   ngOnInit(): void {
   }
   userlogin(loginData){
@@ -31,6 +32,8 @@ export class LoginComponent implements OnInit {
      },
     error => {
       console.log(error);
+      this.loginFail = true;
+
     })
   }
 

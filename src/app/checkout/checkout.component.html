@@ -1,22 +1,5 @@
 <div *ngIf = "tab4 == true">
    <div class="my-order-confirmation-modal modal-dialog-centered" id="order-confirmation-modal" tabindex="-1"  data-keyboard="false" data-backdrop="static" style="padding-right: 16px;margin-top:-143px !important;">
-      <!-- <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-         <div class="modal-content">
-            <div class="modal-body">
-               <div class="text-center">
-                  <div class="col-lg-10 col-md-10 mx-auto order-done">
-                     <i class="mdi mdi-check-circle-outline text-secondary"></i>
-                     <h4 class="text-success">Congrats! Your Order has been Submitted..</h4>
-                    
-                  </div>
-                  <div class="text-center">
-                     <a routerLink="/home"><button type="submit" class="btn btn-secondary mb-2 btn-lg">Return to store</button></a>
-                  </div>
-               </div>                                        
-            </div>
-         </div>
-      </div> -->
-      <!-- <div class="my-login-modal modal-dialog-centered"  id="bd-example-modal" tabindex="-1"  data-keyboard="false" data-backdrop="static" style="padding-right: 16px;margin-top:-143px !important;"> -->
        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
           <div class="modal-content">
              <div class="modal-body">
@@ -32,7 +15,7 @@
                            
                          </div>
                          <div class="text-center">
-                            <a routerLink="/home"><button type="submit" class="btn btn-secondary mb-2 btn-lg">Return to store</button></a>
+                            <a routerLink="/"><button type="submit" class="btn btn-secondary mb-2 btn-lg">Return to store</button></a>
                          </div>
                       </div> 
                       
@@ -48,7 +31,10 @@
    <div class="container">
       <div class="row">
          <div class="col-md-12">
-            <a href="#"><strong><span class="mdi mdi-home"></span> Home</strong></a> <span class="mdi mdi-chevron-right"></span> <a href="#">Checkout</a>
+            <div class="col-md-12">
+               <a routerLink="/"><strong><span class="mdi mdi-home"></span> Home</strong></a>
+                <span class="mdi mdi-chevron-right"></span> Checkout 
+            </div>
          </div>
       </div>
    </div>
@@ -59,340 +45,208 @@
          <div class="col-md-8">
             <div class="checkout-step">
                <div class="accordion" id="accordionExample">
-                  <!-- <div class="card checkout-step-one">
-                     <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                           <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#tabOne" aria-expanded="true" aria-controls="tabOne">
-                           <span class="number">1</span> Phone Number Verification
-                           </button>
-                        </h5>
-                     </div>
-                     <div id="tabOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body">
-                           <p>We need your phone number so that we can update you about your order.</p>
-                           <form>
-                              <div class="form-row align-items-center">
-                                 <div class="col-auto">
-                                    <label class="sr-only">phone number</label>
-                                    <div class="input-group mb-2">
-                                       <div class="input-group-prepend">
-                                          <div class="input-group-text"><span class="mdi mdi-cellphone-iphone"></span></div>
-                                       </div>
-                                       <input type="text" class="form-control" placeholder="Enter phone number">
-                                    </div>
-                                 </div>
-                                 <div class="col-auto">
-                                    <button type="button" data-toggle="collapse" data-target="#tabTwo" aria-expanded="false" aria-controls="tabTwo" class="btn btn-secondary mb-2 btn-lg">NEXT</button>
-                                 </div>
-                              </div>
-                           </form>
-                        </div>
-                     </div>
-                  </div> -->
+                
                   <div  class="card checkout-step-two">
                      <div class="card-header" id="headingTwo">
-                        <h5 class="mb-0">
-                           <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#tabTwo" aria-expanded="false" aria-controls="tabTwo">
-                           <span class="number">1</span> Delivery Address
+                        <h5 class="mb-0"><!--collapsed-->
+                           <button class="btn btn-link collapsed " type="button" data-toggle="collapse" data-target="#tabTwo" aria-expanded="true" aria-controls="tabTwo">
+                           <span class="number">1</span> Delivery Address <span class="mdi mdi-chevron-down float-right"></span>
                            </button>
                         </h5>
                      </div>
-                     <div id="tabTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                     <div id="tabTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
                         <div class="card-body">
-                           <form [formGroup]= "deliveryAddressForm"  (ngSubmit)="onSubmit()" class="form-horizontal"><!-- (ngSubmit)="onSubmit()"-->
+                           <form #deliveryAddressForm="ngForm"  (ngSubmit)="onSubmit(deliveryAddressForm.value)" class="form-horizontal" >
                               <div class="row">
                                  <div class="col-sm-6">
                                     <div class="form-group">
                                        <label class="control-label">First Name <span class="required">*</span></label>
-                                       <input class="form-control border-form-control" formControlName = "first_name"  id="first_name" placeholder="Enter your Name"                                         
-                                       [ngClass]="{'is-invalid': deliveryAddressForm.get('first_name').touched  && deliveryAddressForm.get('first_name').invalid }" />                                        
-                                       <div *ngIf="deliveryAddressForm.get('first_name').touched  && deliveryAddressForm.get('first_name').invalid" class="invalid-feedback">
-                                           <div *ngIf = "deliveryAddressForm.get('first_name').errors.required"> First name is required.</div>
-                                           <div *ngIf = "deliveryAddressForm.get('first_name').errors.minlength || deliveryAddressForm.get('first_name').errors.maxlength"> First name is must be greater than 2 characters and less than 10 characters.</div>
-                                       </div>
+                                       <input class="form-control border-form-control"  type="text" id="first_name" name="first_name" #first_name = "ngModel"
+                                        [(ngModel)]="customer_address.first_name" 
+                                         [ngClass]="{'is-invalid':deliveryAddressForm.submitted && first_name.invalid}" required />
+                                          <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)" class="alert alert-danger">
+                                             <div *ngIf="first_name.errors.required">first_name is required. </div>
+                                          </div>
                                     </div>
                                  </div>
-                                   <div class="col-sm-6">
-                                      <div class="form-group">
-                                         <label class="control-label">Last Name <span class="required">*</span></label>
-                                         <input class="form-control border-form-control" formControlName = "last_name"  id="last_name" placeholder="Enter your Last Name"
-                                          [ngClass]="{'is-invalid': deliveryAddressForm.get('last_name').touched  && deliveryAddressForm.get('last_name').invalid }" />                                        
-                                       <div *ngIf="deliveryAddressForm.get('last_name').touched  && deliveryAddressForm.get('last_name').invalid" class="invalid-feedback">
-                                           <div *ngIf = "deliveryAddressForm.get('last_name').errors.required"> last name is required.</div>
-                                           <div *ngIf = "deliveryAddressForm.get('last_name').errors.minlength || deliveryAddressForm.get('last_name').errors.maxlength"> Last name is must be greater than 2 characters and less than 10 characters.</div>
-                                       </div>
-                                      </div>
-                                   </div>
+                                 <div class="col-sm-6">
+                                    <div class="form-group">
+                                       <label class="control-label">Last Name <span class="required">*</span></label>
+                                       <input class="form-control border-form-control"  type="text" id="last_name" name="last_name" #last_name = "ngModel"
+                                        [(ngModel)]="customer_address.last_name"  
+                                         [ngClass]="{'is-invalid':deliveryAddressForm.submitted && last_name.invalid}" required />
+                                          <div *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)" class="alert alert-danger">
+                                             <div *ngIf="last_name.errors.required">last_name is required. </div>
+                                          </div>
+                                    </div>
+                                 </div>              
                               </div>                               
                                <div class="row">
                                  <div class="col-sm-6">
                                     <div class="form-group">
                                        <label class="control-label">Phone <span class="required">*</span></label>
-                                       <input class="form-control border-form-control" formControlName = "mobile"  id="mobile" placeholder="Enter your Last Name"
-                                          [ngClass]="{'is-invalid': deliveryAddressForm.get('mobile').touched  && deliveryAddressForm.get('mobile').invalid }" />                                        
-                                       <div *ngIf="deliveryAddressForm.get('mobile').touched  && deliveryAddressForm.get('mobile').invalid" class="invalid-feedback">
-                                           <div *ngIf = "deliveryAddressForm.get('mobile').errors.required"> mobile required.</div>
-                                           <div *ngIf = "deliveryAddressForm.get('mobile').errors.minlength || deliveryAddressForm.get('mobile').errors.maxlength"> Mobile Number is must be 10 digits.</div>
-                                      </div>
+                                       <div class="input-group mb-2">
+                                          <div class="input-group-prepend">
+                                             <div class="input-group-text"><span class="mdi mdi-cellphone-iphone"></span></div>
+                                          </div>
+                                          <!-- <input type="text" class="form-control" placeholder="Enter phone number"> -->
+                                          <input class="form-control border-form-control" type="number" id="mobile" name="mobile" #mobile = "ngModel"
+                                             [(ngModel)]="customer_address.mobile" 
+                                             [ngClass]="{'is-invalid':deliveryAddressForm.submitted && mobile.invalid}" disabled />
+                                             <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="mobile.errors.required">mobile is required. </div>
+                                             </div>
+                                       </div>
+                                       
                                     </div>
                                  </div>
                                  <div class="col-sm-6">
                                     <div class="form-group">
                                        <label class="control-label">Email Address <span class="required">*</span></label>
-                                       <input class="form-control border-form-control " formControlName = "email_id"  id="email_id" placeholder="iamosahan@gmail.com" disabled="" type="email"
-                                       [ngClass]="{'is-invalid': deliveryAddressForm.get('email_id').touched  && deliveryAddressForm.get('email_id').invalid }" />                                        
-                                       <div *ngIf="deliveryAddressForm.get('email_id').touched  && deliveryAddressForm.get('email_id').invalid" class="invalid-feedback">
-                                           <div *ngIf = "deliveryAddressForm.get('email_id').errors.required"> email ID is required.</div>
-                                           <div *ngIf = "deliveryAddressForm.get('email_id').errors.email">Email must be valid email Address</div>
-                                      </div>
+                                       <input class="form-control border-form-control" type="email"  id ="email_id"name="email_id" #email_id = "ngModel"
+                                             [(ngModel)]="customer_address.email_id" 
+                                             [ngClass]="{'is-invalid':deliveryAddressForm.submitted && email_id.invalid}" disabled />
+                                             <div *ngIf="email_id.invalid && (email_id.dirty || email_id.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="email_id.errors.required">Email is required. </div>
+                                             </div>
                                     </div>
                                  </div>
                               </div>
                               <div class="row">
-                                <div class="col-sm-6">
-                                   <div class="form-group">
-                                      <label class="control-label">FLAT Number / Floor  <span class="required">*</span></label>
-                                      <input class="form-control border-form-control" formControlName = "addr_field1"  id="addr_field1" placeholder="Enter Flat Number" type="text"
-                                      [ngClass]="{'is-invalid': deliveryAddressForm.get('addr_field1').touched  && deliveryAddressForm.get('addr_field1').invalid }" />                                        
-                                       <div *ngIf="deliveryAddressForm.get('addr_field1').touched  && deliveryAddressForm.get('addr_field1').invalid" class="invalid-feedback">
-                                           <div *ngIf = "deliveryAddressForm.get('addr_field1').errors.required"> Flat Number is required.</div>
-                                           <div *ngIf = "deliveryAddressForm.get('addr_field1').errors.minlength || deliveryAddressForm.get('addr_field1').errors.maxlength"> Flat Number is must be greater than 8 characters and less than 15 characters.</div>
-                                       </div>
-                                   </div>
-                                </div>
-                                <div class="col-sm-6">
-                                   <div class="form-group">
-                                      <label class="control-label">House Number/ Block Number / Plot Number <span class="required">*</span></label>
-                                      <input class="form-control border-form-control" formControlName = "addr_field2"  id="addr_field2" placeholder="Enter House Number" type="text"
-                                      [ngClass]="{'is-invalid': deliveryAddressForm.get('addr_field2').touched  && deliveryAddressForm.get('addr_field2').invalid }" />                                        
-                                       <div *ngIf="deliveryAddressForm.get('addr_field2').touched  && deliveryAddressForm.get('addr_field2').invalid" class="invalid-feedback">
-                                           <div *ngIf = "deliveryAddressForm.get('addr_field2').errors.required"> House Number is required.</div>
-                                           <div *ngIf = "deliveryAddressForm.get('addr_field2').errors.minlength || deliveryAddressForm.get('addr_field2').errors.maxlength"> Last name is must be greater than 8 characters and less than 10 characters.</div>
-                                       </div>
-                                   </div>
-                                </div>
-                               </div>
-                              <div class="row">                                
-                                <div class="col-sm-6">
-                                   <div class="form-group">
-                                      <label class="control-label">House Name / Apartment Name <span class="required">*</span></label>
-                                      <input class="form-control border-form-control" formControlName = "addr_field3"  id="addr_field3" placeholder="Enter House Name" type="text"
-                                      [ngClass]="{'is-invalid': deliveryAddressForm.get('addr_field3').touched  && deliveryAddressForm.get('addr_field3').invalid }" />                                        
-                                       <div *ngIf="deliveryAddressForm.get('addr_field3').touched  && deliveryAddressForm.get('addr_field3').invalid" class="invalid-feedback">
-                                           <div *ngIf = "deliveryAddressForm.get('addr_field3').errors.required"> House/Apartment Name is required.</div>
-                                           <div *ngIf = "deliveryAddressForm.get('addr_field3').errors.minlength || deliveryAddressForm.get('addr_field3').errors.maxlength"> House/Apartment name is must be greater than 8 characters and less than 15 characters.</div>
-                                       </div>
-                                   </div>
-                                </div>
-                                <div class="col-sm-6">
-                                   <div class="form-group">
-                                      <label class="control-label">Street Name <span class="required">*</span></label>
-                                      <input class="form-control border-form-control" formControlName = "addr_field4"  id="addr_field4" placeholder="Enter Street Name" type="text"
-                                      [ngClass]="{'is-invalid': deliveryAddressForm.get('addr_field4').touched  && deliveryAddressForm.get('addr_field4').invalid }" />                                        
-                                       <div *ngIf="deliveryAddressForm.get('addr_field4').touched  && deliveryAddressForm.get('addr_field4').invalid" class="invalid-feedback">
-                                           <div *ngIf = "deliveryAddressForm.get('addr_field4').errors.required"> Street Name is required.</div>
-                                           <div *ngIf = "deliveryAddressForm.get('addr_field4').errors.minlength || deliveryAddressForm.get('addr_field4').errors.maxlength"> Street Name is must be greater than 8 characters and less than 15 characters.</div>
-                                       </div>
-                                   </div>
-                                </div>
-                               </div>
-                               <div class="row">                                 
-                                <div class="col-sm-6">
-                                   <div class="form-group">
-                                      <label class="control-label">Landmark <span class="required">*</span></label>
-                                      <input class="form-control border-form-control" formControlName = "addr_field5"  id="addr_field5" placeholder="Enter Landmark" type="text"
-                                      [ngClass]="{'is-invalid': deliveryAddressForm.get('addr_field5').touched  && deliveryAddressForm.get('addr_field5').invalid }" />                                        
-                                       <div *ngIf="deliveryAddressForm.get('addr_field5').touched  && deliveryAddressForm.get('addr_field5').invalid" class="invalid-feedback">
-                                           <div *ngIf = "deliveryAddressForm.get('addr_field5').errors.required"> Landmark is required.</div>
-                                           <div *ngIf = "deliveryAddressForm.get('addr_field5').errors.minlength || deliveryAddressForm.get('addr_field5').errors.maxlength"> Landmark is must be greater than 8 characters and less than 15 characters.</div>
-                                       </div>
-                                   </div>
-                                </div>
-                                <div class="col-sm-6">
-                                   <div class="form-group">
-                                      <label class="control-label">Area/ Location <span class="required">*</span></label>
-                                      <!-- <input class="form-control border-form-control" formControlName = "addr_field6"  id="addr_field6" placeholder="Enter Area / Location" type="text"
-                                      [ngClass]="{'is-invalid': deliveryAddressForm.get('addr_field6').touched  && deliveryAddressForm.get('addr_field6').invalid }" />  -->
-                                      <!-- (change)="changeLocation($event)" -->
-                                      <select formControlName="addr_field6" class="form-control" >
-                                          <option>Choose Location</option>
-                                          <option *ngFor="let location of locationList">{{location}}</option>
-                                       </select>
-                                       <div *ngIf="deliveryAddressForm.get('addr_field6').touched  && deliveryAddressForm.get('addr_field6').invalid" class="invalid-feedback">
-                                           <div *ngIf = "deliveryAddressForm.get('addr_field6').errors.required"> Area/Location is required.</div>                                          
-                                       </div>
-                                   </div>
-                                </div>
-                                </div>
-                                <div class="row">                                 
-                                <div class="col-sm-6">
-                                   <div class="form-group">
-                                      <label class="control-label">City <span class="required">*</span></label>
-                                      <input class="form-control border-form-control" formControlName = "city"  id="city" placeholder="Hyderabad" type="text"
-                                      [ngClass]="{'is-invalid': deliveryAddressForm.get('city').touched  && deliveryAddressForm.get('city').invalid }" />
-                                      <div *ngIf="deliveryAddressForm.get('city').touched  && deliveryAddressForm.get('city').invalid" class="invalid-feedback">
-                                         <div *ngIf = "deliveryAddressForm.get('city').errors.required"> City Name is required.</div>
-                                         <div *ngIf = "deliveryAddressForm.get('city').errors.minlength || deliveryAddressForm.get('city').errors.maxlength"> City Name is must be greater than 8 characters and less than 15 characters.</div>
-                                     </div>
-                                   </div>
-                                </div>
-                                <div class="col-sm-6">
-                                   <div class="form-group">
-                                      <label class="control-label">State <span class="required">*</span></label>
-                                      <input class="form-control border-form-control" formControlName = "state"  id="state" placeholder="Telangana" type="text" readonly>
-                                   </div>
-                                </div>
-                                
+                                 <div class="col-sm-6">
+                                    <div class="form-group">
+                                       <label class="control-label">FLAT Number / Floor  <span class="required">*</span></label>
+                                       <input class="form-control border-form-control" type="text"  id ="addr_field1"name="addr_field1" #addr_field1 = "ngModel"
+                                             [(ngModel)]="customer_address.addr_field1" 
+                                             [ngClass]="{'is-invalid':deliveryAddressForm.submitted && addr_field1.invalid}" required />
+                                             <div *ngIf="addr_field1.invalid && (addr_field1.dirty || addr_field1.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="addr_field1.errors.required">Flat Number / Floor is required. </div>
+                                             </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                    <div class="form-group">
+                                       <label class="control-label">House Number/ Block Number / Plot Number <span class="required">*</span></label>
+                                       <input class="form-control border-form-control" type="text"  id ="addr_field2" name="addr_field2" #addr_field2 = "ngModel"
+                                             [(ngModel)]="customer_address.addr_field2" 
+                                             [ngClass]="{'is-invalid':deliveryAddressForm.submitted && addr_field2.invalid}" required />
+                                             <div *ngIf="addr_field2.invalid && (addr_field2.dirty || addr_field2.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="addr_field2.errors.required">House Number/ Block Number / Plot Number is required. </div>
+                                             </div>
+                                    </div>
+                                 </div>                                
                                </div>
                               <div class="row">  
                                  <div class="col-sm-6">
-                                   <div class="form-group">
-                                      <label class="control-label">Country <span class="required">*</span></label>
-                                      <input class="form-control border-form-control" formControlName = "country"  id="country" placeholder="India" type="text" readonly>
-                                   </div>
-                                </div>
-                                <div class="col-sm-6">
-                                   <div class="form-group">
-                                      <label class="control-label">Pin Code <span class="required">*</span></label>
-                                      <input class="form-control border-form-control" formControlName = "pin_code"  id="pin_code" placeholder="Pincode" type="text"
-                                      [ngClass]="{'is-invalid': deliveryAddressForm.get('pin_code').touched  && deliveryAddressForm.get('pin_code').invalid }" />
-                                      <div *ngIf="deliveryAddressForm.get('pin_code').touched  && deliveryAddressForm.get('pin_code').invalid" class="invalid-feedback">
-                                         <div *ngIf = "deliveryAddressForm.get('pin_code').errors.required"> Pincode  is required.</div>
-                                         <div *ngIf = "deliveryAddressForm.get('pin_code').errors.minlength || deliveryAddressForm.get('pin_code').errors.maxlength"> Pincode must be 6 digits only.</div>
-                                     </div>
-                                   </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                       <label class="control-label">Shipping Address <span class="required">*</span></label>
-                                       <textarea class="form-control border-form-control"></textarea>
-                                       <small class="text-danger">Please provide the number and street.</small>
+                                       <label class="control-label">House Name / Apartment Name <span class="required">*</span></label>
+                                       <input class="form-control border-form-control" type="text"  id ="addr_field3" name="addr_field3" #addr_field3 = "ngModel"
+                                             [(ngModel)]="customer_address.addr_field3" 
+                                             [ngClass]="{'is-invalid':deliveryAddressForm.submitted && addr_field3.invalid}" required />
+                                             <div *ngIf="addr_field3.invalid && (addr_field3.dirty || addr_field3.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="addr_field3.errors.required">House Name / Apartment Name is required. </div>
+                                             </div>
+                                    </div>
+                                 </div>                               
+                                 <div class="col-sm-6">
+                                    <div class="form-group">
+                                       <label class="control-label">Street Name <span class="required">*</span></label>
+                                       <input class="form-control border-form-control" type="text"  id ="addr_field4" name="addr_field4" #addr_field4 = "ngModel"
+                                             [(ngModel)]="customer_address.addr_field4" 
+                                             [ngClass]="{'is-invalid':deliveryAddressForm.submitted && addr_field4.invalid}" required />
+                                             <div *ngIf="addr_field4.invalid && (addr_field4.dirty || addr_field4.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="addr_field4.errors.required">Street Name is required. </div>
+                                             </div>
                                     </div>
                                  </div>
-                              </div>
-                              <div class="heading-part">
-                                 <h3 class="sub-heading">Billing Address</h3>
-                              </div>
-                              <div class="custom-control custom-checkbox mb-3">
-                                <input type="checkbox" class="custom-control-input" id="customCheckbill" onclick="FillBilling(this.deliveryAddressForm)">
-                                <label class="custom-control-label" for="customCheckbill">Use my delivery address as my billing address</label>
                                </div>
-                              <hr>
-                              <div class="row">
-                                <div class="col-sm-6">
-                                   <div class="form-group">
-                                      <label class="control-label">First Name <span class="required">*</span></label>
-                                      <input class="form-control border-form-control" value="" placeholder="First Name" type="text">
-                                   </div>
-                                </div>
-                                  <div class="col-sm-6">
-                                     <div class="form-group">
-                                        <label class="control-label">Last Name <span class="required">*</span></label>
-                                        <input class="form-control border-form-control" value="" placeholder="Last Name" type="text">
-                                     </div>
-                                  </div>
-                             </div>                               
-                              <div class="row">
-                                <div class="col-sm-6">
-                                   <div class="form-group">
-                                      <label class="control-label">Phone <span class="required">*</span></label>
-                                      <input class="form-control border-form-control" value="" placeholder="123 456 7890" type="number">
-                                   </div>
-                                </div>
-                                <div class="col-sm-6">
-                                   <div class="form-group">
-                                      <label class="control-label">Email Address <span class="required">*</span></label>
-                                      <input class="form-control border-form-control " value="" placeholder="raj@gmail.com" disabled="" type="email">
-                                   </div>
-                                </div>
-                             </div>
-                             <div class="row">
-                               <div class="col-sm-6">
-                                  <div class="form-group">
-                                     <label class="control-label">Flot Number / Floor  <span class="required">*</span></label>
-                                     <input class="form-control border-form-control" value="" placeholder="Flot Number" type="text">
-                                  </div>
-                               </div>
-                               <div class="col-sm-6">
-                                  <div class="form-group">
-                                     <label class="control-label">House Number/ Block Number / Plot Number <span class="required">*</span></label>
-                                     <input class="form-control border-form-control" value="" placeholder="Enter your Address" type="text">
-                                  </div>
-                               </div>
-                              </div>
-                             <div class="row">                                
-                               <div class="col-sm-6">
-                                  <div class="form-group">
-                                     <label class="control-label">House Name / Apartment Name <span class="required">*</span></label>
-                                     <input class="form-control border-form-control" value="" placeholder="House / Apartment" type="text">
-                                  </div>
-                               </div>
-                               <div class="col-sm-6">
-                                  <div class="form-group">
-                                     <label class="control-label">Street Name <span class="required">*</span></label>
-                                     <input class="form-control border-form-control" value="" placeholder="Street Name" type="text">
-                                  </div>
-                               </div>
-                              </div>
-                              <div class="row">                                 
-                               <div class="col-sm-6">
-                                  <div class="form-group">
-                                     <label class="control-label">Landmark <span class="required">*</span></label>
-                                     <input class="form-control border-form-control" value="" placeholder="Landmark" type="text">
-                                  </div>
-                               </div>
-                               <div class="col-sm-6">
-                                  <div class="form-group">
-                                     <label class="control-label">Area/ Location <span class="required">*</span></label>
-                                     <input class="form-control border-form-control" value="" placeholder="Area / Location" type="text">
-                                  </div>
-                               </div>
-                               </div>
-                               <div class="row">                                 
-                               <div class="col-sm-6">
-                                  <div class="form-group">
-                                     <label class="control-label">City <span class="required">*</span></label>
-                                     <input class="form-control border-form-control" value="" placeholder="City" type="text">
-                                  </div>
-                               </div>
-                               <div class="col-sm-6">
-                                  <div class="form-group">
-                                     <label class="control-label">State <span class="required">*</span></label>
-                                     <input class="form-control border-form-control" value="" placeholder="Telangana" type="text" readonly>
-                                  </div>
-                               </div>
-                               
-                              </div>
-                             <div class="row">  
-                                <div class="col-sm-6">
-                                  <div class="form-group">
-                                     <label class="control-label">Country <span class="required">*</span></label>
-                                     <input class="form-control border-form-control" value="" placeholder="India" type="text" readonly>
-                                  </div>
-                               </div>
-                               <div class="col-sm-6">
-                                  <div class="form-group">
-                                     <label class="control-label">Pin Code <span class="required">*</span></label>
-                                     <input class="form-control border-form-control" value="" placeholder="Pincode" type="text">
-                                  </div>
-                               </div>
-                             </div>
-                              <div class="row">
-                                 <div class="col-sm-12">
+                               <div class="row">     
+                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                       <label class="control-label">Billing Landmark <span class="required">*</span></label>
-                                       <textarea class="form-control border-form-control"></textarea>
-                                       <small class="text-danger">
-                                       Please include landmark (e.g : Opposite Bank) as the carrier service may find it easier to locate your address.
-                                       </small>
+                                       <label class="control-label">Landmark <span class="required">*</span></label>
+                                       <input class="form-control border-form-control" type="text"  id ="addr_field5" name="addr_field5" #addr_field5 = "ngModel"
+                                             [(ngModel)]="customer_address.addr_field5" 
+                                             [ngClass]="{'is-invalid':deliveryAddressForm.submitted && addr_field5.invalid}" required />
+                                             <div *ngIf="addr_field5.invalid && (addr_field5.dirty || addr_field5.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="addr_field5.errors.required">Landmark is required. </div>
+                                             </div>
+                                    </div>
+                                 </div>                         
+                                <div class="col-sm-6">
+                                   <div class="form-group">
+                                      <label class="control-label">Area/ Location <span class="required">*</span></label>
+                                      <select class="form-control border-form-control" id ="addr_field6" name="addr_field6" #addr_field6 = "ngModel"
+                                        [(ngModel)]="customer_address.addr_field6"  > 
+                                          <option>Choose Location</option>
+                                          <option *ngFor="let location of locationList">{{location}}</option>
+                                       </select>
+                                       <div *ngIf="addr_field6.invalid && (addr_field5.dirty || addr_field5.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="addr_field6.errors.required">Area / Location is required. </div>
+                                       </div>
+                                   </div>
+                                </div>
+                                </div>
+                                <div class="row">   
+                                 <div class="col-sm-6">
+                                    <div class="form-group">
+                                       <label class="control-label">City <span class="required">*</span></label>
+                                       <input class="form-control border-form-control" type="text"  id ="city" name="city" #city = "ngModel"
+                                             [(ngModel)]="customer_address.city"  
+                                             [ngClass]="{'is-invalid':deliveryAddressForm.submitted && city.invalid}" disabled />
+                                             <div *ngIf="city.invalid && (city.dirty || city.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="city.errors.required">city is required. </div>
+                                             </div>
+                                    </div>
+                                 </div>                              
+                                 <div class="col-sm-6">
+                                    <div class="form-group">
+                                       <label class="control-label">State <span class="required">*</span></label>
+                                       <input class="form-control border-form-control" type="text"  id ="state" name="state" #state = "ngModel"
+                                             [(ngModel)]="customer_address.state" 
+                                             [ngClass]="{'is-invalid':deliveryAddressForm.submitted && state.invalid}" disabled />
+                                             <div *ngIf="state.invalid && (state.dirty || state.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="state.errors.required">state is required. </div>
+                                             </div>
                                     </div>
                                  </div>
-                              </div>   
-                              <button type="button" data-toggle="collapse" data-target="#tabThree" aria-expanded="false" aria-controls="tabThree" class="btn btn-secondary mb-2 btn-lg">NEXT</button>                              
-                              <!-- <button type="button" type="button" data-toggle="collapse" aria-controls="tabThree" aria-expanded="false"  class="btn btn-secondary mb-2 btn-lg">NEXT</button> -->
-                              <!-- data-target="#tabThree"  aria-controls="tabThree"-->
+                               </div>
+                              <div class="row">  
+                                 <div class="col-sm-6">
+                                    <div class="form-group">
+                                       <label class="control-label">Country <span class="required">*</span></label>
+                                       <input class="form-control border-form-control" type="text"  id ="country" name="country" #country = "ngModel"
+                                             [(ngModel)]="customer_address.country"  
+                                             [ngClass]="{'is-invalid':deliveryAddressForm.submitted && country.invalid}" disabled />
+                                             <div *ngIf="country.invalid && (country.dirty || country.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="country.errors.required">Country is required. </div>
+                                             </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                    <div class="form-group">
+                                       <label class="control-label">Pin code <span class="required">*</span></label>
+                                       <input class="form-control border-form-control" type="text"  id ="pin_code" name="pin_code" #pin_code = "ngModel"
+                                             [(ngModel)]="customer_address.pin_code"
+                                             [ngClass]="{'is-invalid':deliveryAddressForm.submitted && pin_code.invalid}" required />
+                                             <div *ngIf="pin_code.invalid && (pin_code.dirty || pin_code.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="pin_code.errors.required">Pincode is required. </div>
+                                             </div>
+                                    </div>
+                                 </div>
+                                 </div>
+                              <button type="button" data-toggle="collapse" data-target="#tabThree" aria-expanded="false" aria-controls="tabThree" class="btn btn-secondary mb-2 btn-lg" [disabled]="!deliveryAddressForm.valid"   (click)="gotoTop()">NEXT</button> 
                            </form>
                         </div>
                      </div>
@@ -401,7 +255,7 @@
                      <div class="card-header" id="headingThree">
                         <h5 class="mb-0">
                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#tabThree" aria-expanded="false" aria-controls="tabThree">
-                           <span class="number">2</span> Payment & Order Submit
+                           <span class="number">2</span> Payment & Order Submit<span class="mdi mdi-chevron-down float-right"></span>
                            </button>
                         </h5>
                      </div>

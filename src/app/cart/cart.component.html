@@ -9,7 +9,7 @@
             <div class="login-modal">
                <div class="row">
                   <div class="col-lg-6 pad-right-0">
-                     <div class="login-modal-left">
+                     <div class="login-modal-left" style="height:230px !important;">
                      </div>
                   </div>
                   <div class="col-lg-6 pad-left-0">
@@ -53,7 +53,8 @@
                                     <fieldset class="form-group">
                                         <button type="submit" class="btn square_btn btn-lg btn-block login-button "
                                             [disabled]="!loginForm.valid">LOGIN</button>
-                                    </fieldset>                   
+                                    </fieldset>   
+                                    <h6 style="text-align: center; color: red;" *ngIf = "loginFail">Invalid email ID or password</h6>                
                                     <div class="login-with-sites text-center">
                                         <a routerLink="/forgot-password"><b> Forgot Password</b></a>   
                                     </div>                   
@@ -183,7 +184,8 @@
     <div class="container">
        <div class="row">
           <div class="col-md-12">
-             <a href="#"><strong><span class="mdi mdi-home"></span> Home</strong></a> <span class="mdi mdi-chevron-right"></span> <a href="#">Cart</a>
+             <a routerLink="/"><strong><span class="mdi mdi-home"></span> Home</strong></a>
+              <span class="mdi mdi-chevron-right"></span> Cart
           </div>
        </div>
     </div>
@@ -198,9 +200,9 @@
                       <thead>
                          <tr>
                             <th style="text-align : center !important;">S.No</th>
-                            <th class="cart_product">Product</th>
-                            <th style="text-align : center !important;">Description</th>
-                            <th>Avail.</th>
+                            <th class="cart_product">Product Image</th>
+                            <th style="text-align : center !important;">Product Name</th>
+                            <th>Available</th>
                             <th>MRP</th>
                             <th>Discount</th>
                             <th>Unit price</th>                            
@@ -212,9 +214,9 @@
                       <tbody>
                          <tr *ngFor = "let cartItem of cartService.getCartList(), let sno = index">
                             <td style="text-align: right;"><strong>{{sno+1}}.</strong></td>
-                            <td class="cart_product"><a [routerLink] ="['/single', cartItem.id, cartItem.unit_value]"><img class="img-fluid" src="assets{{cartItem.product_img}}" alt=""></a></td>
+                            <td class="cart_product"><a [routerLink] ="['/single', cartItem.product_id, cartItem.unit_value]"><img class="img-fluid" src="{{cartItem.product_img_200}}" alt=""></a></td>
                             <td class="cart_description">
-                               <h5 class="product-name"><a [routerLink] ="['/single', cartItem.id, cartItem.unit_value]">{{cartItem.product_name}} </a></h5>
+                               <h5 class="product-name"><a [routerLink] ="['/single', cartItem.product_id, cartItem.unit_value]">{{cartItem.product_name}} </a></h5>
                                <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - {{cartItem.unit_value}}{{cartItem.unit_type}}</h6>
                             </td>
                             <td class="availability in-stock"><span class="badge badge-success">In stock</span></td>
@@ -224,7 +226,7 @@
                             <td class="qty">
                                <div class="input-group">
                                   <span class="input-group-btn"><button  class="btn btn-theme-round btn-number" type="button" (click)="decrementQuantityByOne(cartItem)">-</button></span>
-                                  <input type="text" max="10" min="1" value={{cartItem.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]" disabled>
+                                  <input type="text" style = "width:25px;" value={{cartItem.quantity}} class="form-control border-form-control form-control-sm input-number" name="quant[1]" disabled>
                                   <span class="input-group-btn"><button class="btn btn-theme-round btn-number" type="button" (click)="incrementQuantityByOne(cartItem)">+</button>
                                   </span>
                                </div>
@@ -266,6 +268,9 @@
           </div>
        </div>
     </div>
+    <div>
+      <button type="button" class="goto-top" (click)="gotoTop()"></button>
+   </div>
  </section>
  <section class="section-padding bg-white border-top">
     <div class="container">

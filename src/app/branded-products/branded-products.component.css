@@ -1,0 +1,143 @@
+.cartbtn{
+    display: inline-block;
+    text-decoration: none;
+    /* background: #87befd; */
+    background: linear-gradient(to bottom, #A8DE1C  0%, #50AC02 100%);
+    color: #FFF;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+     box-shadow: 0px 0px 0px 2px #59B105; 
+    border: dashed 1px #FFF;
+    transition: .4s;
+    margin-top: -50px;
+  }
+  
+  .cartbtn:hover{
+    background: #fc9000;
+     box-shadow: 0px 0px 0px 1px #2c3c51;
+  }
+  .scat:hover{
+  /* color:#ff5239; */
+  color : #fff;
+  /* background-color: #370217; */
+  /* background-color: #2c3c51; */
+  background-color: #ff5239;
+  }
+  .fltr{
+    border: 1px solid #59B105;
+    border-radius: 2px !important;
+    font-size: 14px;
+    color: #fff;
+  }
+  .fltr-dark {
+    color: #333;
+    background-color: #fff;
+  }
+  .dscnt {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin:3%;
+  }
+  .top-left {
+    position: absolute;
+    top: -9px;
+    left: 5px;
+  }
+  .top-left1 {
+    position: absolute;
+    top: 15px;
+    left: 5px;
+  }
+  
+  .goto-top {
+  border: 0;
+  width: 75px;
+  height: 75px;
+  border-radius: 100px;
+  background-color: lightblue;
+  float :right;
+  }
+  .row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right:10px;
+  margin-left: 10px;
+  }
+  .cat{
+  background-color: #fefe;
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 15.5%;
+  margin-right: 1%;
+  margin-bottom: 20px;  
+  }
+  .discount-logo{
+  background-color:#fc9000;
+  color: #fff;
+  margin: auto;
+  margin-top: -12px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 8px;
+  }
+  .product {
+  background: #fff none repeat scroll 0 0;
+  /* border: 2px solid #eeeeee; */
+  /* border: 1px solid #ba5253; */
+  border: 1px solid #74C20E;
+  border-radius: 6px;
+  margin: 4px 4px 4px 4px;
+  padding: 20px;
+  padding-bottom: 25px !important;
+  position: relative;
+  }
+  
+  .discount-logo{
+    background-color:#fc9000;
+    color: #fff;
+    margin: auto;
+    margin-top: -12px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+  }
+  .goto-top {
+    background-color:#000;
+    border:1px solid #fff;
+    border-radius: 10%;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 48px;
+    width: 50px;
+    height: 50px;
+    float: right;
+    margin-top: -13px;
+    margin-right: 10px;
+  }
+  .goto-top:hover { 
+    background-color: #fc9000;  
+    border:1px solid #1d1f1f;
+  }
+  @media only screen and (max-width: 480px){
+  .shop-filters{
+    display: none;
+  }
+  /* .brand-filters{
+    padding : 7px;
+    margin-left:35px;
+    
+  } */
+  }

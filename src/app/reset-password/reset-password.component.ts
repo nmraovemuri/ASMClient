@@ -36,7 +36,7 @@ export class ResetPasswordComponent implements OnInit {
   return password === confirmPassword ? null : { notSame: true }     
 }
 onSubmit(): void {
-  console.log("registration data:", this.resetForm.value);
+  // console.log("registration data:", this.resetForm.value);
   let data = {
     "customer_id": this.customer_id,
     "new_password": this.resetForm.get('new_password').value,
@@ -53,5 +53,7 @@ onSubmit(): void {
     console.log(error);
   })
 }
-
+gotoTop(){
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
 }

@@ -11,5 +11,7 @@ export class FaqComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  gotoTop(){
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
 }

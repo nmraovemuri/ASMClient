@@ -41,6 +41,11 @@ import { ForgotPasswordStatusComponent } from './forgot-password-status/forgot-p
 import { ResetPasswordStatusComponent } from './reset-password-status/reset-password-status.component';
 import { SearchComponent } from './search/search.component';
 import { TopDealsoftheDayComponent } from './top-dealsofthe-day/top-dealsofthe-day.component';
+import { BrandedProductsComponent } from './branded-products/branded-products.component';
+import { SitemapComponent } from './sitemap/sitemap.component';
+import { TermConditionsComponent } from './term-conditions/term-conditions.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { RefundComponent } from './refund/refund.component';
 
 
 
@@ -75,7 +80,12 @@ import { TopDealsoftheDayComponent } from './top-dealsofthe-day/top-dealsofthe-d
     ForgotPasswordStatusComponent,
     ResetPasswordStatusComponent,
     SearchComponent,
-    TopDealsoftheDayComponent,         
+    TopDealsoftheDayComponent,
+    BrandedProductsComponent,
+    SitemapComponent,
+    TermConditionsComponent,
+    PrivacyPolicyComponent,
+    RefundComponent,         
   ],
   imports: [
     BrowserModule,

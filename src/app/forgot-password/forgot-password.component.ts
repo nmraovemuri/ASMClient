@@ -15,6 +15,7 @@ export class ForgotPasswordComponent implements OnInit {
   forgotForm : FormGroup;
   response :any ={}
   forgot={};
+  loginFail :boolean =false;
   ngOnInit(): void {
     this.forgotForm = new FormGroup({
       email_id  : new FormControl('',[Validators.required, Validators.email]),
@@ -26,12 +27,13 @@ export class ForgotPasswordComponent implements OnInit {
     this.asmCustomerService.forgotPassword(this.forgotForm.value).subscribe((data)=>{
       console.log("user data is added:",data);   
       this.response = data;
-      if(this.response[0].status = "success"){
+      if(this.response.status = "success"){
         this.router.navigate([`/forgot-password-status`]);
       }
     },
     error => {
       console.log(error);
+      this.loginFail  =true;
     })
   }
 

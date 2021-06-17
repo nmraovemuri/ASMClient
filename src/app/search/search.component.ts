@@ -12,20 +12,25 @@ export class SearchComponent implements OnInit {
   searchString  :any;  
   subcategories: any;
   categories: any;
-  cat_subcat : any;
+  cat_subcat : any = [];
   products : any = [];
   productsList : any=[];
   brandsList :any =[];
   filteredBrands :any =[];
-  constructor(private asmService : ASMService, private router : Router,
+  server_url :string= ''; // "http://localhost:3000";
+  // server_url = "https://aswikamart.com";
+  constructor(public asmService : ASMService, private router : Router,
               private activatedRoute: ActivatedRoute, private cartService: CartService) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+    this.server_url = this.asmService.ASM_SERVER_BASE_URL;
     this.activatedRoute.params.subscribe((params: Params) => {
       this.searchString = params.search_string; 
       console.log("search String :", this.searchString);
-      this.getAllCategories();
-      this.getSubcategories();
+      this.cat_subcat = this.asmService.getCatSubcat();
+      // this.getAllCategories();
+      // this.getSubcategories();
       this.searchProducts();     
     },
     error => {

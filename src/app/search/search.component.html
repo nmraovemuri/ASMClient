@@ -1,13 +1,15 @@
 <section class="pt-3 pb-3 page-info section-padding border-bottom bg-white">
    
   <div class="row">
-     <div class="col-md-3">
+    <div class="col-md-3">      
+   </div>
+     <div class="col-md-4">
+      <a routerLink="/"><span class="mdi mdi-home"></span> Home </a >         
      </div>
-     <div class="col-md-7">
+     <div class="col-md-3">
         <p><strong>Number of Products : {{products.length}}</strong></p>
      </div>
-     <div class="col-md-2">
-       
+     <div class="col-md-2">       
            <button type="button"  class="fltr fltr-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            Sort by Products &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            </button>
@@ -36,128 +38,28 @@
                   </div>
                   
                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                     <div class="card-body card-shop-filters">
+                     <div class="card-body card-shop-filters" *ngIf = "asmService.categories.length > 0">
                        <!-- <form class="form-inline mb-3"> -->
-                         <div class="input-group">
+                         <!-- <div class="input-group">
                            <input type="text" class="form-control" placeholder="Search By Category">
                            <button type="submit" class="pl-2 pr-2 btn btn-secondary btn-lg" style="margin-left:10px;"><i class="mdi mdi-file-find"></i></button>
-                         </div><br>
+                         </div><br> -->
                        <!-- </form>   -->
                        <!-- *ngFor ="let c of cat_subcat" -->
-                       <div class="list-group" >        
-                        <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryOne" aria-expanded="false" aria-controls="categoryOne">
-                           {{cat_subcat[0].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                          <div id="categoryOne" class="collapse">
+                       <div class="list-group" *ngFor ="let c of asmService.categories">        
+                        <a href="javascript:void(0)"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" [attr.data-target]="'#category' + c.id" aria-expanded="false" aria-controls="categoryOne">
+                           {{c.category_name}}<span class="mdi mdi-chevron-right float-right"></span>
+                          <div id="category{{c.id}}" class="collapse">
                              <div class="card-body">
-                               <div class="list-group" *ngFor = "let s of cat_subcat[0].subCategories">        
-                                 <a routerLink ="/shop/{{cat_subcat[0].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
+                               <div class="list-group" *ngFor = "let s of c.subCategories">        
+                                 <a routerLink ="/shop/{{c.category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
                                     {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
                                  </a><!--list-group-item list-group-item-action-->                              
                                </div>
                              </div>
                           </div>
                         </a>
-                       </div>
-                       <!-- *ngFor ="let c of cat_subcat" -->
-                       <div class="list-group" >        
-                        <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryTwo" aria-expanded="false" aria-controls="categoryTwo">
-                           {{cat_subcat[1].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                          <div id="categoryTwo" class="collapse">
-                             <div class="card-body">
-                               <div class="list-group" *ngFor = "let s of cat_subcat[1].subCategories">        
-                                 <a routerLink ="/shop/{{cat_subcat[1].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
-                                    {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                                 </a><!--list-group-item list-group-item-action-->                              
-                               </div>
-                             </div>
-                          </div>
-                        </a>
-                       </div>
-                       <!-- *ngFor ="let c of cat_subcat" -->
-                       <div class="list-group"  >        
-                        <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryThree" aria-expanded="false" aria-controls="categoryThree">
-                           {{cat_subcat[2].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                          <div id="categoryThree" class="collapse">
-                             <div class="card-body">
-                               <div class="list-group" *ngFor = "let s of cat_subcat[2].subCategories">        
-                                 <a routerLink ="/shop/{{cat_subcat[2].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
-                                    {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                                 </a><!--list-group-item list-group-item-action-->                              
-                               </div>
-                             </div>
-                          </div>
-                        </a>
-                       </div>
-                       <div class="list-group"  >        
-                        <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryFour" aria-expanded="false" aria-controls="categoryFour">
-                           {{cat_subcat[3].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                          <div id="categoryFour" class="collapse">
-                             <div class="card-body">
-                               <div class="list-group" *ngFor = "let s of cat_subcat[3].subCategories">        
-                                 <a routerLink ="/shop/{{cat_subcat[3].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
-                                    {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                                 </a><!--list-group-item list-group-item-action-->                              
-                               </div>
-                             </div>
-                          </div>
-                        </a>
-                       </div>
-                       <div class="list-group"  >        
-                        <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryFive" aria-expanded="false" aria-controls="categoryFive">
-                           {{cat_subcat[4].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                          <div id="categoryFive" class="collapse">
-                             <div class="card-body">
-                               <div class="list-group" *ngFor = "let s of cat_subcat[4].subCategories">        
-                                 <a routerLink ="/shop/{{cat_subcat[4].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
-                                    {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                                 </a><!--list-group-item list-group-item-action-->                              
-                               </div>
-                             </div>
-                          </div>
-                        </a>
-                       </div>
-                       <div class="list-group"  >        
-                        <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categorySix" aria-expanded="false" aria-controls="categorySix">
-                           {{cat_subcat[5].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                          <div id="categorySix" class="collapse">
-                             <div class="card-body">
-                               <div class="list-group" *ngFor = "let s of cat_subcat[5].subCategories">        
-                                 <a routerLink ="/shop/{{cat_subcat[5].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
-                                    {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                                 </a><!--list-group-item list-group-item-action-->                              
-                               </div>
-                             </div>
-                          </div>
-                        </a>
-                       </div>
-                       <div class="list-group"  >        
-                        <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categorySeven" aria-expanded="false" aria-controls="categorySeven">
-                           {{cat_subcat[6].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                          <div id="categorySeven" class="collapse">
-                             <div class="card-body">
-                               <div class="list-group" *ngFor = "let s of cat_subcat[6].subCategories">        
-                                 <a routerLink ="/shop/{{cat_subcat[6].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
-                                    {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                                 </a><!--list-group-item list-group-item-action-->                              
-                               </div>
-                             </div>
-                          </div>
-                        </a>
-                       </div>
-                       <div class="list-group"  >        
-                        <a href="#"  class="list-group-item list-group-item-action" style= "color: #333; font-size: 14px;font-weight: 500;" data-toggle="collapse" data-target="#categoryEight" aria-expanded="false" aria-controls="categoryEight">
-                           {{cat_subcat[7].category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                          <div id="categoryEight" class="collapse">
-                             <div class="card-body">
-                               <div class="list-group" *ngFor = "let s of cat_subcat[7].subCategories">        
-                                 <a routerLink ="/shop/{{cat_subcat[7].category_name}}/{{s.sub_category_name}}/{{s.id}}" class="scat list-group-item list-group-item-action" routerLinkActive="active" >
-                                    {{s.sub_category_name}}<span class="mdi mdi-chevron-right float-right"></span>
-                                 </a><!--list-group-item list-group-item-action-->                              
-                               </div>
-                             </div>
-                          </div>
-                        </a>
-                       </div>
+                       </div>                       
                   </div>
                </div>
                 </div>
@@ -183,26 +85,28 @@
            
           </div>
         <div class="col-md-9">
-            <a href="#"><img class="img-fluid mb-3" src="img/shop.jpg" alt=""></a>
+            <a href="javascript:void(0)"><img class="img-fluid mb-3" src="img/shop.jpg" alt=""></a>
             <div class="row no-gutters">
                 <!--no gutters-->
                 <div class="col-md-3" *ngFor="let p of products">
                     <div class="product">
                         <!-- <a routerLink ="shop/{{c.category_name}}/{{s.sub_category_name}}/{{s.id}}" routerLinkActive="active"  +'?nocache=true'-->
-                        <a [routerLink]="['/single', p.id, p.unit_value]">
+                          <p class="discount-logo">{{p.discount_percentage}}% OFF</p>
+                          <a [routerLink]="['/single', p.product_id, p.unit_value]">
                             <!-- <span class="badge badge-danger">10% OFF</span> -->
-                            <span class="dscnt"><img src="assets/img/discount.svg" style="width: 40px;"><span
+                            <!-- <span class="dscnt"><img src="assets/img/discount.svg" style="width: 40px;"><span
                                     class="top-left">{{p.discount_percentage}}% <span
-                                        class="top-left1">OFF</span></span></span>
+                                        class="top-left1">OFF</span></span></span> -->
+                                        
                             <div class="product-header">
                                 <!-- <span class="badge badge-success">50% OFF</span> -->
 
-                                <img class="img" src="assets/{{p.product_img}}" alt="">
+                                <img class="img" src="{{p.product_img_200}}" alt="">
 
                                 <!-- <span class="veg text-success mdi mdi-circle"></span> -->
                             </div>
-                            <div class="product-body">
-                                <h5>{{p.id}}-{{p.product_name}}</h5>
+                            <div class="product-body"><!--{{p.product_id}}--->
+                                <h5>{{p.product_name}}</h5>
                                 <h6><strong class="regular-price"><span class="mdi mdi-approval" ></span> Rs.{{p.mrp}}</strong> - {{p.unit_value}} {{p.unit_type}}</h6>
                                 <p class="offer-price mb-0">Rs.{{p.sale_price}} - {{p.unit_value}}{{p.unit_type}} </p>
                             </div>
@@ -226,4 +130,7 @@
             <br>
         </div>
     </div>
+    <div>
+      <button type="button" class="goto-top" (click)="gotoTop()"><span class="mdi mdi-chevron-up"></span></button>
+   </div>
 </section>

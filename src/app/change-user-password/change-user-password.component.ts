@@ -33,7 +33,7 @@ export class ChangeUserPasswordComponent implements OnInit {
   return password === confirmPassword ? null : { notSame: true }     
 }
 onSubmit(): void {
-  console.log("registration data:", this.changePasswordForm.value);
+  // console.log("registration data:", this.changePasswordForm.value);
   let data = {
     "customer_id": this.customer_id,
     "old_password": this.changePasswordForm.get('old_password').value,
@@ -60,6 +60,9 @@ onLogout(){
   localStorage.removeItem('token'); 
   this.asmCustomerService.setCustomerInfo(null, null);
   this.router.navigate([`/home`]);
+}
+gotoTop(){
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 }

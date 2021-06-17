@@ -16,6 +16,9 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
     this.getAllContent();
   }
+  gotoTop(){
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
   getAllContent()
   {
     console.log("The About us page is displayed here");

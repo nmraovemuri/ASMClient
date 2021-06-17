@@ -19,6 +19,7 @@ export class CartComponent implements OnInit {
   customerLoginData : any ={};
   registrationForm : FormGroup;
   user:any={};
+  loginFail :boolean =false;
   constructor(public asmService : ASMService,
               private asmCustomerService:ASMCustomerService,
               private router:Router,
@@ -72,6 +73,7 @@ userlogin(loginData){
    },
   error => {
     console.log(error);
+    this.loginFail =true;
   })
 }
 checkLogin(){
@@ -79,11 +81,13 @@ checkLogin(){
   console.log("from checkLogin:", this.customer);
   console.log(this.customer);
   console.log(this.asmCustomerService.token);
-  
+  let getCartList= this.cartService.getCartList();
+  console.log("getcart_List",getCartList);
   if(this.asmCustomerService.token){
     this.showModal = false;
     console.log("if block");      
-    return this.router.navigate([`/checkout`]);   
+    if(getCartList.length >= 1)
+      return this.router.navigate([`/checkout`]);   
   }    
   else{
     console.log("else block");      
@@ -94,18 +98,7 @@ checkLogin(){
 onClose(){
   this.showModal = false;
  }
-//  onSubmit(): void {
-//   console.log("reistration data:", this.registrationForm.value);
-//   this.asmCustomerService.customerSignup(this.registrationForm.value).subscribe((data)=>{
-//     console.log("user data is added:",data);
-//     if(data[0].status=='success'){
-//       console.log("sign up success:");
-//       //this.router.navigate['/signup-status'];
-//        this.router.navigate([`/signup-status`])
-//     }
-//   },
-//   error => {
-//     console.log(error);
-//   })
-// }
+ gotoTop(){
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
 }
