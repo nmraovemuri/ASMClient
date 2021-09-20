@@ -45,8 +45,8 @@ onSubmit(): void {
   
   this.asmCustomerService.resetPassword(data).subscribe((_result:any)=>{
     console.log("reset password data is updated:",_result); 
-    if(_result.status = "success"){
-      return this.router.navigate([`/reset_password_status`])
+    if(_result.status == "success"){
+      return this.router.navigate([`/reset-password-status`])
     }
   },
   error => {

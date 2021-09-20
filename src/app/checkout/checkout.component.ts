@@ -76,7 +76,7 @@ export class CheckoutComponent implements OnInit {
   //   console.log(e.target.value);
   // }
   FillBilling(deliveryAddressForm){
-    if(deliveryAddressForm.customCheckbill==true)
+    if(deliveryAddressForm.customCheckbill == true)
     {
       this.deliveryAddressForm = Object.assign({}, this.billingAddressForm.value);
     }
@@ -109,7 +109,7 @@ export class CheckoutComponent implements OnInit {
     }
     this.customerService.orderSubmit(order_details).subscribe((data: any)=>{
       console.log("user data is added:",data);
-      if(data.status=='success'){
+      if(data.status == 'success'){
         this.cartService.clearCart();
         this.orderId = data.order_id;
         this.tab4 = true;  

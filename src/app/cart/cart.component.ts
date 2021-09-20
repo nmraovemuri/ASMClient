@@ -64,7 +64,7 @@ userlogin(loginData){
      console.log("status data:", this.customerLoginData.status);
     console.log("customer:", this.customerLoginData.customer);
     console.log("Token:", this.customerLoginData.token);
-    if(data.status = "success"){
+    if(data.status == "success"){
       this.asmCustomerService.setCustomerInfo(data.customer,data.token);
     }
      localStorage.setItem('customer', this.customerLoginData.customer.first_name);

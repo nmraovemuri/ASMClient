@@ -44,10 +44,10 @@ onSubmit(): void {
   
   this.asmCustomerService.changePassword(data).subscribe((_result:any)=>{
     console.log("reset password data is updated:",_result); 
-    if(_result.status = "success"){
+    if(_result.status == "success"){
       localStorage.removeItem('customer');
       localStorage.removeItem('token');
-      return this.router.navigate([`/reset_password_status`])
+      return this.router.navigate([`/reset-password-status`])
     }
   },
   error => {

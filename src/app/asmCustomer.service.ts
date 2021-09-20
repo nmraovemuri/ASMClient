@@ -58,7 +58,14 @@ export class ASMCustomerService{
     return this.http.post(this.ASM_SERVER_BASE_URL+"/checkEmailAlreadyExisted", data); 
   }
   customerSignup(customerDetails)  {
-    return this.http.post(this.ASM_SERVER_BASE_URL+"/customer_signup", customerDetails);
+    let customHeaders = {
+      headers: { 
+                 "Content-Type" : "application/json",
+                 "source_app" : "W"
+               }
+    }
+    console.log("customHeaders :",  customHeaders);
+    return this.http.post(this.ASM_SERVER_BASE_URL+"/customer_signup", customerDetails, customHeaders);
   }
   forgotPassword(data: any) {
     console.log("data:", data);
@@ -84,7 +91,14 @@ export class ASMCustomerService{
   }
   orderSubmit(data: any) {
     console.log("data:", data);
-    return this.http.post(this.ASM_SERVER_BASE_URL+"/client/order_submit", data)
+    let customHeaders = {
+      headers: { 'Authorization' : "Bearer " + localStorage.getItem("token"), 
+                 "Content-Type" : "application/json",
+                 "source_app" : "W"
+               }
+    }
+    console.log("customHeaders :",  customHeaders);
+    return this.http.post(this.ASM_SERVER_BASE_URL+"/client/order_submit", data, customHeaders)
   }
   updateCustomerProfile(data){
     return this.http.post(this.ASM_SERVER_BASE_URL+"/updateCustomerProfile",data)

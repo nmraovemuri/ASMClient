@@ -147,7 +147,7 @@ const routes: Routes = [
     component :ResetPasswordComponent,
   },
   {
-    path : 'change_password',
+    path : 'change-password',
     component :ChangeUserPasswordComponent,         
      
   },
@@ -156,7 +156,7 @@ const routes: Routes = [
     component : ForgotPasswordStatusComponent,
   },
   {
-    path : 'reset_password_status',
+    path : 'reset-password-status',
     component : ResetPasswordStatusComponent,
   },
   {
@@ -164,11 +164,11 @@ const routes: Routes = [
     component : SearchComponent,
   },
   {
-    path : 'top_deals_of_the_day',
+    path : 'top-deals-of-the-day',
     component : TopDealsoftheDayComponent
   },
   {
-    path : 'branded_products/:product_brand',
+    path : 'branded-products/:product_brand',
     component : BrandedProductsComponent
   },
   {
@@ -176,15 +176,15 @@ const routes: Routes = [
      component : SitemapComponent
   },
   {
-    path : 'terms_&_conditions',
+    path : 'terms-and-conditions',
     component : TermConditionsComponent
   },
   {
-    path : 'privacy_&_policy',
+    path : 'privacy-and-policy',
     component : PrivacyPolicyComponent
   },
   {
-    path : 'refund_&_policy',
+    path : 'refund-and-policy',
     component : RefundComponent
   }
 ];
